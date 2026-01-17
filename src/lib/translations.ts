@@ -93,6 +93,28 @@ export const translations = {
         explore_docs: { en: "Explore API Docs", ar: "تصفح مستندات المطورين" },
         contact_support: { en: "Contact Support", ar: "اتصل بالدعم" },
     },
+    profile: {
+        change_password: { en: "Change Password", ar: "تغيير كلمة المرور" },
+        documentation: { en: "Documentation", ar: "الوثائق" },
+        user_manual: { en: "User Manual", ar: "دليل المستخدم" },
+    },
+    about_modal: {
+        title: { en: "About Rommaana", ar: "عن رمانة" },
+        subtitle: { en: "Reimagining Insurance Intelligence", ar: "إعادة تصور ذكاء التأمين" },
+        mission: { en: "Rommaana is an AI-first insurance intelligence platform built for the Saudi market. We empower insurers with a mesh of collaborative agents that handle the heavy lifting of underwriting, claims, and sales growth.", ar: "رمّانة هي منصة ذكاء تأميني تعتمد على الذكاء الاصطناعي أولاً، مصممة خصيصًا للسوق السعودي. نحن نمكّن شركات التأمين بشبكة من الوكلاء المتعاونين الذين يتولون المهام الثقيلة للاكتتاب والمطالبات ونمو المبيعات." },
+        benefit1_title: { en: "Precision Underwriting", ar: "اكتتاب دقيق" },
+        benefit1_desc: { en: "Geospatial and regulatory intelligence to price risk accurately.", ar: "ذكاء جغرافي ومراقبة تنظيمية لتسعير المخاطر بدقة." },
+        benefit2_title: { en: "Instant Claims", ar: "مطالبات فورية" },
+        benefit2_desc: { en: "Vision-based AI for millisecond damage assessment and auto-settlement.", ar: "ذكاء اصطناعي يعتمد على الرؤية لتقييم الأضرار في أجزاء من الثانية والتسوية التلقائية." },
+        benefit3_title: { en: "Agentic Growth", ar: "نمو وكيل" },
+        benefit3_desc: { en: "Propensity-driven sales scripts and sentiment-aware objection handling.", ar: "سيناريوهات مبيعات مدفوعة بالميول ومعالجة الاعتراضات الواعية بالمشاعر." },
+        performance_boost: { en: "Rommaana improves operational efficiency by up to 45% while maintaining strict IA/SAMA compliance.", ar: "تحسن رمانة الكفاءة التشغيلية بنسبة تصل إلى 45% مع الحفاظ على الامتثال الصارم للوائح هيئة التأمين السعودية (IA/SAMA)." },
+    },
+    manual: {
+        // Placeholder for manual translations
+        title: { en: "User Manual", ar: "دليل المستخدم" },
+        introduction: { en: "Welcome to the Rommaana User Manual. This guide will help you navigate and utilize the platform's features.", ar: "مرحباً بك في دليل مستخدم رمانة. سيساعدك هذا الدليل على التنقل واستخدام ميزات المنصة." },
+    },
     hero: {
         title_part1: { en: "Insurance Claims,", ar: "مطالبات التأمين،" },
         title_part2: { en: "Reimagined.", ar: "بمنظور جديد." },

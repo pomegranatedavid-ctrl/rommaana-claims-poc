@@ -24,7 +24,7 @@ export const MOCK_CLAIMS: Claim[] = [
         image: "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
         gallery: [
             "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1562141989-c5c79ac8f576?w=800&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1486497395445-3dd140fe7443?w=800&auto=format&fit=crop"
         ]
     },
     {
@@ -36,10 +36,10 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 45,
         aiPrediction: "Flag",
         damageEstimate: "SAR 15,000",
-        image: "https://images.unsplash.com/photo-1600880218819-38501309f3de?w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1620054700057-0a442795855f?w=800&auto=format&fit=crop",
         gallery: [
-            "https://images.unsplash.com/photo-1600880218819-38501309f3de?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1580273722747-062d3fd9c951?w=800&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1620054700057-0a442795855f?w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1620054700142-f9478f797277?w=800&auto=format&fit=crop"
         ]
     },
     {
@@ -63,10 +63,10 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 99,
         aiPrediction: "Approve",
         damageEstimate: "SAR 85,000",
-        image: "https://images.unsplash.com/photo-1574635606673-8b776a30740a?w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c3d9?w=800&auto=format&fit=crop",
         gallery: [
-            "https://images.unsplash.com/photo-1574635606673-8b776a30740a?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1616422285623-13ff0167c95c?w=800&auto=format&fit=crop"
+            "https://images.unsplash.com/photo-1549399542-7e3f8b79c3d9?w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1580273722747-062d3fd9c951?w=800&auto=format&fit=crop"
         ]
     },
     {

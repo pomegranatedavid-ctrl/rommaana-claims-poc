@@ -97,6 +97,8 @@ export const translations = {
         change_password: { en: "Change Password", ar: "تغيير كلمة المرور" },
         documentation: { en: "Documentation", ar: "الوثائق" },
         user_manual: { en: "User Manual", ar: "دليل المستخدم" },
+        about: { en: "About", ar: "عن رمانة" },
+        logout: { en: "Log out", ar: "تسجيل الخروج" },
     },
     about_modal: {
         title: { en: "About Rommaana", ar: "عن رمانة" },

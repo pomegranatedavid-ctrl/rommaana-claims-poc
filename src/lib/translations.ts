@@ -58,6 +58,20 @@ export const translations = {
             learn_more: "اعرف المزيد",
         }
     },
+    features: {
+        instant_ai: {
+            en: { title: "Instant AI Service", description: "Our Claims Agents analyze damage in seconds using advanced computer vision." },
+            ar: { title: "خدمة الذكاء الاصطناعي الفورية", description: "تقوم وكلاء المطالبات لدينا بتحليل الضرر في ثوانٍ باستخدام الرؤية الحاسوبية المتقدمة." }
+        },
+        ia_compliant: {
+            en: { title: "IA Compliant", description: "Fully regulated by the Saudi Insurance Authority. Your rights are protected." },
+            ar: { title: "متوافق مع هيئة التأمين", description: "منظم بالكامل من قبل هيئة التأمين السعودية. حقوقك محمية." }
+        },
+        paperless: {
+            en: { title: "Paperless Process", description: "No more forms. Just chat with us and upload photos. We handle the rest." },
+            ar: { title: "عملية بدون ورق", description: "لا مزيد من النماذج. فقط تحدث معنا وحمل الصور. نحن نتولى الباقي." }
+        }
+    },
     dashboard: {
         en: {
             priority_queue: "Priority Queue",

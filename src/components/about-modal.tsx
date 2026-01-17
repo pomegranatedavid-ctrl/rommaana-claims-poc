@@ -4,10 +4,7 @@ import React from "react";
 import {
     Dialog,
     DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription
-} from "@/components/ui/dialog";
+} from "./ui/dialog";
 import { useTranslation } from "@/context/language-context";
 import { ShieldCheck, Zap, TrendingUp, BrainCircuit } from "lucide-react";
 
@@ -20,7 +17,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
     const { t } = useTranslation();
 
     return (
-        <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+        <Dialog open={isOpen} onOpenChange={(open: boolean) => !open && onClose()}>
             <DialogContent className="max-w-2xl bg-white rounded-3xl p-0 overflow-hidden border-none shadow-2xl">
                 <div className="bg-[#be123c] p-8 text-white relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />

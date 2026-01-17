@@ -143,17 +143,19 @@ export default function ClaimsChatPage() {
     return (
         <div className="flex flex-col h-screen bg-slate-50">
             {/* Header */}
-            <header className="bg-white border-b px-4 py-3 flex items-center justify-between shadow-sm sticky top-0 z-10">
-                <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#be123c] rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold">R</span>
-                    </div>
-                    <div>
-                        <h1 className="font-bold text-[#be123c]">Rommaana Claims</h1>
-                        <p className="text-xs text-green-600 flex items-center gap-1"><Shield className="w-3 h-3" /> AI Systems Online</p>
+            <header className="bg-white border-b px-4 py-3 flex items-center justify-between shadow-sm sticky top-0 z-10 h-16">
+                <div className="flex items-center gap-4">
+                    <img
+                        src="https://static.wixstatic.com/media/2dc74f_9ffb3f627ced42538647f70532f450f5~mv2.png/v1/fill/w_590,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RommaanaAsset%201.png"
+                        alt="Rommaana Logo"
+                        className="h-8 w-auto object-contain"
+                    />
+                    <div className="border-l border-slate-200 pl-4">
+                        <h1 className="font-bold text-[#be123c] leading-none mb-1">Claims Manager</h1>
+                        <p className="text-[10px] text-green-600 flex items-center gap-1 font-bold uppercase tracking-wider"><Shield className="w-2 h-2" /> AI Systems Online</p>
                     </div>
                 </div>
-                <Button variant="ghost" size="sm">Exit</Button>
+                <Button variant="ghost" size="sm" className="font-bold text-slate-500">Exit</Button>
             </header>
 
             {/* Chat Area */}

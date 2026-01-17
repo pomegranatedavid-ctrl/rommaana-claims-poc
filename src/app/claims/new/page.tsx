@@ -10,6 +10,8 @@ import { VisionAgent, FraudAgent, DecisionAgent, AgentResponse } from "@/lib/age
 import { ClaimService } from "@/lib/claim-service";
 import { Claim } from "@/lib/mock-data";
 
+import { useTranslation } from "@/context/language-context";
+
 type Message = {
     id: string;
     sender: "user" | "agent";
@@ -18,11 +20,12 @@ type Message = {
 };
 
 export default function ClaimsChatPage() {
+    const { t } = useTranslation();
     const [messages, setMessages] = useState<Message[]>([
         {
             id: "welcome",
             sender: "agent",
-            content: "Hello! I am Rommaana, your AI Claims Assistant. I hope you are safe. To start your claim, please tell me broadly what happened, or just upload a photo of the damage.",
+            content: t("claims.chat_prompt"),
             timestamp: new Date(),
         },
     ]);
@@ -72,13 +75,13 @@ export default function ClaimsChatPage() {
         setIsProcessing(true);
 
         // 2. Vision Agent
-        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> Analyzing image with Vision Agent...</div>);
+        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> {t("claims.analyzing")}</div>);
 
         const visionResult = await VisionAgent.analyzeImage(file);
         addMessage("agent", visionResult.message);
 
         // 3. Fraud Agent (Integrity & History)
-        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> Verifying image provenance...</div>);
+        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> {t("claims.verifying_provenance")}</div>);
         const provenanceResult = await FraudAgent.verifyImageProvenance(file.name);
 
         if (provenanceResult.data?.riskLevel === "CRITICAL") {
@@ -87,11 +90,11 @@ export default function ClaimsChatPage() {
             addMessage("agent", provenanceResult.message);
         }
 
-        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> Checking coverage and history...</div>);
+        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> {t("claims.checking_history")}</div>);
         const fraudResult = await FraudAgent.checkHistory("USER123"); // Mock User
 
         // 4. Decision Agent
-        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> Finalizing decision...</div>);
+        addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> {t("claims.finalizing")}</div>);
 
         // Use the highest risk level from either provenance or history
         const worstFraudData = provenanceResult.data?.riskLevel === "CRITICAL" ? provenanceResult.data : fraudResult.data;
@@ -206,7 +209,7 @@ export default function ClaimsChatPage() {
                     </label>
                     <Input
                         className="flex-1 rounded-full border-slate-300 focus-visible:ring-[#be123c] text-slate-900"
-                        placeholder="Type a message..."
+                        placeholder={t("common.welcome")}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && handleSend()}

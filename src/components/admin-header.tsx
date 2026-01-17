@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { UserCircle } from "lucide-react";
+import { UserCircle, Globe } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "@/context/language-context";
 
 export function AdminHeader() {
     const pathname = usePathname();
+    const { t, language, setLanguage } = useTranslation();
 
     const navItems = [
-        { name: "Claims Workbench", href: "/admin/dashboard" },
-        { name: "Sales Growth", href: "/admin/growth" },
-        { name: "Risk Guardian", href: "/admin/risk" },
-        { name: "How it works", href: "/admin/how-it-works" },
+        { name: t("common.claims_workbench"), href: "/admin/dashboard" },
+        { name: t("common.sales_growth"), href: "/admin/growth" },
+        { name: t("common.risk_guardian"), href: "/admin/risk" },
+        { name: t("common.how_it_works"), href: "/admin/how-it-works" },
     ];
 
     return (
@@ -50,6 +52,16 @@ export function AdminHeader() {
             </div>
 
             <div className="flex items-center gap-4">
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    className="flex items-center gap-2 text-slate-600 font-bold"
+                    onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
+                >
+                    <Globe className="w-4 h-4" />
+                    <span>{language === 'en' ? 'العربية' : 'English'}</span>
+                </Button>
+
                 <div className="text-right hidden sm:block">
                     <p className="text-sm font-bold text-slate-900">Admin User</p>
                     <p className="text-xs text-slate-500">Rommaana Enterprise</p>

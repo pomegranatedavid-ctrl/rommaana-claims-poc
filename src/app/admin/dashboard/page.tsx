@@ -10,8 +10,10 @@ import { AdminHeader } from "@/components/admin-header";
 import { ImageAnalysisModal } from "@/components/image-analysis-modal";
 import { ClaimService } from "@/lib/claim-service";
 import { useEffect } from "react";
+import { useTranslation } from "@/context/language-context";
 
 export default function B2BDashboard() {
+    const { t, isRTL } = useTranslation();
     const [claims, setClaims] = useState<Claim[]>([]);
     const [selectedClaim, setSelectedClaim] = useState<Claim | null>(null);
     const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false);
@@ -51,20 +53,20 @@ export default function B2BDashboard() {
                 isOpen={isAnalysisModalOpen}
                 onClose={() => setIsAnalysisModalOpen(false)}
                 imagePath={analysisImagePath}
-                title={selectedClaim?.policyHolder || "Analysis"}
+                title={selectedClaim?.policyHolder || t("dashboard.select_claim")}
             />
 
             <main className="p-8 max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
                     <div>
-                        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Claims Workbench</h1>
+                        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">{t("common.claims_workbench")}</h1>
                         <p className="text-slate-500 font-medium">B2B Core: AI-Assisted Claims Adjustment</p>
                     </div>
                     <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100">
                         <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
                             <BrainCircuit className="w-4 h-4 text-emerald-600" />
                         </div>
-                        <span className="text-sm font-bold text-slate-700">Vision Mesh Online</span>
+                        <span className="text-sm font-bold text-slate-700">{t("common.system_online")}</span>
                     </div>
                 </div>
 
@@ -73,7 +75,7 @@ export default function B2BDashboard() {
                     <Card className="lg:col-span-1 shadow-md border-slate-200 flex flex-col overflow-hidden">
                         <CardHeader className="border-b bg-white">
                             <CardTitle className="text-lg flex items-center gap-2">
-                                <Search className="w-4 h-4 text-slate-400" /> Priority Queue
+                                <Search className="w-4 h-4 text-slate-400" /> {t("dashboard.priority_queue")}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 pt-4">
@@ -82,7 +84,7 @@ export default function B2BDashboard() {
                                     key={claim.id}
                                     onClick={() => setSelectedClaim(claim)}
                                     className={cn(
-                                        "p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-md group",
+                                        "p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-md group text-start",
                                         selectedClaim?.id === claim.id
                                             ? "border-[#be123c] bg-rose-50/30"
                                             : "border-slate-50 bg-white"
@@ -108,7 +110,7 @@ export default function B2BDashboard() {
                     {/* Right Panel: Detail View */}
                     <Card className="lg:col-span-2 shadow-md border-slate-200 overflow-hidden flex flex-col">
                         {selectedClaim ? (
-                            <CardContent className="p-0 flex flex-col h-full overflow-y-auto">
+                            <CardContent className="p-0 flex flex-col h-full overflow-y-auto text-start">
                                 <div className="p-8 border-b bg-white flex justify-between items-center">
                                     <div className="flex items-center gap-4">
                                         <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
@@ -121,10 +123,10 @@ export default function B2BDashboard() {
                                     </div>
                                     <div className="flex gap-3">
                                         <Button variant="outline" className="border-slate-200 text-slate-600" onClick={handleExport}>
-                                            <Share2 className="w-4 h-4 mr-2" /> Export data
+                                            <Share2 className="w-4 h-4 mr-2" /> {t("common.export_data")}
                                         </Button>
-                                        <Button variant="outline" className="border-slate-200 text-slate-600">Refer to Legal</Button>
-                                        <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">Approve Claim</Button>
+                                        <Button variant="outline" className="border-slate-200 text-slate-600">{t("common.refer_legal")}</Button>
+                                        <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">{t("common.approve")}</Button>
                                     </div>
                                 </div>
 
@@ -133,7 +135,7 @@ export default function B2BDashboard() {
                                     <div className="space-y-6">
                                         <div>
                                             <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2 text-sm">
-                                                <ImageIcon className="w-4 h-4 text-slate-400" /> EVIDENCE LOG
+                                                <ImageIcon className="w-4 h-4 text-slate-400" /> {t("dashboard.evidence_log").toUpperCase()}
                                             </h3>
                                             <div
                                                 className="aspect-video bg-slate-100 rounded-2xl relative overflow-hidden border-2 border-slate-100 cursor-zoom-in group shadow-sm"
@@ -181,22 +183,22 @@ export default function B2BDashboard() {
                                     <div className="space-y-6">
                                         <div className="bg-blue-50/50 border border-blue-100 p-6 rounded-2xl">
                                             <h3 className="font-bold text-blue-900 flex items-center gap-2 mb-4">
-                                                <BrainCircuit className="w-5 h-5 text-blue-600" /> Mesh Insights
+                                                <BrainCircuit className="w-5 h-5 text-blue-600" /> {t("dashboard.mesh_insights")}
                                             </h3>
                                             <div className="space-y-4">
                                                 <div className="flex justify-between items-center text-sm">
-                                                    <span className="text-blue-700">Vision Confidence</span>
+                                                    <span className="text-blue-700">{t("dashboard.vision_confidence")}</span>
                                                     <span className="font-bold text-blue-900">{selectedClaim.aiConfidence}%</span>
                                                 </div>
                                                 <div className="w-full bg-blue-100 h-2 rounded-full overflow-hidden">
                                                     <div className="bg-blue-600 h-full" style={{ width: `${selectedClaim.aiConfidence}%` }}></div>
                                                 </div>
                                                 <div className="pt-2">
-                                                    <div className="flex justify-between items-center text-xs mb-2">
-                                                        <span className="text-blue-700 font-bold uppercase">Fraud Correlation</span>
-                                                        <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">CLEAN</span>
+                                                    <div className="flex justify-between items-center text-xs mb-2 text-start">
+                                                        <span className="text-blue-700 font-bold uppercase">{t("dashboard.fraud_correlation")}</span>
+                                                        <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold">{t("dashboard.clean")}</span>
                                                     </div>
-                                                    <p className="text-xs text-blue-700/80 leading-relaxed italic border-l-2 border-blue-200 pl-3">
+                                                    <p className="text-xs text-blue-700/80 leading-relaxed italic border-l-2 border-blue-200 pl-3 text-start">
                                                         "No duplicate claims found in historical database for this plate/VIN. VIN matches the sticker in evidence photo."
                                                     </p>
                                                 </div>
@@ -205,7 +207,7 @@ export default function B2BDashboard() {
 
                                         <div className="bg-rose-50/50 border border-rose-100 p-6 rounded-2xl">
                                             <h3 className="font-bold text-[#be123c] flex items-center gap-2 mb-3 tracking-tight">
-                                                Decision Support
+                                                {t("dashboard.decision_support")}
                                             </h3>
                                             <p className="text-sm text-slate-700 leading-relaxed mb-4">
                                                 {selectedClaim.aiPrediction === "Approve"
@@ -214,7 +216,7 @@ export default function B2BDashboard() {
                                             </p>
                                             {selectedClaim.aiPrediction === "Approve" && (
                                                 <div className="bg-emerald-50 text-emerald-700 p-3 rounded-xl flex items-center gap-3 text-xs font-bold border border-emerald-100">
-                                                    <CheckCircle className="w-5 h-5" /> Auto-Settlement Eligible (SAR {selectedClaim.damageEstimate})
+                                                    <CheckCircle className="w-5 h-5" /> {t("dashboard.auto_settlement")} (SAR {selectedClaim.damageEstimate})
                                                 </div>
                                             )}
                                         </div>
@@ -226,8 +228,8 @@ export default function B2BDashboard() {
                                 <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-6">
                                     <BrainCircuit className="w-10 h-10 text-slate-200" />
                                 </div>
-                                <h3 className="font-bold text-slate-600 mb-1">Select A Claim</h3>
-                                <p className="text-xs text-slate-400 font-medium">Click a prioritized queue item to start AI inspection</p>
+                                <h3 className="font-bold text-slate-600 mb-1">{t("dashboard.select_claim")}</h3>
+                                <p className="text-xs text-slate-400 font-medium">{t("dashboard.inspection_prompt")}</p>
                             </div>
                         )}
                     </Card>

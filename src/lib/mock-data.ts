@@ -21,10 +21,11 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 98,
         aiPrediction: "Approve",
         damageEstimate: "SAR 1,200",
-        image: "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
+        image: "/images/claims/collision_1.png",
         gallery: [
-            "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1486497395445-3dd140fe7443?w=800&auto=format&fit=crop"
+            "/images/claims/collision_1.png",
+            "/images/claims/collision_2.png",
+            "/images/claims/frontal_2.png" // Added for variety
         ]
     },
     {
@@ -36,10 +37,10 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 45,
         aiPrediction: "Flag",
         damageEstimate: "SAR 15,000",
-        image: "https://images.unsplash.com/photo-1620054700057-0a442795855f?w=800&auto=format&fit=crop",
+        image: "/images/claims/frontal_1.png",
         gallery: [
-            "https://images.unsplash.com/photo-1620054700057-0a442795855f?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1620054700142-f9478f797277?w=800&auto=format&fit=crop"
+            "/images/claims/frontal_1.png",
+            "/images/claims/frontal_2.png"
         ]
     },
     {
@@ -51,8 +52,11 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 89,
         aiPrediction: "Approve",
         damageEstimate: "SAR 4,500",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop",
-        gallery: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop"]
+        image: "/images/claims/water_1.png",
+        gallery: [
+            "/images/claims/water_1.png",
+            "/images/claims/water_2.png"
+        ]
     },
     {
         id: "CLM-2026-004",
@@ -63,10 +67,11 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 99,
         aiPrediction: "Approve",
         damageEstimate: "SAR 85,000",
-        image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c3d9?w=800&auto=format&fit=crop",
+        image: "/images/claims/frontal_1.png", // Reuse severe frontal damage
         gallery: [
-            "https://images.unsplash.com/photo-1549399542-7e3f8b79c3d9?w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1580273722747-062d3fd9c951?w=800&auto=format&fit=crop"
+            "/images/claims/frontal_1.png",
+            "/images/claims/frontal_2.png",
+            "/images/claims/collision_1.png"
         ]
     },
     {
@@ -78,8 +83,8 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 92,
         aiPrediction: "Approve",
         damageEstimate: "SAR 800",
-        image: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&auto=format&fit=crop",
-        gallery: ["https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&auto=format&fit=crop"]
+        image: "/images/claims/collision_2.png", // Reuse close-up damage
+        gallery: ["/images/claims/collision_2.png"]
     },
     {
         id: "CLM-2026-006",
@@ -90,7 +95,7 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 30,
         aiPrediction: "Flag",
         damageEstimate: "SAR 220,000",
-        image: "https://images.unsplash.com/photo-1586528116311-ad861f1c7da6?w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1586528116311-ad861f1c7da6?w=800&auto=format&fit=crop", // Keep ID 6 as is (quota limit)
         gallery: ["https://images.unsplash.com/photo-1586528116311-ad861f1c7da6?w=800&auto=format&fit=crop"]
     },
     {
@@ -102,7 +107,7 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 100,
         aiPrediction: "Approve",
         damageEstimate: "SAR 450",
-        image: "https://images.unsplash.com/photo-1605332211603-911b33342375?w=800&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1605332211603-911b33342375?w=800&auto=format&fit=crop", // Keep ID 7 as is (quota limit)
         gallery: ["https://images.unsplash.com/photo-1605332211603-911b33342375?w=800&auto=format&fit=crop"]
     }
 ];

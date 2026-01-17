@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MOCK_CLAIMS, Claim } from "@/lib/mock-data";
-import { CheckCircle, XCircle, ImageIcon, Search, BrainCircuit, ChevronRight, User, Share2 } from "lucide-react";
+import { CheckCircle, XCircle, ImageIcon, Search, BrainCircuit, ChevronRight, User, Share2, PlayCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AdminHeader } from "@/components/admin-header";
 import { ImageAnalysisModal } from "@/components/image-analysis-modal";
@@ -155,6 +155,22 @@ export default function B2BDashboard() {
                                                     Vision Mesh v4.0
                                                 </div>
                                             </div>
+
+                                            {/* Video Evidence Placeholder */}
+                                            {selectedClaim.id === "CLM-2026-001" && (
+                                                <div className="mt-4 bg-slate-900 rounded-2xl p-4 flex items-center justify-between group cursor-pointer hover:bg-slate-800 transition-colors">
+                                                    <div className="flex items-center gap-3">
+                                                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#be123c] transition-colors">
+                                                            <PlayCircle className="w-5 h-5 text-white" />
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-sm font-bold text-white">Dashcam Footage</div>
+                                                            <div className="text-xs text-slate-400">00:14 • 1080p Recorded</div>
+                                                        </div>
+                                                    </div>
+                                                    <Button size="sm" variant="ghost" className="text-white hover:text-[#be123c]">Watch</Button>
+                                                </div>
+                                            )}
 
                                             {/* Gallery thumbnails */}
                                             <div className="grid grid-cols-3 gap-3 mt-3">

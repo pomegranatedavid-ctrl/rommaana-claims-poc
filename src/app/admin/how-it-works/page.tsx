@@ -6,7 +6,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Network, Zap, Shield, Globe, Terminal, ArrowRight, Share2, Layers } from "lucide-react";
 
+import { useTranslation } from "@/context/language-context";
+
 export default function HowItWorks() {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-screen bg-[#f8fafc] flex flex-col">
             <AdminHeader />
@@ -14,11 +18,10 @@ export default function HowItWorks() {
             <main className="flex-1 container mx-auto p-8 max-w-6xl">
                 <div className="mb-12">
                     <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                        The Rommaana <span className="text-[#be123c]">API Nexus</span>
+                        {t("nexus.title") || "The Rommaana"} <span className="text-[#be123c]">{t("nexus.title_highlight") || "API Nexus"}</span>
                     </h1>
                     <p className="text-lg text-slate-600 max-w-3xl">
-                        Our B2B platform connects your existing systems to Rommaana's agentic AI mesh.
-                        Automate underwriting, claims, and growth through a single secure gateway.
+                        {t("nexus.description") || "Our B2B platform connects your existing systems to Rommaana's agentic AI mesh. Automate underwriting, claims, and growth through a single secure gateway."}
                     </p>
                 </div>
 
@@ -47,7 +50,7 @@ export default function HowItWorks() {
                                     </div>
                                 </div>
                                 <div className="mt-6 text-center">
-                                    <h3 className="text-white font-bold text-xl tracking-wider">ROMMAANA HUB</h3>
+                                    <h3 className="text-white font-bold text-xl tracking-wider">{t("nexus.hub_title") || "ROMMAANA HUB"}</h3>
                                     <div className="text-[#be123c] text-[10px] font-bold uppercase tracking-[0.3em] mt-1">API Nexus v4.2</div>
                                 </div>
                             </div>
@@ -70,7 +73,7 @@ export default function HowItWorks() {
                     <Card className="border-slate-200 shadow-sm overflow-hidden">
                         <CardHeader className="bg-slate-50 border-b">
                             <CardTitle className="flex items-center gap-2 text-slate-800 text-lg">
-                                <Terminal className="w-5 h-5 text-[#be123c]" /> Integration Endpoints
+                                <Terminal className="w-5 h-5 text-[#be123c]" /> {t("nexus.endpoints") || "Integration Endpoints"}
                             </CardTitle>
                         </CardHeader>
                         <CardContent className="p-0">
@@ -85,18 +88,18 @@ export default function HowItWorks() {
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                             <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                <Shield className="w-5 h-5 text-emerald-500" /> Enterprise Security
+                                <Shield className="w-5 h-5 text-emerald-500" /> {t("nexus.security_title") || "Enterprise Security"}
                             </h3>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Every API request is secured with HMAC-SHA256 signatures and mutual TLS. Partners get dedicated 'Nexus Keys' that isolate data within their sovereign instances.
+                                {t("nexus.security_desc") || "Every API request is secured with HMAC-SHA256 signatures and mutual TLS. Partners get dedicated 'Nexus Keys' that isolate data within their sovereign instances."}
                             </p>
                         </div>
                         <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
                             <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                <Zap className="w-5 h-5 text-amber-500" /> Real-time Mesh
+                                <Zap className="w-5 h-5 text-amber-500" /> {t("nexus.mesh_title") || "Real-time Mesh"}
                             </h3>
                             <p className="text-sm text-slate-600 leading-relaxed">
-                                Our API doesn't just return data; it triggers a mesh of AI agents that collaborate to solve complex underwriting or claims tasks in milliseconds.
+                                {t("nexus.mesh_desc") || "Our API doesn't just return data; it triggers a mesh of AI agents that collaborate to solve complex underwriting or claims tasks in milliseconds."}
                             </p>
                         </div>
                     </div>
@@ -104,13 +107,13 @@ export default function HowItWorks() {
 
                 {/* Call to Action */}
                 <div className="text-center bg-white border border-slate-200 p-12 rounded-[2.5rem] shadow-sm mb-20">
-                    <h2 className="text-2xl font-bold text-slate-900 mb-4">Ready to Integrate?</h2>
+                    <h2 className="text-2xl font-bold text-slate-900 mb-4">{t("nexus.ready_title") || "Ready to Integrate?"}</h2>
                     <p className="text-slate-500 mb-8 max-w-xl mx-auto">
-                        Get your API credentials and start building on top of Saudi Arabia's most advanced insurance intelligence platform.
+                        {t("nexus.ready_desc") || "Get your API credentials and start building on top of Saudi Arabia's most advanced insurance intelligence platform."}
                     </p>
                     <div className="flex justify-center gap-4">
-                        <Button size="lg" className="bg-[#be123c] hover:bg-[#9f0f32] px-8 rounded-full">Explore API Docs</Button>
-                        <Button size="lg" variant="outline" className="px-8 rounded-full">Contact Support</Button>
+                        <Button size="lg" className="bg-[#be123c] hover:bg-[#9f0f32] px-8 rounded-full">{t("nexus.explore_docs") || "Explore API Docs"}</Button>
+                        <Button size="lg" variant="outline" className="px-8 rounded-full">{t("nexus.contact_support") || "Contact Support"}</Button>
                     </div>
                 </div>
             </main>

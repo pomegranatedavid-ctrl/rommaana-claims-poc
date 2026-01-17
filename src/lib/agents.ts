@@ -1,5 +1,14 @@
 export type ClaimStatus = 'ANALYZING' | 'APPROVED' | 'REFERRED_TO_HUMAN' | 'REJECTED';
 
+const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = error => reject(error);
+    });
+};
+
 export interface AgentResponse {
     agentName: string;
     message: string;
@@ -7,26 +16,44 @@ export interface AgentResponse {
     data?: any;
 }
 
-// Simulated Vision Agent (Computer Vision)
+// Real-ish Vision Agent calling internal Gemini route
 export const VisionAgent = {
-    analyzeImage: async (imageName: string): Promise<AgentResponse> => {
-        // Simulate processing delay
-        await new Promise(resolve => setTimeout(resolve, 3000));
+    analyzeImage: async (file: File): Promise<AgentResponse> => {
+        try {
+            const base64 = await fileToBase64(file);
+            const res = await fetch("/api/vision", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    image: base64,
+                    prompt: "You are an insurance claims adjuster AI. Analyze this image of vehicle damage. Provide a concise summary of what you see, identify parts damaged, and estimate a damage score from 0-100 (100 being total loss). Format your response as a JSON string with 'message' (summary) and 'data' (object with damageScore and parts list)."
+                })
+            });
+            const data = await res.json();
 
-        // Mock Logic: If filename contains "severe", it's a total loss.
-        if (imageName.toLowerCase().includes("severe")) {
+            // Try to parse the response if it's JSON within text, or just use the text
+            try {
+                const parsed = JSON.parse(data.text.replace(/```json|```/g, "").trim());
+                return {
+                    agentName: "Rommaana Vision Agent",
+                    message: parsed.message,
+                    data: parsed.data
+                };
+            } catch {
+                return {
+                    agentName: "Rommaana Vision Agent",
+                    message: data.text,
+                    data: { damageScore: 50, parts: ["Unknown"] } // Default fallback
+                };
+            }
+        } catch (error) {
+            console.error("Vision Analysis Failed:", error);
             return {
                 agentName: "Rommaana Vision Agent",
-                message: "I have analyzed the image. I detect severe structural damage to the front chassis. This looks like a potential total loss.",
-                data: { damageScore: 95, parts: ["Chassis", "Engine Block", "Bumper"] }
+                message: "Vision Mesh encountered an internal error during signal processing.",
+                data: { damageScore: 0, parts: [] }
             };
         }
-
-        return {
-            agentName: "Rommaana Vision Agent",
-            message: "I have analyzed the image. I detect minor cosmetic damage to the rear bumper and quarter panel. It seems repairable.",
-            data: { damageScore: 15, parts: ["Rear Bumper", "Quarter Panel"] }
-        };
     },
 
     analyzeDetail: async (imagePath: string): Promise<{ detection: string; relevance: string }> => {

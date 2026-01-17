@@ -74,7 +74,7 @@ export default function ClaimsChatPage() {
         // 2. Vision Agent
         addMessage("agent", <div className="flex items-center gap-2 text-[#be123c]"><Loader2 className="animate-spin w-4 h-4" /> Analyzing image with Vision Agent...</div>);
 
-        const visionResult = await VisionAgent.analyzeImage(file.name);
+        const visionResult = await VisionAgent.analyzeImage(file);
         addMessage("agent", visionResult.message);
 
         // 3. Fraud Agent (Integrity & History)
@@ -113,7 +113,7 @@ export default function ClaimsChatPage() {
             image: "/images/minor-scratch.png", // In a real app, this would be the uploaded image's URL
             gallery: ["/images/minor-scratch.png"]
         };
-        ClaimService.addClaim(newClaim);
+        await ClaimService.addClaim(newClaim);
 
         // Render Final Decision Card
         addMessage("agent", (

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MOCK_CLAIMS, Claim } from "@/lib/mock-data";
-import { CheckCircle, XCircle, ImageIcon, Search, BrainCircuit, ChevronRight, User } from "lucide-react";
+import { CheckCircle, XCircle, ImageIcon, Search, BrainCircuit, ChevronRight, User, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AdminHeader } from "@/components/admin-header";
 import { ImageAnalysisModal } from "@/components/image-analysis-modal";
@@ -18,8 +18,8 @@ export default function B2BDashboard() {
     const [analysisImagePath, setAnalysisImagePath] = useState("");
 
     useEffect(() => {
-        const loadClaims = () => {
-            const data = ClaimService.getClaims();
+        const loadClaims = async () => {
+            const data = await ClaimService.getClaims();
             setClaims(data);
         };
 
@@ -27,6 +27,15 @@ export default function B2BDashboard() {
         window.addEventListener("claims-updated", loadClaims);
         return () => window.removeEventListener("claims-updated", loadClaims);
     }, []);
+
+    const handleExport = async () => {
+        try {
+            await ClaimService.exportToSQL();
+        } catch (err) {
+            console.error(err);
+            alert("Export failed. Check console.");
+        }
+    };
 
     const handleImageClick = (path: string) => {
         setAnalysisImagePath(path);
@@ -111,6 +120,9 @@ export default function B2BDashboard() {
                                         </div>
                                     </div>
                                     <div className="flex gap-3">
+                                        <Button variant="outline" className="border-slate-200 text-slate-600" onClick={handleExport}>
+                                            <Share2 className="w-4 h-4 mr-2" /> Export data
+                                        </Button>
                                         <Button variant="outline" className="border-slate-200 text-slate-600">Refer to Legal</Button>
                                         <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">Approve Claim</Button>
                                     </div>

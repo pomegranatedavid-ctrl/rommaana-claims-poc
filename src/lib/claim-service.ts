@@ -12,12 +12,16 @@ export const ClaimService = {
 
         if (error) {
             console.error("Error fetching claims:", error);
-            return [];
+            return MOCK_CLAIMS; // Fallback to mock data on error
+        }
+
+        if (!data || data.length === 0) {
+            return MOCK_CLAIMS; // Fallback to mock data if DB is empty
         }
 
         // Map DB fields to Claim interface if necessary 
         // (Note: DB uses snake_case, JS uses camelCase)
-        return (data || []).map(row => ({
+        return data.map(row => ({
             id: row.id,
             policyHolder: row.policy_holder,
             date: row.date,

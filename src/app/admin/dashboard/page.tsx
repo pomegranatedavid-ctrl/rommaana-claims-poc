@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MOCK_CLAIMS, Claim } from "@/lib/mock-data";
-import { CheckCircle, XCircle, ImageIcon, Search, BrainCircuit, ChevronRight, User, Share2, PlayCircle } from "lucide-react";
+import { CheckCircle, ImageIcon, Search, BrainCircuit, User, Share2, PlayCircle, Edit2, Save, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { AdminHeader } from "@/components/admin-header";
 import { ImageAnalysisModal } from "@/components/image-analysis-modal";
@@ -13,11 +14,15 @@ import { useEffect } from "react";
 import { useTranslation } from "@/context/language-context";
 
 export default function B2BDashboard() {
-    const { t, isRTL } = useTranslation();
+    const { t } = useTranslation();
     const [claims, setClaims] = useState<Claim[]>([]);
     const [selectedClaim, setSelectedClaim] = useState<Claim | null>(null);
     const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false);
     const [analysisImagePath, setAnalysisImagePath] = useState("");
+
+    // Edit Mode State
+    const [isEditing, setIsEditing] = useState(false);
+    const [editForm, setEditForm] = useState<Partial<Claim>>({});
 
     useEffect(() => {
         const loadClaims = async () => {
@@ -42,6 +47,34 @@ export default function B2BDashboard() {
     const handleImageClick = (path: string) => {
         setAnalysisImagePath(path);
         setIsAnalysisModalOpen(true);
+    };
+
+    const handleEdit = () => {
+        if (selectedClaim) {
+            setEditForm(selectedClaim);
+            setIsEditing(true);
+        }
+    };
+
+    const handleCancel = () => {
+        setIsEditing(false);
+        setEditForm({});
+    };
+
+    const handleSave = () => {
+        if (!selectedClaim || !editForm) return;
+
+        const updatedClaim = { ...selectedClaim, ...editForm } as Claim;
+
+        // Update local state (claims list)
+        setClaims(prev => prev.map(c => c.id === updatedClaim.id ? updatedClaim : c));
+        setSelectedClaim(updatedClaim);
+        setIsEditing(false);
+        // In a real app, call API here
+    };
+
+    const handleChange = (field: keyof Claim, value: any) => {
+        setEditForm(prev => ({ ...prev, [field]: value }));
     };
 
     return (
@@ -83,8 +116,15 @@ export default function B2BDashboard() {
                                 <div
                                     key={claim.id}
                                     onClick={() => setSelectedClaim(claim)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            setSelectedClaim(claim);
+                                        }
+                                    }}
                                     className={cn(
-                                        "p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-md group text-start",
+                                        "p-4 rounded-xl border-2 transition-all cursor-pointer hover:shadow-md group text-start focus:outline-none focus:ring-2 focus:ring-blue-500",
                                         selectedClaim?.id === claim.id
                                             ? "border-[#be123c] bg-rose-50/30"
                                             : "border-slate-50 bg-white"
@@ -125,21 +165,98 @@ export default function B2BDashboard() {
                                         <Button variant="outline" className="border-slate-200 text-slate-600" onClick={handleExport}>
                                             <Share2 className="w-4 h-4 mr-2" /> {t("common.export_data")}
                                         </Button>
-                                        <Button variant="outline" className="border-slate-200 text-slate-600">{t("common.refer_legal")}</Button>
-                                        <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">{t("common.approve")}</Button>
+
+                                        {isEditing ? (
+                                            <>
+                                                <Button onClick={handleSave} className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
+                                                    <Save className="w-4 h-4" /> Save
+                                                </Button>
+                                                <Button onClick={handleCancel} variant="outline" className="text-slate-600 gap-2">
+                                                    <X className="w-4 h-4" /> Cancel
+                                                </Button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Button onClick={handleEdit} variant="outline" className="border-slate-200 text-slate-600 gap-2">
+                                                    <Edit2 className="w-4 h-4" /> Edit
+                                                </Button>
+                                                <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">{t("common.approve")}</Button>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
 
                                 <div className="p-8 grid grid-cols-2 gap-8">
                                     {/* Column 1: Evidence */}
                                     <div className="space-y-6">
+                                        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                                            <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2 text-sm uppercase tracking-wider">Claim Details</h3>
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="text-xs font-bold text-slate-400 uppercase">Policy Holder</label>
+                                                    {isEditing ? (
+                                                        <Input
+                                                            value={editForm.policyHolder || ""}
+                                                            onChange={(e) => handleChange("policyHolder", e.target.value)}
+                                                            className="mt-1 font-bold text-slate-900"
+                                                        />
+                                                    ) : (
+                                                        <div className="text-slate-900 font-bold text-lg">{selectedClaim.policyHolder}</div>
+                                                    )}
+                                                </div>
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div>
+                                                        <label className="text-xs font-bold text-slate-400 uppercase">Damage Estimate</label>
+                                                        {isEditing ? (
+                                                            <Input
+                                                                value={editForm.damageEstimate || ""}
+                                                                onChange={(e) => handleChange("damageEstimate", e.target.value)}
+                                                                className="mt-1 font-mono"
+                                                            />
+                                                        ) : (
+                                                            <div className="text-slate-900 font-mono font-bold">{selectedClaim.damageEstimate}</div>
+                                                        )}
+                                                    </div>
+                                                    <div>
+                                                        <label className="text-xs font-bold text-slate-400 uppercase">Status</label>
+                                                        {isEditing ? (
+                                                            <select
+                                                                className="flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-400 mt-1"
+                                                                value={editForm.status || ""}
+                                                                onChange={(e) => handleChange("status", e.target.value)}
+                                                            >
+                                                                <option value="Pending">Pending</option>
+                                                                <option value="Review">Review</option>
+                                                                <option value="Approved">Approved</option>
+                                                                <option value="Rejected">Rejected</option>
+                                                            </select>
+                                                        ) : (
+                                                            <div className={`mt-1 inline-flex px-2 py-1 rounded text-xs font-bold ${selectedClaim.status === "Approved" ? "bg-emerald-100 text-emerald-700" :
+                                                                selectedClaim.status === "Review" ? "bg-amber-100 text-amber-700" :
+                                                                    "bg-slate-100 text-slate-600"
+                                                                }`}>
+                                                                {selectedClaim.status}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div>
                                             <h3 className="font-bold text-slate-700 mb-4 flex items-center gap-2 text-sm">
                                                 <ImageIcon className="w-4 h-4 text-slate-400" /> {t("dashboard.evidence_log").toUpperCase()}
                                             </h3>
                                             <div
                                                 className="aspect-video bg-slate-100 rounded-2xl relative overflow-hidden border-2 border-slate-100 cursor-zoom-in group shadow-sm"
+                                                role="button"
+                                                tabIndex={0}
                                                 onClick={() => handleImageClick(selectedClaim.image)}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === "Enter" || e.key === " ") {
+                                                        handleImageClick(selectedClaim.image);
+                                                    }
+                                                }}
                                             >
                                                 <img
                                                     src={selectedClaim.image}
@@ -178,7 +295,14 @@ export default function B2BDashboard() {
                                                     <div
                                                         key={idx}
                                                         onClick={() => handleImageClick(img)}
-                                                        className="aspect-square rounded-xl overflow-hidden border-2 border-slate-100 cursor-zoom-in hover:border-[#be123c] hover:opacity-90 transition-all group relative"
+                                                        role="button"
+                                                        tabIndex={0}
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === "Enter" || e.key === " ") {
+                                                                handleImageClick(img);
+                                                            }
+                                                        }}
+                                                        className="aspect-square rounded-xl overflow-hidden border-2 border-slate-100 cursor-zoom-in hover:border-[#be123c] hover:opacity-90 transition-all group relative focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                     >
                                                         <img src={img} alt={`Evidence ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                                         <div className="absolute inset-0 bg-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -187,11 +311,19 @@ export default function B2BDashboard() {
                                             </div>
                                         </div>
 
-                                        <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                        <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 transition-all hover:border-slate-300">
                                             <h4 className="text-xs font-bold text-slate-400 mb-2 uppercase tracking-tight">Customer Statement</h4>
-                                            <p className="text-slate-600 text-sm italic leading-relaxed">
-                                                "I was parking at the mall and scraped the pillar. Low speed impact. Need to expedite repair for work commute."
-                                            </p>
+                                            {isEditing ? (
+                                                <textarea
+                                                    className="w-full min-h-[100px] p-3 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                    value={editForm.statement || ""}
+                                                    onChange={(e) => handleChange("statement", e.target.value)}
+                                                />
+                                            ) : (
+                                                <p className="text-slate-600 text-sm italic leading-relaxed">
+                                                    "{selectedClaim.statement || "No statement recorded."}"
+                                                </p>
+                                            )}
                                         </div>
                                     </div>
 

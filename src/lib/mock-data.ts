@@ -21,8 +21,11 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 98,
         aiPrediction: "Approve",
         damageEstimate: "SAR 1,200",
-        image: "/images/minor-scratch.png",
-        gallery: ["/images/minor-scratch.png"]
+        image: "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
+        gallery: [
+            "https://images.unsplash.com/photo-1594976612316-9b90703a18b0?w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1562141989-c5c79ac8f576?w=800&auto=format&fit=crop"
+        ]
     },
     {
         id: "CLM-2026-002",
@@ -33,8 +36,11 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 45,
         aiPrediction: "Flag",
         damageEstimate: "SAR 15,000",
-        image: "/images/severe-crash.png",
-        gallery: ["/images/severe-crash.png"]
+        image: "https://images.unsplash.com/photo-1600880218819-38501309f3de?w=800&auto=format&fit=crop",
+        gallery: [
+            "https://images.unsplash.com/photo-1600880218819-38501309f3de?w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1580273722747-062d3fd9c951?w=800&auto=format&fit=crop"
+        ]
     },
     {
         id: "CLM-2026-003",
@@ -45,7 +51,58 @@ export const MOCK_CLAIMS: Claim[] = [
         aiConfidence: 89,
         aiPrediction: "Approve",
         damageEstimate: "SAR 4,500",
-        image: "/images/water-damage.png",
-        gallery: ["/images/water-damage.png"]
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop",
+        gallery: ["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&auto=format&fit=crop"]
+    },
+    {
+        id: "CLM-2026-004",
+        policyHolder: "Faisal Al-Otaibi",
+        date: "2026-05-23",
+        type: "Motor - Total Loss",
+        status: "Pending",
+        aiConfidence: 99,
+        aiPrediction: "Approve",
+        damageEstimate: "SAR 85,000",
+        image: "https://images.unsplash.com/photo-1574635606673-8b776a30740a?w=800&auto=format&fit=crop",
+        gallery: [
+            "https://images.unsplash.com/photo-1574635606673-8b776a30740a?w=800&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1616422285623-13ff0167c95c?w=800&auto=format&fit=crop"
+        ]
+    },
+    {
+        id: "CLM-2026-005",
+        policyHolder: "Mona Abdulaziz",
+        date: "2026-05-24",
+        type: "Motor - Scrape",
+        status: "Pending",
+        aiConfidence: 92,
+        aiPrediction: "Approve",
+        damageEstimate: "SAR 800",
+        image: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&auto=format&fit=crop",
+        gallery: ["https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&auto=format&fit=crop"]
+    },
+    {
+        id: "CLM-2026-006",
+        policyHolder: "Riyadh Logistics",
+        date: "2026-05-25",
+        type: "Commercial - Cargo",
+        status: "Review",
+        aiConfidence: 30,
+        aiPrediction: "Flag",
+        damageEstimate: "SAR 220,000",
+        image: "https://images.unsplash.com/photo-1586528116311-ad861f1c7da6?w=800&auto=format&fit=crop",
+        gallery: ["https://images.unsplash.com/photo-1586528116311-ad861f1c7da6?w=800&auto=format&fit=crop"]
+    },
+    {
+        id: "CLM-2026-007",
+        policyHolder: "Hassan Al-Zahrani",
+        date: "2026-05-26",
+        type: "Motor - Glass",
+        status: "Approved",
+        aiConfidence: 100,
+        aiPrediction: "Approve",
+        damageEstimate: "SAR 450",
+        image: "https://images.unsplash.com/photo-1605332211603-911b33342375?w=800&auto=format&fit=crop",
+        gallery: ["https://images.unsplash.com/photo-1605332211603-911b33342375?w=800&auto=format&fit=crop"]
     }
 ];

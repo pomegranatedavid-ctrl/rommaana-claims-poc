@@ -39,5 +39,35 @@ export const MOCK_LEADS: Lead[] = [
         buyLikelihood: 91,
         reason: "Clinic expanded to new branch; high risk exposure.",
         avatar: "https://i.pravatar.cc/150?u=khalid"
+    },
+    {
+        id: "LEAD-104",
+        name: "Mariam Al-Said",
+        age: 42,
+        currentProduct: "Medical Gold",
+        suggestedProduct: "Family Shield +",
+        buyLikelihood: 94,
+        reason: "Recent marriage and birth of second child.",
+        avatar: "https://i.pravatar.cc/150?u=mariam"
+    },
+    {
+        id: "LEAD-105",
+        name: "Yousef Bin Jaber",
+        age: 55,
+        currentProduct: "Home Essential",
+        suggestedProduct: "Global Travel Premium",
+        buyLikelihood: 68,
+        reason: "Frequent flyer miles activity increased by 400%.",
+        avatar: "https://i.pravatar.cc/150?u=yousef"
+    },
+    {
+        id: "LEAD-106",
+        name: "Fatima Al-Harbi",
+        age: 31,
+        currentProduct: "Motor Compre",
+        suggestedProduct: "IoT Smart Home Bundle",
+        buyLikelihood: 88,
+        reason: "Recent smart home equipment purchase detected.",
+        avatar: "https://i.pravatar.cc/150?u=fatima"
     }
 ];

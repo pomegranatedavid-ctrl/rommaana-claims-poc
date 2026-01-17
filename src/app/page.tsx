@@ -73,18 +73,18 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8">
               <FeatureCard
                 icon={<Zap className="w-10 h-10 text-amber-500" />}
-                title={t("features.instant_ai.title") || "Instant AI Service"}
-                description={t("features.instant_ai.description") || "Our Claims Agents analyze damage in seconds using advanced computer vision."}
+                title={t("features.instant_ai_title") || "Instant AI Service"}
+                description={t("features.instant_ai_desc") || "Our Claims Agents analyze damage in seconds using advanced computer vision."}
               />
               <FeatureCard
                 icon={<ShieldCheck className="w-10 h-10 text-[#be123c]" />}
-                title={t("features.ia_compliant.title") || "IA Compliant"}
-                description={t("features.ia_compliant.description") || "Fully regulated by the Saudi Insurance Authority. Your rights are protected."}
+                title={t("features.ia_compliant_title") || "IA Compliant"}
+                description={t("features.ia_compliant_desc") || "Fully regulated by the Saudi Insurance Authority. Your rights are protected."}
               />
               <FeatureCard
                 icon={<FileText className="w-10 h-10 text-emerald-500" />}
-                title={t("features.paperless.title") || "Paperless Process"}
-                description={t("features.paperless.description") || "No more forms. Just chat with us and upload photos. We handle the rest."}
+                title={t("features.paperless_title") || "Paperless Process"}
+                description={t("features.paperless_desc") || "No more forms. Just chat with us and upload photos. We handle the rest."}
               />
             </div>
           </div>

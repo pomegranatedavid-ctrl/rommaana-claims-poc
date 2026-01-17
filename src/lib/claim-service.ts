@@ -1,6 +1,6 @@
 "use client";
 
-import { Claim } from "./mock-data";
+import { Claim, MOCK_CLAIMS } from "./mock-data";
 import { supabase } from "./supabase";
 
 export const ClaimService = {

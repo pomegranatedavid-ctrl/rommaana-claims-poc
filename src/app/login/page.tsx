@@ -8,9 +8,11 @@ export default function LoginPage() {
         <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
             <Card className="w-full max-w-md shadow-xl border-t-4 border-t-[#be123c]">
                 <CardHeader className="text-center">
-                    <div className="w-12 h-12 bg-[#be123c] rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <span className="text-white font-bold text-2xl">R</span>
-                    </div>
+                    <img
+                        src="https://static.wixstatic.com/media/2dc74f_9ffb3f627ced42538647f70532f450f5~mv2.png/v1/fill/w_590,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RommaanaAsset%201.png"
+                        alt="Rommaana Logo"
+                        className="h-12 w-auto object-contain mx-auto mb-4"
+                    />
                     <CardTitle className="text-2xl">Welcome Back</CardTitle>
                     <CardDescription>Login to manage your policies and claims</CardDescription>
                 </CardHeader>

@@ -13,11 +13,12 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#be123c] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">R</span>
-            </div>
-            <span className="text-xl font-bold text-[#be123c]">Rommaana</span>
+          <div className="flex items-center">
+            <img
+              src="https://static.wixstatic.com/media/2dc74f_9ffb3f627ced42538647f70532f450f5~mv2.png/v1/fill/w_590,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RommaanaAsset%201.png"
+              alt="Rommaana Logo"
+              className="h-10 w-auto object-contain"
+            />
           </div>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
             <a href="#" className="hover:text-[#be123c]">{t("common.products") || "Products"}</a>

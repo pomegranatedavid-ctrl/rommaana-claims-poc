@@ -6,13 +6,16 @@ import { UserCircle, Globe, ChevronDown, Key, Book, Info, LogOut } from "lucide-
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/language-context";
+import { useRole } from "@/context/role-context";
 import { AboutModal } from "./about-modal";
 import { useState } from "react";
+import { Users } from "lucide-react";
 
 export function AdminHeader() {
     const pathname = usePathname();
     const router = useRouter();
     const { t, language, setLanguage } = useTranslation();
+    const { role, setRole } = useRole();
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
 
@@ -20,6 +23,8 @@ export function AdminHeader() {
         { name: t("common.claims_workbench"), href: "/admin/dashboard" },
         { name: t("common.sales_growth"), href: "/admin/growth" },
         { name: t("common.risk_guardian"), href: "/admin/risk" },
+        { name: t("common.ai_agents"), href: "/admin/agents" },
+        { name: t("common.user_management"), href: "/admin/users" },
         { name: t("common.how_it_works"), href: "/admin/how-it-works" },
     ];
 
@@ -80,8 +85,15 @@ export function AdminHeader() {
                         onClick={() => setIsProfileOpen(!isProfileOpen)}
                     >
                         <div className="text-right hidden sm:block">
-                            <p className="text-sm font-bold text-slate-900 leading-none">Admin User</p>
-                            <p className="text-[10px] text-slate-500 font-bold mt-1 uppercase tracking-tighter">Rommaana Enterprise</p>
+                            <p className="text-sm font-bold text-slate-900 leading-none">
+                                {role === "Admin" && "Rommaana Admin"}
+                                {role === "Insurer" && "Insurer Agent"}
+                                {role === "B2B_Partner" && "B2B Partner"}
+                                {role === "Customer" && "Ahmed (Customer)"}
+                            </p>
+                            <p className="text-[10px] text-slate-500 font-bold mt-1 uppercase tracking-tighter">
+                                {role === "Admin" ? "Rommaana Enterprise" : role}
+                            </p>
                         </div>
                         <div className="relative">
                             <UserCircle className="w-8 h-8 text-slate-400" />
@@ -127,6 +139,17 @@ export function AdminHeader() {
                                 >
                                     <LogOut className="w-4 h-4" /> {t("profile.logout")}
                                 </Button>
+
+                                <div className="h-px bg-slate-100 my-2" />
+                                <div className="px-6 py-2">
+                                    <p className="text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Switch Role (POC)</p>
+                                    <div className="space-y-1">
+                                        <button onClick={() => setRole("Admin")} className={cn("block w-full text-left text-xs py-1 hover:text-[#be123c]", role === "Admin" && "font-bold text-[#be123c]")}>Admin</button>
+                                        <button onClick={() => setRole("Insurer")} className={cn("block w-full text-left text-xs py-1 hover:text-[#be123c]", role === "Insurer" && "font-bold text-[#be123c]")}>Insurer</button>
+                                        <button onClick={() => setRole("B2B_Partner")} className={cn("block w-full text-left text-xs py-1 hover:text-[#be123c]", role === "B2B_Partner" && "font-bold text-[#be123c]")}>B2B Partner</button>
+                                        <button onClick={() => setRole("Customer")} className={cn("block w-full text-left text-xs py-1 hover:text-[#be123c]", role === "Customer" && "font-bold text-[#be123c]")}>Customer</button>
+                                    </div>
+                                </div>
                             </div>
                         </>
                     )}

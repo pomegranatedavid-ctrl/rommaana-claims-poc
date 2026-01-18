@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRole } from "@/context/role-context";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MOCK_CLAIMS, Claim } from "@/lib/mock-data";
@@ -23,6 +24,9 @@ export default function B2BDashboard() {
     // Edit Mode State
     const [isEditing, setIsEditing] = useState(false);
     const [editForm, setEditForm] = useState<Partial<Claim>>({});
+
+    const { role, isInsurer, isAdmin } = useRole();
+    const canEdit = isAdmin || isInsurer;
 
     useEffect(() => {
         const loadClaims = async () => {
@@ -50,6 +54,7 @@ export default function B2BDashboard() {
     };
 
     const handleEdit = () => {
+        if (!canEdit) return;
         if (selectedClaim) {
             setEditForm(selectedClaim);
             setIsEditing(true);
@@ -166,7 +171,7 @@ export default function B2BDashboard() {
                                             <Share2 className="w-4 h-4 mr-2" /> {t("common.export_data")}
                                         </Button>
 
-                                        {isEditing ? (
+                                        {canEdit && (isEditing ? (
                                             <>
                                                 <Button onClick={handleSave} className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
                                                     <Save className="w-4 h-4" /> Save
@@ -182,7 +187,7 @@ export default function B2BDashboard() {
                                                 </Button>
                                                 <Button className="bg-[#be123c] hover:bg-[#9f0f32] text-white font-bold">{t("common.approve")}</Button>
                                             </>
-                                        )}
+                                        ))}
                                     </div>
                                 </div>
 

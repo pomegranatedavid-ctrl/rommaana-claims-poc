@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 import { LanguageProvider } from "@/context/language-context";
+import { RoleProvider } from "@/context/role-context";
 
 export const metadata: Metadata = {
   title: "Rommaana | Intelligent Insurance",
@@ -35,7 +36,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
-          {children}
+          <RoleProvider>
+            {children}
+          </RoleProvider>
         </LanguageProvider>
       </body>
     </html>

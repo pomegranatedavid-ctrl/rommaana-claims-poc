@@ -24,6 +24,9 @@ export const translations = {
         get_started: { en: "Get Started", ar: "ابدأ الآن" },
         launch_module: { en: "Launch Module", ar: "تشغيل النظام" },
         exit: { en: "Exit", ar: "خروج" },
+        ai_agents: { en: "AI Agents", ar: "وكلاء الذكاء الاصطناعي" },
+        user_management: { en: "User Management", ar: "إدارة المستخدمين" },
+        permissions: { en: "Permissions", ar: "الصلاحيات" },
     },
     admin_home: {
         title: { en: "Operational Hub", ar: "مركز العمليات" },

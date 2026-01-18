@@ -12,16 +12,10 @@ export const ClaimService = {
 
         if (error) {
             console.error("Error fetching claims:", error);
-            return MOCK_CLAIMS; // Fallback to mock data on error
+            return MOCK_CLAIMS;
         }
 
-        if (!data || data.length === 0) {
-            return MOCK_CLAIMS; // Fallback to mock data if DB is empty
-        }
-
-        // Map DB fields to Claim interface if necessary 
-        // (Note: DB uses snake_case, JS uses camelCase)
-        return data.map(row => ({
+        const dbClaims = (data || []).map(row => ({
             id: row.id,
             policyHolder: row.policy_holder,
             date: row.date,
@@ -34,6 +28,16 @@ export const ClaimService = {
             gallery: row.gallery || [],
             statement: row.statement || "No statement provided."
         }));
+
+        // Merge logic: Live DB claims first, then unique Mock claims
+        const combined = [...dbClaims];
+        MOCK_CLAIMS.forEach(mock => {
+            if (!combined.some(c => c.id === mock.id)) {
+                combined.push(mock);
+            }
+        });
+
+        return combined;
     },
 
     addClaim: async (claim: Claim) => {

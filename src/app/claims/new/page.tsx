@@ -32,6 +32,7 @@ export default function ClaimsChatPage() {
     const [inputValue, setInputValue] = useState("");
     const [isProcessing, setIsProcessing] = useState(false);
     const [claimStage, setClaimStage] = useState<"INTAKE" | "ANALYSIS" | "DECISION">("INTAKE");
+    const [latestDescription, setLatestDescription] = useState("");
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
@@ -53,6 +54,7 @@ export default function ClaimsChatPage() {
         if (!inputValue.trim()) return;
         const userText = inputValue;
         setInputValue("");
+        setLatestDescription(userText);
         addMessage("user", userText);
 
         // Simple textual reply simulation if not uploading
@@ -114,7 +116,8 @@ export default function ClaimsChatPage() {
             aiPrediction: decisionResult.action === "APPROVED" ? "Approve" : "Flag",
             damageEstimate: decisionResult.data?.damageScore ? `SAR ${decisionResult.data.damageScore * 100}` : "SAR 1,200",
             image: "/images/minor-scratch.png", // In a real app, this would be the uploaded image's URL
-            gallery: ["/images/minor-scratch.png"]
+            gallery: ["/images/minor-scratch.png"],
+            statement: latestDescription || "User provided details via chat interface."
         };
         await ClaimService.addClaim(newClaim);
 

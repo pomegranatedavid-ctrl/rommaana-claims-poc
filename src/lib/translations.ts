@@ -40,6 +40,12 @@ export const translations = {
         risk_title: { en: "Risk Guardian", ar: "حارس المخاطر" },
         risk_desc: { en: "Underwriting & Compliance", ar: "الاكتتاب والالتزام" },
         risk_long: { en: "Geospatial risk mapping and automated regulatory compliance checks (IA Circulars).", ar: "رسم خرائط المخاطر الجغرافية والتحقق المؤتمت من الالتزام بلوائح هيئة التأمين." },
+        agents_title: { en: "Neural Core", ar: "الجوهر العصبي" },
+        agents_desc: { en: "Agentic Mesh Control", ar: "التحكم في شبكة الوكلاء" },
+        agents_long: { en: "Configure, monitor, and test the collaborative AI agents that power the Rommaana brain.", ar: "تكوين ومراقبة واختبار وكلاء الذكاء الاصطناعي المتعاونين الذين يديرون نظام رمانة." },
+        users_title: { en: "Access Control", ar: "التحكم في الوصول" },
+        users_desc: { en: "Identity & RBAC Matrix", ar: "الهوية ومصفوفة الصلاحيات" },
+        users_long: { en: "Manage user identities, define clearance levels, and configure modular feature permissions.", ar: "إدارة هويات المستخدمين، وتحديد مستويات التصريح، وتكوين صلاحيات الميزات البرمجية." },
     },
     growth: {
         leads_title: { en: "High Propensity Leads", ar: "عملاء محتملون بجدارة عالية" },

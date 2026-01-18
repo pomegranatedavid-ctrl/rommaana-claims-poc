@@ -31,7 +31,8 @@ export const ClaimService = {
             aiPrediction: row.ai_prediction,
             damageEstimate: row.damage_estimate,
             image: row.image_url,
-            gallery: row.gallery || []
+            gallery: row.gallery || [],
+            statement: row.statement || "No statement provided."
         }));
     },
 
@@ -48,7 +49,8 @@ export const ClaimService = {
                 ai_prediction: claim.aiPrediction,
                 damage_estimate: claim.damageEstimate,
                 image_url: claim.image,
-                gallery: claim.gallery
+                gallery: claim.gallery,
+                statement: claim.statement
             }]);
 
         if (error) {

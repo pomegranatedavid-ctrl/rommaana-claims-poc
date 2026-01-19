@@ -15,7 +15,8 @@ export const ClaimService = {
             return MOCK_CLAIMS;
         }
 
-        const dbClaims = (data || []).map(row => ({
+        // Explicitly type dbClaims to enforce checking against Claim interface
+        const dbClaims: Claim[] = (data || []).map(row => ({
             id: row.id,
             policyHolder: row.policy_holder,
             date: row.date,

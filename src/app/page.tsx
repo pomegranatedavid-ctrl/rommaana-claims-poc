@@ -319,15 +319,21 @@ function NavLink({ href, children }: { href: string, children: React.ReactNode }
   );
 }
 
+const colorClasses = {
+  blue: "bg-blue-50 text-blue-600 hover:border-blue-200",
+  amber: "bg-amber-50 text-amber-600 hover:border-amber-200",
+  emerald: "bg-emerald-50 text-emerald-600 hover:border-emerald-200",
+  indigo: "bg-indigo-50 text-indigo-600 hover:border-indigo-200",
+  rose: "bg-rose-50 text-[#be123c] hover:border-rose-200",
+  slate: "bg-slate-100 text-slate-600 hover:border-slate-300",
+};
+
+type ModuleColor = keyof typeof colorClasses;
+
 function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL }: { icon: any, title: string, desc: string, color: string, label: string, linkText: string, isRTL: boolean }) {
-  const colorClasses = {
-    blue: "bg-blue-50 text-blue-600 hover:border-blue-200",
-    amber: "bg-amber-50 text-amber-600 hover:border-amber-200",
-    emerald: "bg-emerald-50 text-emerald-600 hover:border-emerald-200",
-    indigo: "bg-indigo-50 text-indigo-600 hover:border-indigo-200",
-    rose: "bg-rose-50 text-[#be123c] hover:border-rose-200",
-    slate: "bg-slate-100 text-slate-600 hover:border-slate-300",
-  }[color as keyof typeof colorClasses];
+  const themeColor = color as ModuleColor;
+
+  const bgClass = colorClasses[themeColor] || colorClasses.slate;
 
   const iconColorClass = {
     blue: "text-blue-600",
@@ -336,7 +342,7 @@ function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL 
     indigo: "text-indigo-600",
     rose: "text-[#be123c]",
     slate: "text-slate-900",
-  }[color as keyof typeof iconColorClass];
+  }[themeColor] || "text-slate-900";
 
   return (
     <motion.div
@@ -345,7 +351,7 @@ function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL 
         "p-8 lg:p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 group cursor-pointer"
       )}
     >
-      <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all group-hover:scale-110 shadow-sm", colorClasses)}>
+      <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all group-hover:scale-110 shadow-sm", bgClass)}>
         <Icon className="w-7 h-7" />
       </div>
       <p className={cn("text-[9px] font-black uppercase tracking-[0.2em] mb-3", iconColorClass)}>

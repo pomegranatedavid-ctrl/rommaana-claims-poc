@@ -12,70 +12,100 @@ import { Users, ShieldCheck, UserPlus, Edit2, Trash2, Check, X, Shield, Lock } f
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/language-context";
 import { Role } from "@/context/role-context";
+import { UserService, User, Permission } from "@/lib/user-service";
+import { useEffect } from "react";
 
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    role: Role;
-    status: 'Active' | 'Inactive';
-}
-
-const INITIAL_USERS: User[] = [
-    { id: "1", name: "Sarah Al-Ghamdi", email: "sarah@rommaana.sa", role: "Admin", status: "Active" },
-    { id: "2", name: "Khalid Mansour", email: "khalid@insurer.sa", role: "Insurer", status: "Active" },
-    { id: "3", name: "B2B Admin", email: "admin@partner.sa", role: "B2B_Partner", status: "Active" },
-    { id: "4", name: "Ahmed B. Customer", email: "ahmed@gmail.com", role: "Customer", status: "Active" },
-];
-
-interface Permission {
-    feature: string;
-    key: string;
-    roles: Role[];
-}
-
-const INITIAL_PERMISSIONS: Permission[] = [
-    { feature: "Claims Workbench", key: "claims", roles: ["Admin", "Insurer"] },
-    { feature: "Sales Growth", key: "sales", roles: ["Admin", "Insurer", "B2B_Partner"] },
-    { feature: "Risk Guardian", key: "risk", roles: ["Admin", "Insurer"] },
-    { feature: "AI Agents Center", key: "agents", roles: ["Admin"] },
-    { feature: "User Management", key: "users", roles: ["Admin"] },
-    { feature: "Edit Claim Data", key: "edit_claims", roles: ["Admin", "Insurer"] },
-    { feature: "Approve Payment", key: "approve_payment", roles: ["Admin"] },
-];
 
 export default function UsersManagementPage() {
     const { t } = useTranslation();
-    const [users, setUsers] = useState<User[]>(INITIAL_USERS);
-    const [permissions, setPermissions] = useState<Permission[]>(INITIAL_PERMISSIONS);
+    const [users, setUsers] = useState<User[]>([]);
+    const [permissions, setPermissions] = useState<Permission[]>([]);
     const [isEditingUser, setIsEditingUser] = useState<User | null>(null);
     const [isAddingUser, setIsAddingUser] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Form states
     const [formData, setFormData] = useState<Partial<User>>({});
 
-    const handleAddUser = () => {
-        const newUser: User = {
-            id: Math.random().toString(36).substr(2, 9),
-            name: formData.name || "New User",
-            email: formData.email || "",
-            role: formData.role || "Customer",
-            status: "Active"
+    useEffect(() => {
+        const loadData = async () => {
+            setIsLoading(true);
+            try {
+                const [fetchedUsers, fetchedPermissions] = await Promise.all([
+                    UserService.getUsers(),
+                    UserService.getPermissions()
+                ]);
+                setUsers(fetchedUsers);
+                setPermissions(fetchedPermissions);
+            } catch (error) {
+                console.error("Failed to load user data:", error);
+            } finally {
+                setIsLoading(false);
+            }
         };
-        setUsers([...users, newUser]);
-        setIsAddingUser(false);
-        setFormData({});
+        loadData();
+    }, []);
+
+    const handleAddUser = async () => {
+        try {
+            const newUserReq = {
+                name: formData.name || "New User",
+                email: formData.email || "",
+                role: formData.role || "Customer",
+                status: "Active" as const
+            };
+
+            // For POC, if Supabase fails (e.g. table not there), we simulate local update
+            try {
+                const addedUser = await UserService.addUser(newUserReq);
+                if (addedUser) {
+                    setUsers([...users, addedUser]);
+                } else {
+                    // Fallback for mock behavior
+                    setUsers([...users, { ...newUserReq, id: Math.random().toString(36).substr(2, 9) }]);
+                }
+            } catch (e) {
+                console.warn("Supabase insert failed, simulating locally", e);
+                setUsers([...users, { ...newUserReq, id: Math.random().toString(36).substr(2, 9) }]);
+            }
+
+            setIsAddingUser(false);
+            setFormData({});
+        } catch (error) {
+            console.error("Error adding user:", error);
+        }
     };
 
-    const handleUpdateUser = () => {
+    const handleUpdateUser = async () => {
         if (!isEditingUser) return;
-        setUsers(users.map(u => u.id === isEditingUser.id ? { ...u, ...formData } : u));
-        setIsEditingUser(null);
-        setFormData({});
+        try {
+            const updatedUser = { ...isEditingUser, ...formData } as User;
+
+            try {
+                await UserService.updateUser(updatedUser);
+            } catch (e) {
+                console.warn("Supabase update failed, simulating locally", e);
+            }
+
+            setUsers(users.map(u => u.id === isEditingUser.id ? updatedUser : u));
+            setIsEditingUser(null);
+            setFormData({});
+        } catch (error) {
+            console.error("Error updating user:", error);
+        }
     };
 
-    const handleDeleteUser = (id: string) => {
-        setUsers(users.filter(u => u.id !== id));
+    const handleDeleteUser = async (id: string) => {
+        try {
+            try {
+                await UserService.deleteUser(id);
+            } catch (e) {
+                console.warn("Supabase delete failed, simulating locally", e);
+            }
+            setUsers(users.filter(u => u.id !== id));
+        } catch (error) {
+            console.error("Error deleting user:", error);
+        }
     };
 
     const togglePermission = (key: string, role: Role) => {
@@ -104,14 +134,22 @@ export default function UsersManagementPage() {
                             <ShieldCheck className="w-8 h-8 text-[#be123c]" />
                             {t("common.user_management")}
                         </h1>
-                        <p className="text-slate-500 font-medium">Manage organization members and role-based access protocols.</p>
+                        <p className="text-slate-500 font-medium">{t("users_management.user_list_header")}</p>
                     </div>
                 </div>
 
-                <Tabs defaultValue="users" className="flex-1 flex flex-col overflow-hidden">
+                <Tabs defaultValue="users" className="flex-1 flex flex-col overflow-hidden relative">
+                    {isLoading && (
+                        <div className="absolute inset-0 bg-white/50 backdrop-blur-[2px] z-50 flex items-center justify-center rounded-3xl">
+                            <div className="flex flex-col items-center gap-3">
+                                <div className="w-10 h-10 border-4 border-[#be123c] border-t-transparent rounded-full animate-spin" />
+                                <p className="text-sm font-bold text-slate-600">Syncing with Rommaana Neural Core...</p>
+                            </div>
+                        </div>
+                    )}
                     <TabsList className="bg-white border border-slate-200 h-14 p-1 rounded-xl mb-6 w-fit inline-flex">
                         <TabsTrigger value="users" className="data-[state=active]:bg-rose-50 data-[state=active]:text-[#be123c] rounded-lg font-bold gap-2 px-6">
-                            <Users className="w-4 h-4" /> Users
+                            <Users className="w-4 h-4" /> {t("common.user_management")}
                         </TabsTrigger>
                         <TabsTrigger value="permissions" className="data-[state=active]:bg-rose-50 data-[state=active]:text-[#be123c] rounded-lg font-bold gap-2 px-6">
                             <Lock className="w-4 h-4" /> {t("common.permissions")}
@@ -124,23 +162,23 @@ export default function UsersManagementPage() {
                             <div className={cn("col-span-12 transition-all duration-300", (isAddingUser || isEditingUser) ? "lg:col-span-8" : "lg:col-span-12")}>
                                 <Card className="border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
                                     <div className="p-4 border-b border-slate-100 flex justify-between items-center bg-white">
-                                        <h3 className="font-bold text-slate-800">Active Users ({users.length})</h3>
+                                        <h3 className="font-bold text-slate-800">{t("users_management.active_users")} ({users.length})</h3>
                                         <Button
                                             size="sm"
                                             className="bg-[#be123c] hover:bg-[#9f0f32] gap-2"
                                             onClick={() => { setIsAddingUser(true); setIsEditingUser(null); setFormData({}); }}
                                         >
-                                            <UserPlus className="w-4 h-4" /> Add User
+                                            <UserPlus className="w-4 h-4" /> {t("users_management.add_user")}
                                         </Button>
                                     </div>
                                     <div className="flex-1 overflow-y-auto">
-                                        <table className="w-full text-left">
+                                        <table className="w-full text-left rtl:text-right">
                                             <thead className="bg-slate-50 sticky top-0 z-10">
                                                 <tr className="border-b border-slate-100">
-                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">User</th>
-                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Role</th>
-                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
-                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">{t("users_management.table_user")}</th>
+                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">{t("users_management.table_role")}</th>
+                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">{t("users_management.table_status")}</th>
+                                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right rtl:text-left">{t("users_management.table_actions")}</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y divide-slate-50">
@@ -208,7 +246,7 @@ export default function UsersManagementPage() {
                                     <Card className="border-slate-200 shadow-xl overflow-visible">
                                         <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                                             <h3 className="font-bold text-slate-800">
-                                                {isAddingUser ? "Create New User" : "Update Profile"}
+                                                {isAddingUser ? t("users_management.create_new_user") : t("users_management.update_profile")}
                                             </h3>
                                             <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => { setIsAddingUser(false); setIsEditingUser(null); }}>
                                                 <X className="w-4 h-4" />
@@ -216,7 +254,7 @@ export default function UsersManagementPage() {
                                         </div>
                                         <CardContent className="p-6 space-y-4">
                                             <div className="grid gap-2">
-                                                <Label>Full Name</Label>
+                                                <Label>{t("users_management.full_name")}</Label>
                                                 <Input
                                                     value={formData.name || ""}
                                                     onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -224,7 +262,7 @@ export default function UsersManagementPage() {
                                                 />
                                             </div>
                                             <div className="grid gap-2">
-                                                <Label>Email Address</Label>
+                                                <Label>{t("users_management.email_address")}</Label>
                                                 <Input
                                                     value={formData.email || ""}
                                                     onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -232,7 +270,7 @@ export default function UsersManagementPage() {
                                                 />
                                             </div>
                                             <div className="grid gap-2">
-                                                <Label>Access Role</Label>
+                                                <Label>{t("users_management.access_role")}</Label>
                                                 <Select value={formData.role || ""} onValueChange={(val) => setFormData({ ...formData, role: val as Role })}>
                                                     <SelectTrigger><SelectValue /></SelectTrigger>
                                                     <SelectContent>
@@ -248,10 +286,10 @@ export default function UsersManagementPage() {
                                                     className="flex-1 bg-[#be123c] hover:bg-[#9f0f32] font-bold"
                                                     onClick={isAddingUser ? handleAddUser : handleUpdateUser}
                                                 >
-                                                    {isAddingUser ? "Create User" : "Save Changes"}
+                                                    {isAddingUser ? t("users_management.add_user") : t("users_management.save_changes")}
                                                 </Button>
                                                 <Button variant="outline" className="flex-1 font-bold" onClick={() => { setIsAddingUser(false); setIsEditingUser(null); }}>
-                                                    Cancel
+                                                    {t("users_management.cancel")}
                                                 </Button>
                                             </div>
                                         </CardContent>
@@ -271,14 +309,14 @@ export default function UsersManagementPage() {
                     <TabsContent value="permissions" className="flex-1 mt-0">
                         <Card className="border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
                             <div className="p-6 bg-slate-50 border-b border-slate-100">
-                                <h3 className="font-bold text-slate-800 text-lg">Role Access Control Matrix</h3>
-                                <p className="text-sm text-slate-500">Configure feature-level granular permissions across Rommaana clearance levels.</p>
+                                <h3 className="font-bold text-slate-800 text-lg">{t("users_management.matrix_title")}</h3>
+                                <p className="text-sm text-slate-500">{t("users_management.matrix_desc")}</p>
                             </div>
                             <div className="flex-1 overflow-auto">
-                                <table className="w-full text-left">
+                                <table className="w-full text-left rtl:text-right">
                                     <thead>
                                         <tr className="border-b border-slate-100 bg-white">
-                                            <th className="px-8 py-6 text-xs font-bold text-slate-400 uppercase tracking-widest bg-white sticky left-0 z-20 w-64 border-r">Feature Module</th>
+                                            <th className="px-8 py-6 text-xs font-bold text-slate-400 uppercase tracking-widest bg-white sticky left-0 z-20 w-64 border-r rtl:border-l rtl:border-r-0">{t("users_management.feature_module")}</th>
                                             {roles.map(role => (
                                                 <th key={role} className="px-8 py-6 text-center">
                                                     <div className="flex flex-col items-center">
@@ -291,7 +329,7 @@ export default function UsersManagementPage() {
                                                         )}>
                                                             {role.replace('_', ' ')}
                                                         </span>
-                                                        <span className="text-[10px] text-slate-400 font-medium">Clearance</span>
+                                                        <span className="text-[10px] text-slate-400 font-medium">{t("users_management.clearance")}</span>
                                                     </div>
                                                 </th>
                                             ))}
@@ -300,7 +338,7 @@ export default function UsersManagementPage() {
                                     <tbody className="divide-y divide-slate-100">
                                         {permissions.map((p) => (
                                             <tr key={p.key} className="group hover:bg-slate-50/30 transition-colors">
-                                                <td className="px-8 py-6 bg-white sticky left-0 z-10 border-r group-hover:bg-slate-50 transition-colors">
+                                                <td className="px-8 py-6 bg-white sticky left-0 z-10 border-r rtl:border-l rtl:border-r-0 group-hover:bg-slate-50 transition-colors">
                                                     <p className="text-sm font-bold text-slate-800">{p.feature}</p>
                                                     <p className="text-[10px] text-slate-400 font-mono">module_id: {p.key}</p>
                                                 </td>
@@ -331,10 +369,10 @@ export default function UsersManagementPage() {
                             </div>
                             <div className="p-4 bg-slate-900 flex justify-between items-center">
                                 <p className="text-xs text-slate-400 font-medium flex items-center gap-2">
-                                    <Lock className="w-3 h-3" /> All changes are logged to the Rommaana Audit Trail.
+                                    <Lock className="w-3 h-3" /> {t("users_management.audit_log_note")}
                                 </p>
                                 <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-8">
-                                    Apply Global Policy
+                                    {t("users_management.apply_policy")}
                                 </Button>
                             </div>
                         </Card>

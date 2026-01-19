@@ -115,8 +115,8 @@ export default function ClaimsChatPage() {
             aiConfidence: Math.floor(80 + Math.random() * 19),
             aiPrediction: decisionResult.action === "APPROVED" ? "Approve" : "Flag",
             damageEstimate: decisionResult.data?.damageScore ? `SAR ${decisionResult.data.damageScore * 100}` : "SAR 1,200",
-            image: "/images/minor-scratch.png", // In a real app, this would be the uploaded image's URL
-            gallery: ["/images/minor-scratch.png"],
+            image: "/images/claims/volvo_bumper.png", // In a real app, this would be the uploaded image's URL
+            gallery: ["/images/claims/volvo_bumper.png", "/images/claims/volvo_scratch.png"],
             statement: latestDescription || "User provided details via chat interface."
         };
         await ClaimService.addClaim(newClaim);

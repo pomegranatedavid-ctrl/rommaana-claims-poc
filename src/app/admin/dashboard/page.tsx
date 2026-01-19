@@ -20,6 +20,8 @@ export default function B2BDashboard() {
     const [selectedClaim, setSelectedClaim] = useState<Claim | null>(null);
     const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false);
     const [analysisImagePath, setAnalysisImagePath] = useState("");
+    const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+    const [activeMainImage, setActiveMainImage] = useState<string | null>(null);
 
     // Edit Mode State
     const [isEditing, setIsEditing] = useState(false);
@@ -27,6 +29,13 @@ export default function B2BDashboard() {
 
     const { role, isInsurer, isAdmin } = useRole();
     const canEdit = isAdmin || isInsurer;
+
+    useEffect(() => {
+        if (selectedClaim) {
+            setActiveMainImage(selectedClaim.image);
+            setIsPlayingVideo(false);
+        }
+    }, [selectedClaim]);
 
     useEffect(() => {
         const loadClaims = async () => {
@@ -256,33 +265,57 @@ export default function B2BDashboard() {
                                                 className="aspect-video bg-slate-100 rounded-2xl relative overflow-hidden border-2 border-slate-100 cursor-zoom-in group shadow-sm"
                                                 role="button"
                                                 tabIndex={0}
-                                                onClick={() => handleImageClick(selectedClaim.image)}
+                                                onClick={() => !isPlayingVideo && activeMainImage && handleImageClick(activeMainImage)}
                                                 onKeyDown={(e) => {
-                                                    if (e.key === "Enter" || e.key === " ") {
-                                                        handleImageClick(selectedClaim.image);
+                                                    if ((e.key === "Enter" || e.key === " ") && !isPlayingVideo && activeMainImage) {
+                                                        handleImageClick(activeMainImage);
                                                     }
                                                 }}
                                             >
-                                                <img
-                                                    src={selectedClaim.image}
-                                                    alt="Damage Evidence"
-                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                />
-                                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-sm font-bold text-slate-800 flex items-center gap-2 shadow-lg scale-90 group-hover:scale-100 transition-transform">
-                                                        <Search className="w-4 h-4 text-[#be123c]" /> AI Analysis Modal
-                                                    </div>
-                                                </div>
-                                                <div className="absolute bottom-4 left-4 bg-[#be123c] text-white text-[10px] px-2 py-1 rounded-md font-bold uppercase shadow-lg">
-                                                    Vision Mesh v4.0
-                                                </div>
+                                                {isPlayingVideo && selectedClaim.video ? (
+                                                    <video
+                                                        src={selectedClaim.video}
+                                                        className="w-full h-full object-cover"
+                                                        controls
+                                                        autoPlay
+                                                        onEnded={() => setIsPlayingVideo(false)}
+                                                    />
+                                                ) : (
+                                                    <img
+                                                        src={activeMainImage || selectedClaim.image}
+                                                        alt="Damage Evidence"
+                                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    />
+                                                )}
+
+                                                {!isPlayingVideo && (
+                                                    <>
+                                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                            <div className="bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-sm font-bold text-slate-800 flex items-center gap-2 shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                                                                <Search className="w-4 h-4 text-[#be123c]" /> AI Analysis Modal
+                                                            </div>
+                                                        </div>
+                                                        <div className="absolute bottom-4 left-4 bg-[#be123c] text-white text-[10px] px-2 py-1 rounded-md font-bold uppercase shadow-lg">
+                                                            Vision Mesh v4.0
+                                                        </div>
+                                                    </>
+                                                )}
                                             </div>
 
-                                            {/* Video Evidence Placeholder */}
-                                            {selectedClaim.id === "CLM-2026-001" && (
-                                                <div className="mt-4 bg-slate-900 rounded-2xl p-4 flex items-center justify-between group cursor-pointer hover:bg-slate-800 transition-colors">
+                                            {/* Video Evidence Section */}
+                                            {selectedClaim.video && (
+                                                <div
+                                                    className={cn(
+                                                        "mt-4 bg-slate-900 rounded-2xl p-4 flex items-center justify-between group cursor-pointer transition-colors",
+                                                        isPlayingVideo ? "ring-2 ring-[#be123c]" : "hover:bg-slate-800"
+                                                    )}
+                                                    onClick={() => setIsPlayingVideo(!isPlayingVideo)}
+                                                >
                                                     <div className="flex items-center gap-3">
-                                                        <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#be123c] transition-colors">
+                                                        <div className={cn(
+                                                            "w-10 h-10 rounded-full flex items-center justify-center transition-colors",
+                                                            isPlayingVideo ? "bg-[#be123c]" : "bg-white/10 group-hover:bg-[#be123c]"
+                                                        )}>
                                                             <PlayCircle className="w-5 h-5 text-white" />
                                                         </div>
                                                         <div>
@@ -290,7 +323,9 @@ export default function B2BDashboard() {
                                                             <div className="text-xs text-slate-400">00:14 • 1080p Recorded</div>
                                                         </div>
                                                     </div>
-                                                    <Button size="sm" variant="ghost" className="text-white hover:text-[#be123c]">Watch</Button>
+                                                    <Button size="sm" variant="ghost" className="text-white hover:text-[#be123c]">
+                                                        {isPlayingVideo ? "Playing" : "Watch"}
+                                                    </Button>
                                                 </div>
                                             )}
 
@@ -299,12 +334,16 @@ export default function B2BDashboard() {
                                                 {selectedClaim.gallery?.map((img, idx) => (
                                                     <div
                                                         key={idx}
-                                                        onClick={() => handleImageClick(img)}
+                                                        onClick={() => {
+                                                            setActiveMainImage(img);
+                                                            setIsPlayingVideo(false);
+                                                        }}
                                                         role="button"
                                                         tabIndex={0}
                                                         onKeyDown={(e) => {
                                                             if (e.key === "Enter" || e.key === " ") {
-                                                                handleImageClick(img);
+                                                                setActiveMainImage(img);
+                                                                setIsPlayingVideo(false);
                                                             }
                                                         }}
                                                         className="aspect-square rounded-xl overflow-hidden border-2 border-slate-100 cursor-zoom-in hover:border-[#be123c] hover:opacity-90 transition-all group relative focus:outline-none focus:ring-2 focus:ring-blue-500"

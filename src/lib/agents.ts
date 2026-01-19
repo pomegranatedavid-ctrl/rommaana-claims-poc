@@ -59,9 +59,9 @@ export const VisionAgent = {
     analyzeDetail: async (imagePath: string): Promise<{ detection: string; relevance: string }> => {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        if (imagePath.includes("scratch")) {
+        if (imagePath.includes("scratch") || imagePath.includes("volvo")) {
             return {
-                detection: "Linear abrasions with paint transfer and slight indentation on the polyurethane substrate.",
+                detection: "Linear abrasions with paint transfer and slight indentation on the white polyurethane substrate. Identifying asset: Volvo XC90 SUV.",
                 relevance: "The height and directionality of the abrasions (approx. 45cm from ground) perfectly match the reported collision with a mall parking pillar. Confirms B2C customer statement."
             };
         }
@@ -95,7 +95,7 @@ export const VisionAgent = {
         const q = question.toLowerCase();
 
         if (q.includes("brand") || q.includes("make") || q.includes("car")) {
-            if (imagePath.includes("scratch")) return "Based on the body lines and tail light signature, this is a white Tesla Model 3. It appears to be a 2021-2023 refresh model.";
+            if (imagePath.includes("scratch") || imagePath.includes("volvo")) return "Based on the signature grille and Thor's Hammer headlights, this is a white Volvo XC90. It is a modern luxury SUV model.";
             if (imagePath.includes("crash") || imagePath.includes("severe")) return "The vehicle is a silver SUV consistent with high-occupancy family models. The structural damage makes specific sub-model identification difficult without VIN access.";
         }
 

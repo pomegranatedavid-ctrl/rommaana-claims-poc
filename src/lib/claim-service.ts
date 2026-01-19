@@ -26,6 +26,7 @@ export const ClaimService = {
             damageEstimate: row.damage_estimate,
             image: row.image_url,
             gallery: row.gallery || [],
+            video: row.video_url,
             statement: row.statement || "No statement provided."
         }));
 
@@ -33,7 +34,7 @@ export const ClaimService = {
         const combined = [...dbClaims];
         MOCK_CLAIMS.forEach(mock => {
             if (!combined.some(c => c.id === mock.id)) {
-                combined.push(mock);
+                combined.push(mock as Claim);
             }
         });
 
@@ -54,6 +55,7 @@ export const ClaimService = {
                 damage_estimate: claim.damageEstimate,
                 image_url: claim.image,
                 gallery: claim.gallery,
+                video_url: claim.video,
                 statement: claim.statement
             }]);
 
@@ -64,6 +66,20 @@ export const ClaimService = {
 
         // Custom events can still be used for local UI updates, 
         // but Supabase Realtime is the "real" way to do this.
+        window.dispatchEvent(new Event("claims-updated"));
+    },
+
+    updateClaimGallery: async (claimId: string, gallery: string[]) => {
+        const { error } = await supabase
+            .from('claims')
+            .update({ gallery })
+            .eq('id', claimId);
+
+        if (error) {
+            console.error("Error updating claim gallery:", error);
+            throw error;
+        }
+
         window.dispatchEvent(new Event("claims-updated"));
     },
 

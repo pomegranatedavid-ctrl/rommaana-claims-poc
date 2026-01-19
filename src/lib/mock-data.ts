@@ -9,6 +9,7 @@ export interface Claim {
     damageEstimate: string;
     image: string;
     gallery: string[];
+    video?: string;
     statement: string;
 }
 
@@ -23,12 +24,14 @@ export const MOCK_CLAIMS: Claim[] = [
         aiPrediction: "Approve",
         damageEstimate: "SAR 1,200",
         statement: "I was rear-ended at a traffic light. The other driver accepted full liability. Just need the bumper fixed.",
-        image: "/images/claims/collision_1.png",
+        image: "/images/claims/volvo_bumper.png",
         gallery: [
-            "/images/claims/collision_1.png",
-            "/images/claims/collision_2.png",
-            "/images/claims/frontal_2.png" // Added for variety
-        ]
+            "/images/claims/volvo_bumper.png",
+            "/images/claims/volvo_pristine.png",
+            "/images/claims/volvo_scratch.png",
+            "/images/claims/volvo_rear.png"
+        ],
+        video: "https://v.ftcdn.net/04/96/12/57/700_F_496125791_qNpS8iEwI5qS8I8uF8yS6n6P8U6W8A2W_ST.mp4"
     },
     {
         id: "CLM-2026-002",

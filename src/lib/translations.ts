@@ -40,6 +40,7 @@ export const translations = {
         switch_role: { en: "Switch Role", ar: "تغيير الدور" },
         resources: { en: "Resources", ar: "الموارد" },
         legal: { en: "Legal", ar: "قانوني" },
+        back_home: { en: "Back to Home", ar: "العودة للرئيسية" },
         copyright: { en: "Rummanat alTaqniyat. Riyadh, Saudi Arabia. CR: 7050190359", ar: "رمانة للتقنيات. الرياض، المملكة العربية السعودية. س.ت: 7050190359" },
     },
     hero: {
@@ -273,5 +274,55 @@ export const translations = {
         clearance: { en: "Clearance", ar: "تصريح" },
         audit_log_note: { en: "All changes are logged to the Rommaana Audit Trail.", ar: "يتم تسجيل جميع التغييرات في سجل تدقيق رمانة." },
         apply_policy: { en: "Apply Global Policy", ar: "تطبيق السياسة العالمية" },
+    },
+    solution_details: {
+        "claims-workbench": {
+            title: { en: "Claims Workbench", ar: "منصة المطالبات" },
+            tagline: { en: "Hyper-Automated Settlement", ar: "تسوية آلية فائقة السرعة" },
+            description: { en: "Experience the future of claims processing. Our multimodal AI analyzes images, videos, and documents instantly to assess damage and authorize payouts in seconds, not days.", ar: "ختبر مستقبل معالجة المطالبات. يقوم الذكاء الاصطناعي متعدد الوسائط بتمحليل الصور ومقاطع الفيديو والمستندات فورًا لتقييم الأضرار والموافقة على المدفوعات في ثوانٍ." },
+            benefit1: { en: "98% Assessment Accuracy", ar: "دقة تقييم 98%" },
+            benefit2: { en: "Instant Payout Authorization", ar: "تفويض فوري للدفع" },
+            benefit3: { en: "Fraud Detection Engine", ar: "محرك كشف الاحتيال" }
+        },
+        "risk-guardian": {
+            title: { en: "Risk Guardian", ar: "حارس المخاطر" },
+            tagline: { en: "Predictive Geospatial Intelligence", ar: "استخبارات جغرافية تنبؤية" },
+            description: { en: "Underwrite with confidence using satellite imagery and historical data. Risk Guardian predicts flood zones, fire hazards, and accident hotspots to price policies with pinpoint precision.", ar: "اكتتب بثقة باستخدام صور الأقمار الصناعية والبيانات التاريخية. يتنبأ حارس المخاطر بمناطق الفيضانات ومخاطر الحرائق وبؤر الحوادث لتسعير السياسات بدقة متناهية." },
+            benefit1: { en: "Real-time Hazard Mapping", ar: "رسم خرائط المخاطر في الوقت الفعلي" },
+            benefit2: { en: "Dynamic Premium Scoring", ar: "تسجيل ديناميكي للأقساط" },
+            benefit3: { en: "Satellite Integration", ar: "تكامل مع الأقمار الصناعية" }
+        },
+        "sales-velocity": {
+            title: { en: "Sales Velocity", ar: "سرعة المبيعات" },
+            tagline: { en: "B2B Growth Engine", ar: "محرك نمو الشركات" },
+            description: { en: "Empower your partners with a seamless digital sales journey. Dynamic pricing, instant quote generation, and performance analytics drive unmatched conversion rates.", ar: "مكّن شركائك من خلال رحلة مبيعات رقمية سلسة. التسعير الديناميكي، وإنشاء عروض الأسعار الفورية، وتحليلات الأداء تقود معدلات تحويل لا مثيل لها." },
+            benefit1: { en: "Instant Quote Generation", ar: "إنشاء فوري لعروض الأسعار" },
+            benefit2: { en: "Partner Performance Analytics", ar: "تحليلات أداء الشركاء" },
+            benefit3: { en: "Dynamic Commission Models", ar: "نماذج عمولة ديناميكية" }
+        },
+        "agent-orchestra": {
+            title: { en: "Agent Orchestra", ar: "أوركسترا العملاء" },
+            tagline: { en: "Sovereign AI Workforce", ar: "قوة عاملة ذكية سيادية" },
+            description: { en: "Deploy specialized AI agents for every department. From customer support to legal compliance, our Agent Orchestra ensures your operations run 24/7 with human-level nuance.", ar: "انشر عملاء ذكاء اصطناعي متخصصين لكل قسم. من دعم العملاء إلى الامتثال القانوني، تضمن أوركسترا العملاء لدينا تشغيل عملياتك على مدار الساعة طوال أيام الأسبوع بدقة بشرية." },
+            benefit1: { en: "24/7 Operational Uptime", ar: "تشغيل تشغيلي 24/7" },
+            benefit2: { en: "Specialized Role Config", ar: "تكوين أدوار متخصص" },
+            benefit3: { en: "Human-in-the-loop Handoff", ar: "تسليم بشري في الحلقة" }
+        },
+        "persona-lab": {
+            title: { en: "Persona Lab", ar: "مختبر الشخصيات" },
+            tagline: { en: "Customer Interaction Simulator", ar: "محاكي تفاعل العملاء" },
+            description: { en: "Test your products and scripts against high-fidelity AI personas. Simulate thousands of customer interactions to refine your messaging and optimize conversion funnels.", ar: "اختبر منتجاتك ونصوصك مقابل شخصيات ذكاء اصطناعي عالية الدقة. قم بمحاكاة آلاف تفاعلات العملاء لتحسين رسائلك وتحسين مسارات التحويل." },
+            benefit1: { en: "Realistic User Behavior", ar: "سلوك مستخدم واقعي" },
+            benefit2: { en: "Sentiment Analysis", ar: "تحليل المشاعر" },
+            benefit3: { en: "Interaction Stress Testing", ar: "اختبار ضغط التفاعل" }
+        },
+        "enterprise-nexus": {
+            title: { en: "Enterprise Nexus", ar: "نكسة المؤسسة" },
+            tagline: { en: "Sovereign Governance", ar: "حكمة سيادية" },
+            description: { en: "The central nervous system of your insurance operation. Manage identity, security, compliance, and data sovereignty across all Rommaana modules from a single dashboard.", ar: "الجهاز العصبي المركزي لعملية التأمين الخاصة بك. إدارة الهوية والأمن والامتثال وسيادة البيانات عبر جميع وحدات رمانة من لوحة تحكم واحدة." },
+            benefit1: { en: "Unified Identity Mgmt", ar: "إدارة هوية موحدة" },
+            benefit2: { en: "SAMA Compliance Hooks", ar: "خطافات امتثال ساما" },
+            benefit3: { en: "Data Sovereignty Controls", ar: "ضوابط سيادة البيانات" }
+        }
     }
 };

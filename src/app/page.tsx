@@ -22,6 +22,7 @@ import {
 import { useTranslation } from "@/context/language-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   const { t, language, setLanguage } = useTranslation();
@@ -74,9 +75,9 @@ export default function Home() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
-              <NavLink href="#">{t("common.products")}</NavLink>
-              <NavLink href="#">{t("common.solutions")}</NavLink>
-              <NavLink href="#">{t("common.innovation")}</NavLink>
+              <NavLink href="#modules">{t("common.products")}</NavLink>
+              <NavLink href="#trust">{t("common.solutions")}</NavLink>
+              <NavLink href="#innovations">{t("common.innovation")}</NavLink>
             </nav>
           </div>
 
@@ -153,7 +154,7 @@ export default function Home() {
         </section>
 
         {/* The 6-Pillar Ecosystem Section */}
-        <section className="py-24 relative px-6 lg:px-12 bg-white/40 backdrop-blur-sm border-t border-slate-100">
+        <section id="modules" className="py-24 relative px-6 lg:px-12 bg-white/40 backdrop-blur-sm border-t border-slate-100 scroll-mt-32">
           <div className="container mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8 lg:px-4">
               <div className="max-w-2xl">
@@ -177,6 +178,7 @@ export default function Home() {
                 color="blue"
                 label={t("modules.claims_label")}
                 linkText={t("modules.explore")}
+                slug="claims-workbench"
                 isRTL={language === 'ar'}
               />
               <ModulePreview
@@ -186,6 +188,7 @@ export default function Home() {
                 color="amber"
                 label={t("modules.risk_label")}
                 linkText={t("modules.explore")}
+                slug="risk-guardian"
                 isRTL={language === 'ar'}
               />
               <ModulePreview
@@ -195,6 +198,7 @@ export default function Home() {
                 color="emerald"
                 label={t("modules.sales_label")}
                 linkText={t("modules.explore")}
+                slug="sales-velocity"
                 isRTL={language === 'ar'}
               />
               <ModulePreview
@@ -204,6 +208,7 @@ export default function Home() {
                 color="indigo"
                 label={t("modules.agents_label")}
                 linkText={t("modules.explore")}
+                slug="agent-orchestra"
                 isRTL={language === 'ar'}
               />
               <ModulePreview
@@ -213,6 +218,7 @@ export default function Home() {
                 color="rose"
                 label={t("modules.persona_label")}
                 linkText={t("modules.explore")}
+                slug="persona-lab"
                 isRTL={language === 'ar'}
               />
               <ModulePreview
@@ -222,6 +228,7 @@ export default function Home() {
                 color="slate"
                 label={t("modules.nexus_label")}
                 linkText={t("modules.explore")}
+                slug="enterprise-nexus"
                 isRTL={language === 'ar'}
               />
             </div>
@@ -229,7 +236,7 @@ export default function Home() {
         </section>
 
         {/* Stats Section / Trust Wall */}
-        <section className="py-24 border-y border-slate-100 relative">
+        <section id="trust" className="py-24 border-y border-slate-100 relative scroll-mt-32">
           <div className="container mx-auto px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
               <StatItem value="98%" label={t("stats.intent_accuracy")} />
@@ -241,7 +248,7 @@ export default function Home() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-32 bg-slate-900 relative overflow-hidden">
+        <section id="innovations" className="py-32 bg-slate-900 relative overflow-hidden scroll-mt-32">
           <div className="absolute top-0 right-0 w-[50%] h-full bg-blue-600/10 blur-[120px] rounded-full" />
           <div className="container mx-auto px-6 text-center relative z-10">
             <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 tracking-tighter">
@@ -259,53 +266,11 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-slate-950 text-slate-400 py-16 px-6 lg:px-12 border-t border-slate-900">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 px-4">
-            <div className="col-span-2">
-              <img
-                src="https://static.wixstatic.com/media/2dc74f_9ffb3f627ced42538647f70532f450f5~mv2.png/v1/fill/w_590,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RommaanaAsset%201.png"
-                alt="Rommaana"
-                className="h-8 w-auto brightness-0 invert opacity-40 mb-8"
-              />
-              <p className="max-w-xs text-sm leading-relaxed font-medium">
-                {t("footer.empowering")}
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">{t("footer.solution_suite")}</h4>
-              <ul className="space-y-4 text-xs font-bold">
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("modules.claims_title")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("modules.risk_title")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("modules.sales_title")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("modules.agents_title")}</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-8">{t("footer.ecosystem")}</h4>
-              <ul className="space-y-4 text-xs font-bold">
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("footer.sovereign_llms")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("footer.b2b_integration")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("footer.compliance")}</a></li>
-                <li><a href="#" className="hover:text-[#be123c] transition-colors">{t("footer.security_whitepaper")}</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 px-4">
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-              &copy; 2026 {t("footer.copyright")}
-            </p>
-            <div className="flex items-center gap-6 opacity-20">
-              <ShieldCheck className="w-5 h-5 text-white" />
-              <Lock className="w-5 h-5 text-white" />
-              <Activity className="w-5 h-5 text-white" />
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
+
 
 function NavLink({ href, children }: { href: string, children: React.ReactNode }) {
   return (
@@ -330,7 +295,7 @@ const colorClasses = {
 
 type ModuleColor = keyof typeof colorClasses;
 
-function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL }: { icon: any, title: string, desc: string, color: string, label: string, linkText: string, isRTL: boolean }) {
+function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL, slug }: { icon: any, title: string, desc: string, color: string, label: string, linkText: string, isRTL: boolean, slug: string }) {
   const themeColor = color as ModuleColor;
 
   const bgClass = colorClasses[themeColor] || colorClasses.slate;
@@ -345,24 +310,26 @@ function ModulePreview({ icon: Icon, title, desc, color, label, linkText, isRTL 
   }[themeColor] || "text-slate-900";
 
   return (
-    <motion.div
-      whileHover={{ y: -10 }}
-      className={cn(
-        "p-8 lg:p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 group cursor-pointer"
-      )}
-    >
-      <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all group-hover:scale-110 shadow-sm", bgClass)}>
-        <Icon className="w-7 h-7" />
-      </div>
-      <p className={cn("text-[9px] font-black uppercase tracking-[0.2em] mb-3", iconColorClass)}>
-        {label}
-      </p>
-      <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">{title}</h3>
-      <p className="text-sm font-medium text-slate-500 leading-relaxed mb-8">{desc}</p>
-      <div className="flex items-center gap-2 text-slate-900 font-black uppercase text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-        {linkText} <ArrowRight className={cn("w-3 h-3", isRTL ? "rotate-180" : "")} />
-      </div>
-    </motion.div>
+    <Link href={`/solutions/${slug}`}>
+      <motion.div
+        whileHover={{ y: -10 }}
+        className={cn(
+          "p-8 lg:p-10 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 group cursor-pointer h-full"
+        )}
+      >
+        <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-all group-hover:scale-110 shadow-sm", bgClass)}>
+          <Icon className="w-7 h-7" />
+        </div>
+        <p className={cn("text-[9px] font-black uppercase tracking-[0.2em] mb-3", iconColorClass)}>
+          {label}
+        </p>
+        <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">{title}</h3>
+        <p className="text-sm font-medium text-slate-500 leading-relaxed mb-8">{desc}</p>
+        <div className="flex items-center gap-2 text-slate-900 font-black uppercase text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+          {linkText} <ArrowRight className={cn("w-3 h-3", isRTL ? "rotate-180" : "")} />
+        </div>
+      </motion.div>
+    </Link>
   );
 }
 

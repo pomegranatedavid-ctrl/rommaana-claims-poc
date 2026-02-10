@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { UserCircle, Globe, ChevronDown, Key, Book, Info, LogOut, Users, ChevronRight } from "lucide-react";
+import { UserCircle, Globe, ChevronDown, Key, Book, Info, LogOut, Users, ChevronRight, Menu, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/language-context";
@@ -18,6 +18,7 @@ export function AdminHeader() {
     const { role, setRole } = useRole();
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const aiModules = [
         { name: t("common.claims_workbench"), href: "/admin/dashboard", roles: ["Admin", "Insurer"] },
@@ -163,6 +164,17 @@ export function AdminHeader() {
                 </nav>
             </div>
 
+            <div className="flex lg:hidden items-center gap-4">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-10 w-10 text-slate-600"
+                    onClick={() => setIsMobileMenuOpen(true)}
+                >
+                    <Menu className="w-6 h-6" />
+                </Button>
+            </div>
+
             <div className="flex items-center gap-6">
                 <Button
                     variant="ghost"
@@ -262,6 +274,126 @@ export function AdminHeader() {
                     )}
                 </div>
             </div>
+
+            {/* Mobile Menu Drawer */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[60]"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        />
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className={cn(
+                                "fixed inset-y-0 w-[85%] max-w-sm bg-white z-[70] shadow-2xl flex flex-col",
+                                language === 'ar' ? "left-0" : "right-0"
+                            )}
+                        >
+                            <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                                <img
+                                    src="https://static.wixstatic.com/media/2dc74f_9ffb3f627ced42538647f70532f450f5~mv2.png/v1/fill/w_590,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/RommaanaAsset%201.png"
+                                    alt="Rommaana Logo"
+                                    className="h-8 w-auto"
+                                />
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="h-10 w-10 rounded-xl"
+                                >
+                                    <X className="w-6 h-6 text-slate-400" />
+                                </Button>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto p-6 space-y-8">
+                                <MobileNavSection title={t("common.ai_modules")} items={aiModules} onClose={() => setIsMobileMenuOpen(false)} />
+                                <MobileNavSection title={language === 'ar' ? 'مساعدي الذكاء الاصطناعي' : 'AI Assistants'} items={aiAssistants} onClose={() => setIsMobileMenuOpen(false)} />
+                                <MobileNavSection title={t("common.configuration")} items={configuration} onClose={() => setIsMobileMenuOpen(false)} />
+
+                                <div className="pt-4 border-t border-slate-100">
+                                    <Link href="/admin/how-it-works" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <div className={cn(
+                                            "flex items-center justify-between p-4 rounded-2xl transition-all",
+                                            pathname === "/admin/how-it-works" ? "bg-rose-50 text-[#be123c] font-black" : "bg-slate-50 text-slate-600 font-bold"
+                                        )}>
+                                            <span>{t("common.how_it_works")}</span>
+                                            <ChevronRight className={cn("w-4 h-4", language === 'ar' && "rotate-180")} />
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="p-6 bg-slate-50 border-t border-slate-100">
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="flex items-center gap-3 font-bold text-slate-900">
+                                        <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white text-xs">
+                                            {role === "Admin" ? <Users className="w-5 h-5" /> : role[0]}
+                                        </div>
+                                        <div className="text-left">
+                                            <p className="text-xs leading-none">{getRoleDisplayName(role)}</p>
+                                            <p className="text-[10px] text-slate-400 mt-1 uppercase tracking-wider">{role === "Admin" ? "Enterprise" : role}</p>
+                                        </div>
+                                    </div>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
+                                        className="rounded-xl border-slate-200 font-bold h-9"
+                                    >
+                                        <Globe className="w-3.5 h-3.5 mr-2" />
+                                        {language === 'en' ? 'العربية' : 'EN'}
+                                    </Button>
+                                </div>
+                                <Button
+                                    variant="ghost"
+                                    className="w-full justify-start gap-3 h-12 text-rose-600 font-black hover:bg-rose-100/50 rounded-xl mb-2"
+                                    onClick={handleLogout}
+                                >
+                                    <LogOut className="w-5 h-5" /> {t("profile.logout")}
+                                </Button>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </header>
+    );
+}
+
+function MobileNavSection({ title, items, onClose }: { title: string; items: any[]; onClose: () => void }) {
+    const { language } = useTranslation();
+    const pathname = usePathname();
+
+    return (
+        <div className="space-y-4">
+            <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-4">{title}</h3>
+            <div className="space-y-2">
+                {items.map((item) => {
+                    const isActive = pathname === item.href;
+                    return (
+                        <Link key={item.href} href={item.href} onClick={onClose}>
+                            <div className={cn(
+                                "flex items-center justify-between p-4 rounded-2xl transition-all",
+                                isActive ? "bg-rose-50 text-[#be123c] font-black" : "hover:bg-slate-50 text-slate-600 font-bold"
+                            )}>
+                                <span className="text-sm">{item.name}</span>
+                                <ChevronRight className={cn(
+                                    "w-4 h-4",
+                                    isActive ? "opacity-100" : "opacity-30",
+                                    language === 'ar' && "rotate-180"
+                                )} />
+                            </div>
+                        </Link>
+                    );
+                })}
+            </div>
+        </div>
     );
 }

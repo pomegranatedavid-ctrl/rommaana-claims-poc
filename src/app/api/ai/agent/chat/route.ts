@@ -67,6 +67,7 @@ export async function POST(request: NextRequest) {
             {
                 error: 'Failed to process message',
                 details: error instanceof Error ? error.message : 'Unknown error',
+                stack: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.stack : undefined) : undefined,
             },
             { status: 500 }
         );

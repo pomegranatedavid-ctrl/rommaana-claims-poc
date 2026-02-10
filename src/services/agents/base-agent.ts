@@ -62,39 +62,79 @@ export class BaseAgent {
     protected async queryNotebookLM(query: string, context: AgentContext): Promise<string | null> {
         if (!this.notebookId) return null;
 
-        return new Promise((resolve) => {
-            const pythonProcess = this.spawn('python', [
-                'scripts/notebooklm_bridge.py',
-                this.notebookId!,
-                query
-            ]);
-
-            let output = '';
-            pythonProcess.stdout.on('data', (data: Buffer) => {
-                output += data.toString();
-            });
-
-            pythonProcess.on('close', (code: number) => {
-                if (code !== 0) {
-                    console.error(`NotebookLM Bridge error (code ${code})`);
-                    resolve(null);
-                    return;
-                }
-
+        const trySpawn = (command: string): Promise<string | null> => {
+            return new Promise((resolve) => {
                 try {
-                    const result = JSON.parse(output);
-                    if (result.status === 'success') {
-                        resolve(result.answer);
-                    } else {
-                        console.error('NotebookLM Bridge returned error:', result.error);
+                    console.log(`Attempting NotebookLM bridge via ${command}...`);
+                    const pythonProcess = this.spawn(command, [
+                        'scripts/notebooklm_bridge.py',
+                        this.notebookId!,
+                        query
+                    ]);
+
+                    let output = '';
+                    let errorOutput = '';
+
+                    pythonProcess.stdout.on('data', (data: Buffer) => {
+                        output += data.toString();
+                    });
+
+                    pythonProcess.stderr.on('data', (data: Buffer) => {
+                        errorOutput += data.toString();
+                    });
+
+                    pythonProcess.on('error', (err: any) => {
+                        console.error(`Failed to start ${command} process:`, err.message);
                         resolve(null);
-                    }
+                    });
+
+                    // Safety timeout (15s)
+                    const timeout = setTimeout(() => {
+                        console.warn(`${command} bridge timed out after 15s`);
+                        pythonProcess.kill();
+                        resolve(null);
+                    }, 15000);
+
+                    pythonProcess.on('close', (code: number) => {
+                        clearTimeout(timeout);
+                        if (code !== 0) {
+                            console.error(`${command} Bridge error (exit code ${code}): ${errorOutput}`);
+                            resolve(null);
+                            return;
+                        }
+
+                        try {
+                            const result = JSON.parse(output);
+                            if (result.status === 'success') {
+                                resolve(result.answer);
+                            } else {
+                                console.error(`${command} Bridge returned error:`, result.error);
+                                resolve(null);
+                            }
+                        } catch (e) {
+                            console.error(`Failed to parse ${command} Bridge output:`, e);
+                            resolve(null);
+                        }
+                    });
                 } catch (e) {
-                    console.error('Failed to parse NotebookLM Bridge output:', e);
+                    console.error(`Exception during ${command} spawn:`, e);
                     resolve(null);
                 }
             });
-        });
+        };
+
+        // Try 'python' first, then 'python3' as fallback
+        let result = await trySpawn('python');
+        if (!result) {
+            console.log('Falling back to python3...');
+            result = await trySpawn('python3');
+        }
+
+        if (!result) {
+            console.warn('NotebookLM bridge unavailable (Python/Modules not found). Falling back to LLM base knowledge.');
+        }
+
+        return result;
     }
 
     /**

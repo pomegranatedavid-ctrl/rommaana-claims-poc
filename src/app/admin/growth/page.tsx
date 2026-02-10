@@ -15,7 +15,7 @@ import { Volume2, VolumeX } from "lucide-react";
 import { useTranslation } from "@/context/language-context";
 
 export default function GrowthDashboard() {
-    const { t } = useTranslation();
+    const { t, language } = useTranslation();
     const [leads, setLeads] = useState<Lead[]>([]);
     const [isOffline, setIsOffline] = useState(false);
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null);

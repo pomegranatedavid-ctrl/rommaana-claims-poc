@@ -22,7 +22,6 @@ import {
 import { useTranslation } from "@/context/language-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Footer } from "@/components/footer";
 import { AIAgentsPanel } from "@/components/ai/ai-agents-panel";
 
 
@@ -290,7 +289,6 @@ export default function Home() {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 }

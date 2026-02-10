@@ -37,7 +37,15 @@ export interface AgentResponse {
     };
     suggestedNext?: string[];
     confidence?: number;
+    metadata?: {
+        usage?: {
+            totalTokens: number;
+        };
+        [key: string]: any;
+    };
 }
+
+
 
 export class BaseAgent {
     protected name: string;
@@ -256,10 +264,18 @@ export class BaseAgent {
             // Get suggested next steps
             const suggestedNext = await this.getSuggestedNext(history, context);
 
+            // Add input tokens estimate
+            const inputTokens = (userMessage.length + (notebookInsights.length || 0)) / 4;
+
             return {
                 message,
                 reasoning,
                 suggestedNext,
+                metadata: {
+                    usage: {
+                        totalTokens: (response.tokensUsed || 0) + Math.ceil(inputTokens)
+                    }
+                }
             };
         } catch (error) {
             console.error(`${this.name} Error:`, error);

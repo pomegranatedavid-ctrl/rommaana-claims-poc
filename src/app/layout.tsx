@@ -20,6 +20,7 @@ const outfit = Outfit({
 import { LanguageProvider } from "@/context/language-context";
 import { RoleProvider } from "@/context/role-context";
 import { SalesGrowthWidget } from "@/components/sales-growth-widget";
+import { Footer } from "@/components/footer";
 
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({
         <LanguageProvider>
           <RoleProvider>
             {children}
+            <Footer />
             <SalesGrowthWidget />
           </RoleProvider>
 

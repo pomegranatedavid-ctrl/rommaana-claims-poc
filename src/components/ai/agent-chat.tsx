@@ -140,7 +140,17 @@ export function AgentChat({ agentType, agentName, conversationId = 'demo', onClo
                 }),
             });
 
-            if (!response.ok) throw new Error('Failed to fetch response');
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error('[Chat Error Details]', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    requestId: errorData.requestId,
+                    error: errorData.error,
+                    details: errorData.details
+                });
+                throw new Error(errorData.details || errorData.error || 'Failed to fetch response');
+            }
 
             const data = await response.json();
 
@@ -162,7 +172,9 @@ export function AgentChat({ agentType, agentName, conversationId = 'demo', onClo
             const errorMsg: Message = {
                 id: (Date.now() + 1).toString(),
                 role: 'assistant',
-                content: language === 'ar' ? 'عذراً، حدث خطأ ما. يرجى المحاولة مرة أخرى.' : 'Sorry, something went wrong. Please try again.',
+                content: language === 'ar'
+                    ? 'عذراً، حدث خطأ ما. يرجى التحقق من وحدة التحكم لمزيد من التفاصيل.'
+                    : 'Sorry, something went wrong. Please check the console for details.',
                 timestamp: new Date(),
             };
             setMessages(prev => [...prev, errorMsg]);

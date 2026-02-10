@@ -1,5 +1,6 @@
 // Base Agent Implementation
 import llmService, { LLMMessage } from '../ai/llm-service';
+import { spawn } from 'child_process';
 
 /**
  * Base Agent Architecture
@@ -45,7 +46,6 @@ export class BaseAgent {
     protected notebookId?: string;
     protected tools: Map<string, AgentTool>;
     protected conversations: Map<string, AgentMessage[]>;
-    private spawn = require('child_process').spawn;
 
     constructor(name: string, description: string, systemPrompt: string, notebookId?: string) {
         this.name = name;
@@ -66,7 +66,7 @@ export class BaseAgent {
             return new Promise((resolve) => {
                 try {
                     console.log(`Attempting NotebookLM bridge via ${command}...`);
-                    const pythonProcess = this.spawn(command, [
+                    const pythonProcess = spawn(command, [
                         'scripts/notebooklm_bridge.py',
                         this.notebookId!,
                         query

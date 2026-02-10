@@ -24,24 +24,24 @@ export interface LLMResponse {
 }
 
 class LLMService {
-    private genAI: GoogleGenerativeAI;
-    private model: GenerativeModel;
+    private genAI: GoogleGenerativeAI | undefined;
+    private model: GenerativeModel | undefined;
     private defaultConfig: GenerationConfig;
 
     constructor() {
         const apiKey = process.env.GOOGLE_GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
-        if (!apiKey) {
-            throw new Error('GOOGLE_GEMINI_API_KEY not found in environment variables');
+        if (apiKey) {
+            console.log(`LLM Service initialized with API key: ${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`);
+            this.genAI = new GoogleGenerativeAI(apiKey);
+
+            // Use Gemini 1.5 Flash for the best balance of speed and capability
+            this.model = this.genAI.getGenerativeModel({
+                model: 'gemini-1.5-flash',
+            });
+        } else {
+            console.warn('LLM Service initialized WITHOUT API KEY. Some features will be disabled.');
         }
-
-        console.log(`LLM Service initialized with API key: ${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`);
-        this.genAI = new GoogleGenerativeAI(apiKey);
-
-        // Use Gemini 1.5 Flash for the best balance of speed and capability
-        this.model = this.genAI.getGenerativeModel({
-            model: 'gemini-1.5-flash',
-        });
 
         this.defaultConfig = {
             temperature: 0.7,
@@ -51,6 +51,21 @@ class LLMService {
         };
     }
 
+    private checkInitialized(): void {
+        if (!this.genAI || !this.model) {
+            const apiKey = process.env.GOOGLE_GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+
+            if (!apiKey) {
+                throw new Error('Google Gemini API Key is missing. Please add GOOGLE_GEMINI_API_KEY to your environment variables.');
+            }
+
+            this.genAI = new GoogleGenerativeAI(apiKey);
+            this.model = this.genAI.getGenerativeModel({
+                model: 'gemini-1.5-flash',
+            });
+        }
+    }
+
     /**
      * Generate a completion with conversation history
      */
@@ -58,6 +73,7 @@ class LLMService {
         messages: LLMMessage[],
         options: LLMOptions = {}
     ): Promise<LLMResponse> {
+        this.checkInitialized();
         try {
             const config: GenerationConfig = {
                 ...this.defaultConfig,
@@ -90,15 +106,15 @@ class LLMService {
 
             let result;
             try {
-                result = await this.model.generateContent({
+                result = await this.model!.generateContent({
                     contents: [{ role: 'user', parts: [{ text: prompt }] }],
                     generationConfig: config,
                 });
             } catch (modelError: any) {
                 // If the specific model name failed with 404, try a more standard one
                 if (modelError?.message?.includes('404') || modelError?.message?.includes('not found')) {
-                    console.warn(`Model ${this.model.model} failed, falling back to gemini-pro...`);
-                    const fallbackModel = this.genAI.getGenerativeModel({ model: 'gemini-pro' });
+                    console.warn(`Model ${this.model!.model} failed, falling back to gemini-pro...`);
+                    const fallbackModel = this.genAI!.getGenerativeModel({ model: 'gemini-pro' });
                     result = await fallbackModel.generateContent({
                         contents: [{ role: 'user', parts: [{ text: prompt }] }],
                         generationConfig: config,
@@ -158,8 +174,9 @@ class LLMService {
      * Generate embeddings for text
      */
     async embed(text: string): Promise<number[]> {
+        this.checkInitialized();
         try {
-            const embeddingModel = this.genAI.getGenerativeModel({
+            const embeddingModel = this.genAI!.getGenerativeModel({
                 model: 'text-embedding-004'
             });
 
@@ -175,8 +192,9 @@ class LLMService {
      * Generate embeddings for multiple texts in batch
      */
     async embedBatch(texts: string[]): Promise<number[][]> {
+        this.checkInitialized();
         try {
-            const embeddingModel = this.genAI.getGenerativeModel({
+            const embeddingModel = this.genAI!.getGenerativeModel({
                 model: 'text-embedding-004'
             });
 

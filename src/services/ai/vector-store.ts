@@ -40,34 +40,63 @@ class VectorStore {
     /**
      * Get or create a collection
      */
-    async getCollection(name: string): Promise<Collection> {
+    async getCollection(name: string): Promise<Collection | null> {
         if (this.collections.has(name)) {
             return this.collections.get(name)!;
         }
 
         try {
-            console.log(`Getting ChromaDB collection: ${name} at ${process.env.CHROMADB_PATH || 'http://localhost:8000'}`);
-            // Try to get existing collection
-            const collection = await this.client.getCollection({ name });
-            this.collections.set(name, collection);
-            return collection;
-        } catch (error) {
-            console.warn(`Collection ${name} not found or ChromaDB unreachable, attempting to create...`);
+            const chromadbPath = process.env.CHROMADB_PATH || 'http://localhost:8000';
+            console.log(`Getting ChromaDB collection: ${name} at ${chromadbPath}`);
+
+            // Check connectivity first with a HEAD/GET request to avoid hanging
             try {
-                // Collection doesn't exist, create it
-                const collection = await this.client.createCollection({
-                    name,
-                    metadata: {
-                        'hnsw:space': 'cosine',
-                        description: `Vector collection for ${name}`,
-                    },
-                });
-                this.collections.set(name, collection);
-                return collection;
-            } catch (createError) {
-                console.error(`Failed to get or create collection ${name}:`, createError);
-                throw createError;
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 2000); // 2s timeout
+
+                await fetch(`${chromadbPath}/api/v1/heartbeat`, {
+                    method: 'GET',
+                    signal: controller.signal
+                }).catch(() => {
+                    // Ignore fetch errors, just checking if valid URL
+                }).finally(() => clearTimeout(timeoutId));
+            } catch (e) {
+                console.warn(`ChromaDB heartbeat failed at ${chromadbPath}, vector store may be unreachable.`);
+                return null;
             }
+
+            // Try to get existing collection with timeout race
+            const getCollectionPromise = this.client.getCollection({ name });
+
+            const collection = await Promise.race([
+                getCollectionPromise,
+                new Promise<null>((_, reject) => setTimeout(() => reject(new Error('ChromaDB connection timed out')), 3000))
+            ]).catch(err => {
+                console.warn(`ChromaDB getCollection timed out or failed: ${err.message}`);
+                return null;
+            });
+
+            if (collection) {
+                this.collections.set(name, collection as Collection);
+                return collection as Collection;
+            }
+
+            console.warn(`Collection ${name} not found, attempting to create...`);
+
+            // Collection doesn't exist, create it
+            const newCollection = await this.client.createCollection({
+                name,
+                metadata: {
+                    'hnsw:space': 'cosine',
+                    description: `Vector collection for ${name}`,
+                },
+            });
+            this.collections.set(name, newCollection);
+            return newCollection;
+
+        } catch (error) {
+            console.error(`Failed to get or create collection ${name}. Vector Search will be disabled. Error:`, error);
+            return null;
         }
     }
 
@@ -80,6 +109,11 @@ class VectorStore {
     ): Promise<void> {
         try {
             const collection = await this.getCollection(collectionName);
+
+            if (!collection) {
+                console.warn(`Cannot add documents to ${collectionName}: Vector Store unreachable.`);
+                return;
+            }
 
             // Generate embeddings for all documents
             const contents = documents.map(doc => doc.content);
@@ -100,7 +134,7 @@ class VectorStore {
             console.log(`Added ${documents.length} documents to collection: ${collectionName}`);
         } catch (error) {
             console.error('Error adding documents:', error);
-            throw new Error(`Failed to add documents: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            // Don't throw, just log. We don't want to crash the app if vector store is down.
         }
     }
 
@@ -118,6 +152,11 @@ class VectorStore {
     ): Promise<SearchResult[]> {
         try {
             const collection = await this.getCollection(collectionName);
+
+            if (!collection) {
+                console.warn(`Cannot search ${collectionName}: Vector Store unreachable.`);
+                return [];
+            }
 
             // Generate query embedding
             const queryEmbedding = await llmService.embed(query);
@@ -168,6 +207,10 @@ class VectorStore {
         try {
             const collection = await this.getCollection(collectionName);
 
+            if (!collection) {
+                return null;
+            }
+
             const results = await collection.get({
                 ids: [id],
             });
@@ -197,6 +240,10 @@ class VectorStore {
         try {
             const collection = await this.getCollection(collectionName);
 
+            if (!collection) {
+                return;
+            }
+
             // Generate new embedding
             const embedding = await llmService.embed(document.content);
 
@@ -223,6 +270,10 @@ class VectorStore {
     ): Promise<void> {
         try {
             const collection = await this.getCollection(collectionName);
+
+            if (!collection) {
+                return;
+            }
 
             await collection.delete({
                 ids: [id],
@@ -272,6 +323,15 @@ class VectorStore {
     }> {
         try {
             const collection = await this.getCollection(name);
+
+            if (!collection) {
+                return {
+                    name,
+                    count: 0,
+                    metadata: { error: 'Vector Store unreachable' }
+                };
+            }
+
             const count = await collection.count();
 
             return {

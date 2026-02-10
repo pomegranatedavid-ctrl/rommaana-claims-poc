@@ -39,7 +39,15 @@ export const UserService = {
             .select('*');
 
         if (error) {
-            console.warn("Using mock users (profiles table might not exist):", error.message);
+            console.warn("Supabase fetch error (getUsers):", error.message);
+            // Deep inspection for troubleshooting
+            if (typeof window !== 'undefined') {
+                console.group("Detailed User Fetch Error Inspection");
+                console.error("Error Message:", error.message);
+                console.error("Error Code:", error.code);
+                console.error("Error Details:", error.details);
+                console.groupEnd();
+            }
             return INITIAL_USERS;
         }
 
@@ -65,7 +73,15 @@ export const UserService = {
 
         if (error) {
             console.error("Error adding user to Supabase:", error);
-            // Fallback for POC: we don't really have a local state to update here since it's a service
+            // Deep inspection for troubleshooting
+            if (typeof window !== 'undefined') {
+                console.group("Detailed User Addition Error Inspection");
+                console.error("Error Message:", error.message);
+                console.error("Error Code:", error.code);
+                console.error("Error Details:", error.details);
+                console.error("Full Error Object:", JSON.parse(JSON.stringify(error)));
+                console.groupEnd();
+            }
             throw error;
         }
         return data?.[0];
@@ -84,6 +100,12 @@ export const UserService = {
 
         if (error) {
             console.error("Error updating user in Supabase:", error);
+            if (typeof window !== 'undefined') {
+                console.group("Detailed User Update Error Inspection");
+                console.error("Error Message:", error.message);
+                console.error("Error Code:", error.code);
+                console.groupEnd();
+            }
             throw error;
         }
     },

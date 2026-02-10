@@ -1,4 +1,6 @@
 export type ClaimStatus = 'ANALYZING' | 'APPROVED' | 'REFERRED_TO_HUMAN' | 'REJECTED';
+import { NotebookLMService } from "./notebooklm-service";
+
 
 const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -18,15 +20,50 @@ export interface AgentResponse {
 
 // Real-ish Vision Agent calling internal Gemini route
 export const VisionAgent = {
-    analyzeImage: async (file: File): Promise<AgentResponse> => {
+    analyzeImage: async (file: File, userStatement?: string, config?: any): Promise<AgentResponse> => {
         try {
             const base64 = await fileToBase64(file);
+            const workshopContext = config ? `
+            Use the following Workshop Rates for estimation:
+            - Base Labor: SAR ${config.laborRate}/hr
+            - Paint Rate: SAR ${config.paintRate}/panel
+            - Parts Prices: ${JSON.stringify(config.partsPrices)}
+            - Total Loss Threshold: ${config.totalLossThreshold}%
+            ` : "Use standard KSA repair rates (Bumper: 800-1200 SAR, Paint: 400-600 SAR).";
+
+            const correlationContext = userStatement ? `
+            The user claims the following happened: "${userStatement}". 
+            STRICT REQUIREMENT: Verify if the visual evidence in the photo MANTORILY supports this specific story. 
+            If there is a mismatch (e.g., they say 'front hit' but photo shows rear, or they say 'totaled' but photo shows a scratch), you MUST flag this as a 'Mismatch'.
+            ` : "Analyze the damage neutrally but skeptically.";
+
             const res = await fetch("/api/vision", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     image: base64,
-                    prompt: "You are an insurance claims adjuster AI. Analyze this image of vehicle damage. Provide a concise summary of what you see, identify parts damaged, and estimate a damage score from 0-100 (100 being total loss). Format your response as a JSON string with 'message' (summary) and 'data' (object with damageScore and parts list)."
+                    prompt: `You are an ADVERSARIAL Saudi insurance claims adjuster AI. Your goal is to be accurate and prevent insurance fraud. 
+                    Analyze this image of vehicle damage in Riyadh. 
+                    ${workshopContext}
+                    ${correlationContext}
+                    
+                    TASKS:
+                    1. Identify all damaged parts and the nature of damage (dent, scratch, structural deformation).
+                    2. Check for "Pre-existing damage" indicators (e.g., rust on a fresh dent).
+                    3. Calculate a Damage Score (0-100) and Confidence Level (0-100).
+                    4. Estimate repair cost in SAR.
+                    
+                    Format your response AS A VALID JSON STRING with:
+                    - 'message': A professional, slightly skeptical summary of findings.
+                    - 'data': {
+                        'damageScore': number,
+                        'confidence': number,
+                        'estimatedSAR': number,
+                        'parts': string[],
+                        'isStructural': boolean,
+                        'storyMatch': boolean,
+                        'fraudFlags': string[]
+                    }`
                 })
             });
             const data = await res.json();
@@ -54,6 +91,20 @@ export const VisionAgent = {
                 data: { damageScore: 0, parts: [] }
             };
         }
+    },
+
+    analyzeDetailSim: async (mockPath: string, config?: any): Promise<AgentResponse> => {
+        // Simulation for Admin Panel
+        const rates = config || { laborRate: 150, paintRate: 500, partsPrices: { bumper: 1200 } };
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    agentName: "Rommaana Vision Agent (Simulated)",
+                    message: `Analysis of ${mockPath} using Labor Rate: SAR ${rates.laborRate}/hr. Detected bumper impact. Total estimated cost: SAR ${rates.partsPrices.bumper + (rates.laborRate * 2)}.`,
+                    data: { damageScore: 45, parts: ["Bumper"], estimatedSAR: rates.partsPrices.bumper + (rates.laborRate * 2) }
+                });
+            }, 1500);
+        });
     },
 
     analyzeDetail: async (imagePath: string): Promise<{ detection: string; relevance: string }> => {
@@ -159,31 +210,51 @@ export const FraudAgent = {
 // Simulated Decision Agent (Rules Engine)
 export const DecisionAgent = {
     makeDecision: async (visionData: any, fraudData: any): Promise<AgentResponse> => {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // Logic Gate: Stricter Adjudication Rules
+        const sarValue = visionData.estimatedSAR || 0;
+        const confidence = visionData.confidence || 0;
+        const hasFlags = visionData.fraudFlags && visionData.fraudFlags.length > 0;
 
-        if (fraudData.riskLevel === "HIGH" || fraudData.riskLevel === "CRITICAL") {
+        // Rule 1: Fraud or Mismatch -> Immediate Referral
+        if (fraudData.riskLevel === "HIGH" || fraudData.riskLevel === "CRITICAL" || !visionData.storyMatch || hasFlags) {
             return {
                 agentName: "Rommaana Decision Agent",
-                message: fraudData.riskLevel === "CRITICAL"
-                    ? "Integrity Shield triggered. Suspicious image origin detected. Immediate referral to Underwriting Investigations."
-                    : "Due to historical risk flags, I am referring this claim to a Senior Adjuster.",
+                message: !visionData.storyMatch
+                    ? "DECISION: Referral to Investigations. The visual evidence does not correlate with the user's statement of events."
+                    : "DECISION: Integrity Shield Alert. Risk parameters exceed automated threshold. Refer for manual technical audit.",
                 action: "REFERRED_TO_HUMAN",
-                data: { reason: fraudData.fraudType || "Historical Risk" }
+                data: { reason: "Policy Deviation/Fraud Risk", sar: sarValue }
             };
         }
 
-        if (visionData.damageScore > 80) {
+        // Rule 2: Low Confidence -> Refer
+        if (confidence < 85) {
             return {
                 agentName: "Rommaana Decision Agent",
-                message: "The damage is extensive. I have authorized a Total Loss settlement offer of SAR 45,000 based on the vehicle market value.",
-                action: "APPROVED"
+                message: "DECISION: Ambiguous Visual Data. The neural confidence score is below 85%. Referring to human adjuster for validation.",
+                action: "REFERRED_TO_HUMAN",
+                data: { reason: "Low Vision Confidence", confidence }
             };
         }
 
+        // Rule 3: High Value or Structural -> Refer
+        if (sarValue > 5000 || visionData.isStructural) {
+            return {
+                agentName: "Rommaana Decision Agent",
+                message: visionData.isStructural
+                    ? "DECISION: Structural Risk Detected. Aligned with safety protocols, all structural impacts require human sign-off."
+                    : `DECISION: High-Value Threshold Exceeded (SAR ${sarValue.toLocaleString()}). Referring to Senior Adjuster for final approval.`,
+                action: "REFERRED_TO_HUMAN",
+                data: { reason: visionData.isStructural ? "Structural Damage" : "High Value", sar: sarValue }
+            };
+        }
+
+        // Rule 4: Clean, Low-Value, High-Confidence -> Auto-Approve
         return {
             agentName: "Rommaana Decision Agent",
-            message: "The damage is minor. I have authorized an Instant Repair Approval at our partner workshop 'Al-Futtaim Body Shop'. Estimated Cost: SAR 1,200.",
-            action: "APPROVED"
+            message: `DECISION: Verified Instant Approval. Damage is localized, non-structural, and aligns with partner workshop rates. Total: SAR ${sarValue.toLocaleString()}.`,
+            action: "APPROVED",
+            data: { regulatoryNote: "IA Article 47 Compliant", citation: "Circular 2025/11", sar: sarValue }
         };
     }
 }
@@ -238,6 +309,53 @@ export const ComplianceAgent = {
             agentName: "Rommaana Compliance Agent",
             message: "All IA Mandatory Clauses (Circular 2025/11) are present. KYC is verified via Elm integration. Application is compliant.",
             action: "APPROVED"
+        }
+    }
+}
+
+// Knowledge & Integration Agent (NotebookLM)
+export const KnowledgeAgent = {
+    answerInquiry: async (query: string): Promise<AgentResponse> => {
+        const response = await NotebookLMService.query("al-etihad-knowledge-base", query);
+        return {
+            agentName: "Rommaana Knowledge Agent",
+            message: response.answer,
+            data: { sources: response.sources }
+        };
+    }
+};
+
+export class ExtractionAgent {
+    static async extractData(text: string): Promise<Record<string, string>> {
+        try {
+            const prompt = `
+                You are a data extraction bot for insurance claims.
+                Analyze the following user message and extract any relevant claim data like Date, Time, Location, Vehicle Type, or Damage description.
+                Output ONLY a JSON object with keys as field names and values as extracted data.
+                Input: "${text}"
+            `;
+
+            const res = await fetch("/api/vision", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt }),
+            });
+
+            const result = await res.json();
+            try {
+                let jsonText = result.text;
+                if (jsonText.includes("```json")) {
+                    jsonText = jsonText.split("```json")[1].split("```")[0].trim();
+                } else if (jsonText.includes("```")) {
+                    jsonText = jsonText.split("```")[1].split("```")[0].trim();
+                }
+                return JSON.parse(jsonText);
+            } catch {
+                return {};
+            }
+        } catch (error) {
+            console.error("Extraction error:", error);
+            return {};
         }
     }
 }

@@ -11,24 +11,30 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "No image provided" }, { status: 400 });
         }
 
-        // Convert base64 to parts for Gemini
+        // Use Gemini 1.5 Flash for multimodal analysis
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        // The image should be sent as base64 from the frontend
-        const imageData = image.split(",")[1]; // Remove metadata prefix if present
+        const imageData = image.split(",")[1];
 
         const result = await model.generateContent([
-            prompt || "Analyze this insurance claim image for damage.",
             {
                 inlineData: {
                     data: imageData,
                     mimeType: "image/jpeg",
                 },
             },
+            { text: prompt || "Analyze this insurance claim image for damage." },
         ]);
 
         const response = await result.response;
-        const text = response.text();
+        let text = response.text();
+
+        // Ensure we only return the JSON part if the model included markdown
+        if (text.includes("```json")) {
+            text = text.split("```json")[1].split("```")[0].trim();
+        } else if (text.includes("```")) {
+            text = text.split("```")[1].split("```")[0].trim();
+        }
 
         return NextResponse.json({ text });
     } catch (error: any) {

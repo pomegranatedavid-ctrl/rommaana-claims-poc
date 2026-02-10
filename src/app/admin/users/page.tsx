@@ -61,11 +61,12 @@ export default function UsersManagementPage() {
                 if (addedUser) {
                     setUsers([...users, addedUser]);
                 } else {
-                    // Fallback for mock behavior
+                    console.warn("UserService.addUser returned null/empty, simulating locally");
                     setUsers([...users, { ...newUserReq, id: Math.random().toString(36).substr(2, 9) }]);
                 }
             } catch (e) {
-                console.warn("Supabase insert failed, simulating locally", e);
+                console.error("Supabase technical failure detected by UI layer:", e);
+                // Fallback to local simulation so the POC doesn't "break" for the user
                 setUsers([...users, { ...newUserReq, id: Math.random().toString(36).substr(2, 9) }]);
             }
 
@@ -135,6 +136,37 @@ export default function UsersManagementPage() {
                             {t("common.user_management")}
                         </h1>
                         <p className="text-slate-500 font-medium">{t("users_management.user_list_header")}</p>
+                    </div>
+                </div>
+
+                {/* Module Introduction Card */}
+                <div className="mb-8 grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div className="md:col-span-12 lg:col-span-12 xl:col-span-12">
+                        <Card className="bg-white border-slate-200 shadow-sm overflow-hidden">
+                            <div className="flex flex-col md:flex-row">
+                                <div className="p-8 flex-1">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center border border-rose-100">
+                                            <ShieldCheck className="w-6 h-6 text-[#be123c]" />
+                                        </div>
+                                        <h2 className="text-xl font-bold text-slate-900">{t("dashboard.users_intro_title")}</h2>
+                                    </div>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-3xl">
+                                        {t("dashboard.users_intro_desc")}
+                                    </p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">{t("dashboard.users_traditional_title")}</h4>
+                                            <p className="text-xs text-slate-600 font-medium leading-relaxed">{t("dashboard.users_traditional_desc")}</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl bg-rose-50/30 border border-rose-100 border-l-4 border-l-[#be123c]">
+                                            <h4 className="text-[10px] font-bold text-[#be123c] uppercase tracking-widest mb-2">{t("dashboard.users_ai_title")}</h4>
+                                            <p className="text-xs text-slate-800 font-bold leading-relaxed">{t("dashboard.users_ai_desc")}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
                     </div>
                 </div>
 

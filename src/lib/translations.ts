@@ -240,6 +240,43 @@ export const translations = {
         fraud_correlation: { en: "Fraud Correlation", ar: "كشف الاحتيال" },
         clean: { en: "CLEAN", ar: "سليم" },
         auto_settlement: { en: "Auto-Settlement Eligible", ar: "مؤهل للتسوية التلقائية" },
+        intro_title: { en: "Welcome to the AI Claims Workbench", ar: "مرحباً بكم في منصة المطالبات الذكية" },
+        intro_description: { en: "The Rommaana Claims Workbench is an advanced AI-driven ecosystem designed to transform how insurance claims are processed, analyzed, and settled.", ar: "منصة مطالبات رمانة هي منظومة متطورة مدعومة بالذكاء الاصطناعي، مصممة لتحويل كيفية معالجة المطالبات التأمينية وتحليلها وتسويتها." },
+        traditional_title: { en: "Traditional Process", ar: "العملية التقليدية" },
+        traditional_desc: { en: "Manual FNOL intake, days of physical inspection delays, and human-only fraud verification.", ar: "استلام يدوي للمطالبات، تأخير لعدة أيام في المعاينة الميدانية، وتحقق يدوي فقط من الاحتيال." },
+        ai_advantage_title: { en: "Rommaana AI Advantage", ar: "ميزة رمانة للذكاء الاصطناعي" },
+        ai_advantage_desc: { en: "Instant multimodal analysis, computer-vision damage assessment, and 98% accurate automated settlements in seconds.", ar: "تحليل فوري متعدد الوسائط، تقييم الأضرار بالرؤية الحاسوبية، وتصفيات تلقائية بدقة 98٪ في ثوانٍ." },
+        // Risk Guardian Intro
+        risk_intro_title: { en: "Geospatial Risk Guardian", ar: "حارس المخاطر الجغرافية" },
+        risk_intro_desc: { en: "Automated underwriting driven by satellite topology and real-time regulatory compliance guards.", ar: "تغطية تأمينية مؤتمتة مدفوعة بتضاريس الأقمار الصناعية وحواجز الامتثال التنظيمي في الوقت الفعلي." },
+        risk_traditional_title: { en: "Manual Inspection", ar: "المعاينة اليدوية" },
+        risk_traditional_desc: { en: "Physical site surveys, outdated hazard maps, and weeks of administrative delays.", ar: "معاينات ميدانية، خرائط مخاطر قديمة، وأسابيع من التأخير الإداري." },
+        risk_ai_title: { en: "AI Risk Assessment", ar: "تقييم المخاطر بالذكاء الاصطناعي" },
+        risk_ai_desc: { en: "Instant geospatial hazard detection, pixel-level asset analysis, and SAMA compliance verification.", ar: "كشف فوري للمخاطر الجغرافية، تحليل الأصول على مستوى البكسل، والتحقق من امتثال ساما." },
+
+        // Sales Growth Intro
+        growth_intro_title: { en: "Propensity Sales Cockpit", ar: "مقصورة مبيعات الميل الشرائي" },
+        growth_intro_desc: { en: "Predictive vocal sentiment and behavioral analysis to identify high-value opportunities.", ar: "تحليل المشاعر الصوتية التنبؤية والسلوك لتحديد الفرص عالية القيمة." },
+        growth_traditional_title: { en: "Standard Outreach", ar: "التواصل التقليدي" },
+        growth_traditional_desc: { en: "Cold calling without context, generic scripts, and manual lead prioritization.", ar: "اتصالات باردة بدون سياق، نصوص برمجية عامة، وتحديد أولويات العملاء يدوياً." },
+        growth_ai_title: { en: "Growth Intelligence", ar: "ذكاء النمو" },
+        growth_ai_desc: { en: "Dynamic script pivoting, live vocal sentiment tracking, and 10x higher conversion rates.", ar: "تحويل النص البرمجي ديناميكياً، تتبع المشاعر الصوتية المباشر، ومعدلات تحويل أعلى بـ 10 أضعاف." },
+
+        // Neural Core Intro
+        agents_intro_title: { en: "Neural Core Orchestration", ar: "تنسيق النواة العصبية" },
+        agents_intro_desc: { en: "The central nervous system of Rommaana, where autonomous agents collaborate in a high-speed mesh.", ar: "الجهاز العصبي المركزي لرمانة، حيث تتعاون الوكلاء المستقلون في شبكة عالية السرعة." },
+        agents_traditional_title: { en: "Legacy Software", ar: "البرمجيات القديمة" },
+        agents_traditional_desc: { en: "Hardcoded business logic, static rules, and slow manual model retraining.", ar: "منطق أعمال مبرمج مسبقاً، قواعد ثابتة، وإعادة تدريب يدوية بطيئة للنماذج." },
+        agents_ai_title: { en: "Agentic Mesh", ar: "الشبكة الوكيلة" },
+        agents_ai_desc: { en: "Self-evolving logic, real-time parameter tuning, and multimodal processing nodes.", ar: "منطق متطور ذاتياً، ضبط المعلمات في الوقت الفعلي، وعقد معالجة متعددة الوسائط." },
+
+        // Access Control Intro
+        users_intro_title: { en: "Identity & Clearance Governance", ar: "حوكمة الهوية والتصريح" },
+        users_intro_desc: { en: "Managing the hierarchy of human and agentic access to the Rommaana neural ecosystem.", ar: "إدارة التسلسل الهرمي للوصول البشري والوكيل إلى منظومة رمانة العصبية." },
+        users_traditional_title: { en: "Basic Admin", ar: "الإدارة الأساسية" },
+        users_traditional_desc: { en: "Manual role assignment, password-only security, and no audit trail for AI actions.", ar: "تعيين يدوي للأدوار، أمان بكلمة مرور فقط، وعدم وجود سجل تدقيق لأفعال الذكاء الاصطناعي." },
+        users_ai_title: { en: "Secure Identity", ar: "الهوية الآمنة" },
+        users_ai_desc: { en: "Neural-synced permissions, automated clearance levels, and secure identity masking.", ar: "أذونات متزامنة عصبياً، مستويات تصريح مؤتمتة، وإخفاء آمن للهوية." },
     },
     claims: {
         new_claim: { en: "New Claim", ar: "مطالبة جديدة" },

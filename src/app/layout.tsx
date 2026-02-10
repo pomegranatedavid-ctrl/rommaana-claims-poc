@@ -19,10 +19,17 @@ const outfit = Outfit({
 
 import { LanguageProvider } from "@/context/language-context";
 import { RoleProvider } from "@/context/role-context";
+import { SalesGrowthWidget } from "@/components/sales-growth-widget";
+
 
 export const metadata: Metadata = {
   title: "Rommaana | Intelligent Insurance",
   description: "The future of AI-powered insurance in Saudi Arabia.",
+  appleWebApp: {
+    capable: true,
+    title: "Rommaana",
+    statusBarStyle: "default",
+  },
 };
 
 export default function RootLayout({
@@ -43,7 +50,9 @@ export default function RootLayout({
         <LanguageProvider>
           <RoleProvider>
             {children}
+            <SalesGrowthWidget />
           </RoleProvider>
+
         </LanguageProvider>
       </body>
     </html>

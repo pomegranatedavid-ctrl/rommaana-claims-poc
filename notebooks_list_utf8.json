@@ -1,0 +1,113 @@
+﻿{"status": "info", "message": "Authentication tokens found", "authenticated": true}
+{
+  "status": "success",
+  "authenticated": true,
+  "notebook_count": 21,
+  "notebooks": [
+    {
+      "title": "IA - Claims, Security & Compliance",
+      "notebook_id": "2d0e5ace-1f01-4d8f-8fe1-dceff0948206",
+      "source_count": 9
+    },
+    {
+      "title": "IA - Rules & Regulations",
+      "notebook_id": "f5a69ec7-f9ba-4597-ad9d-ae21d364b219",
+      "source_count": 38
+    },
+    {
+      "title": "Generative AI in the Insurance Customer Journey",
+      "notebook_id": "0f6b1988-5961-469a-b52c-3f201a399b8e",
+      "source_count": 50
+    },
+    {
+      "title": "IA - Reports",
+      "notebook_id": "3b2c132e-bde0-437d-86b2-ba877ebbff29",
+      "source_count": 34
+    },
+    {
+      "title": "Company Situation",
+      "notebook_id": "4bdb1433-dae1-405d-a232-6135bc2aa100",
+      "source_count": 42
+    },
+    {
+      "title": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+      "notebook_id": "23569404-ca4a-4879-98a2-ee003d1dcdab",
+      "source_count": 10
+    },
+    {
+      "title": "Saudi B2B InsurTech Roadmap: 2024-2026 Strategy",
+      "notebook_id": "57d19c5a-8a06-46c6-ba7e-106c8d725a53",
+      "source_count": 1
+    },
+    {
+      "title": "Insurance Industry - Saudi Arabia",
+      "notebook_id": "2c09aedf-b1f2-4efb-af2d-c86eb147b15f",
+      "source_count": 27
+    },
+    {
+      "title": "IA - Standards, Policies, Coverages & Renewals",
+      "notebook_id": "1e8e43d0-06b4-4187-be51-01bc1f7fc17b",
+      "source_count": 42
+    },
+    {
+      "title": "Sales, Technology, and Product Roadmap",
+      "notebook_id": "29ef7e3e-2ccb-401c-88fc-4a2a26e5ab42",
+      "source_count": 1
+    },
+    {
+      "title": "Saudi Medical Malpractice Law and Insurance Foundations",
+      "notebook_id": "0aec6b6e-8a1f-408b-b43b-9339be2d3b32",
+      "source_count": 31
+    },
+    {
+      "title": "FurtherAI",
+      "notebook_id": "c1ae3c3e-d387-434b-87f8-7de8b3c0c963",
+      "source_count": 1
+    },
+    {
+      "title": "Domain Service Architecture and Insurance API Specification",
+      "notebook_id": "875b4f3c-9da7-4111-b282-12a1548b2df4",
+      "source_count": 12
+    },
+    {
+      "title": "New Business Lines Presentation",
+      "notebook_id": "6875e775-b847-47da-a288-cda77efcc652",
+      "source_count": 11
+    },
+    {
+      "title": "Life Insurance Protection",
+      "notebook_id": "f102c3a0-f28d-4682-9db4-30fa6dd6121f",
+      "source_count": 39
+    },
+    {
+      "title": "Device Insurance Protection",
+      "notebook_id": "08c25bce-92d0-4938-93ee-c6682f8225d3",
+      "source_count": 40
+    },
+    {
+      "title": "Altkom Insurance Suite: Modular Platform for Carriers",
+      "notebook_id": "53175fc6-15f7-4f50-a91a-046f546238bd",
+      "source_count": 1
+    },
+    {
+      "title": "Weekly Strategic Roadmap and Team Performance Targets",
+      "notebook_id": "7f782270-ccd7-43ee-aa62-31da80336106",
+      "source_count": 4
+    },
+    {
+      "title": "Digital Smart Insurance Platform Workflow",
+      "notebook_id": "ae41706c-939c-4f7a-86c7-2ac4c4920ee4",
+      "source_count": 1
+    },
+    {
+      "title": "CNTXT Regulation Documents",
+      "notebook_id": "4a8c797a-fd59-4fe8-9d3a-b969f8d5bfa5",
+      "source_count": 11
+    },
+    {
+      "title": "Saudi Insurance Company Logos Compendium",
+      "notebook_id": "8702fa4e-f599-4be8-a381-345222f2951f",
+      "source_count": 2
+    }
+  ]
+}

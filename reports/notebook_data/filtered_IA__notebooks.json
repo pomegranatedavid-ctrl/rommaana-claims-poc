@@ -1,0 +1,530 @@
+[
+  {
+    "title": "IA - Claims, Security & Compliance",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "1a55f5d9-ff72-426f-bf8d-aadeb72a4379",
+        "title": "Anti-Money Laundering Law.pdf"
+      },
+      {
+        "id": "554fb418-6f62-4cad-ab68-3917d544b71c",
+        "title": "COMPLIANCE WITH CRS REPORT REQUIREMNTS.pdf"
+      },
+      {
+        "id": "31622307-e593-4fa6-8142-150d74828c3c",
+        "title": "Claims Settlement Companies’ Services.pdf"
+      },
+      {
+        "id": "4366137f-30ab-4d3d-afe4-4a7c827c354d",
+        "title": "Collection of financial compensation for services, works and fines related to the insurance sector.pdf"
+      },
+      {
+        "id": "0b794546-fb2a-4255-bcac-c37c01451218",
+        "title": "Cyber Security Framework.pdf"
+      },
+      {
+        "id": "e1b0cdbd-11cd-4954-9d7a-1aba96a7b589",
+        "title": "Electronic addresses for supervision and control of cyber risks.pdf"
+      },
+      {
+        "id": "bb6fb390-64d6-49c0-9071-97f28aae012e",
+        "title": "Financial Sector’s Cyber Threat Intelligence Principles.pdf"
+      },
+      {
+        "id": "a1b83ee9-7433-4cc3-9488-21f6866d5608",
+        "title": "Issuance of Instructions for Motor Insurance Claims’ Settlement.pdf"
+      },
+      {
+        "id": "21d4aad1-ae93-458f-a24d-03cb6b5c404f",
+        "title": "Urging Adherence to the Preventive and Precautionary Measures.pdf"
+      }
+    ],
+    "source_count": 9
+  },
+  {
+    "title": "IA - Reports",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "379ac228-3282-43af-9526-34714398fb31",
+        "title": "Annual Experience Studies Report Instructions.pdf"
+      },
+      {
+        "id": "190a2e63-80ec-44ee-bd36-75e1cc32a976",
+        "title": "Insurance_Market_Report_2009_English.pdf"
+      },
+      {
+        "id": "981fc813-6138-4f3b-ba9e-c81c4dfd49f4",
+        "title": "Insurance_Market_Report_2010_English.pdf"
+      },
+      {
+        "id": "67678bb1-11c3-448b-8f5a-96b3744368b7",
+        "title": "Insurance_Market_Report_2011_English.pdf"
+      },
+      {
+        "id": "9c9c7595-92f9-4dcc-9daa-a7322c5a866d",
+        "title": "Insurance_Market_Report_2012_English.pdf"
+      },
+      {
+        "id": "72e9235b-6da3-4160-a6a3-a21e089a3ae7",
+        "title": "Insurance_Market_Report_2013_English.pdf"
+      },
+      {
+        "id": "399bd5bf-1817-4e99-8348-fb74a948d923",
+        "title": "Insurance_Market_Report_2014_English.pdf"
+      },
+      {
+        "id": "6dce6c7c-daa1-44d3-bca7-7b2518349aea",
+        "title": "Insurance_Market_Report_2015_English.pdf"
+      },
+      {
+        "id": "7d6ea788-958c-47be-8108-ac3ef1f81c30",
+        "title": "Insurance_Market_Report_2016_English.pdf"
+      },
+      {
+        "id": "834ec243-177e-4d0f-89b2-809bd73c4df2",
+        "title": "Insurance_Market_Report_2017_English.pdf"
+      },
+      {
+        "id": "bb87d9e5-9586-42c9-a649-c30d9bcab3a4",
+        "title": "Insurance_Market_Report_2018_English.pdf"
+      },
+      {
+        "id": "99329a94-dc50-4c82-9556-76f3d977b9bc",
+        "title": "Insurance_Market_Report_2019_English.pdf"
+      },
+      {
+        "id": "fd6deac4-247a-41e6-8ccf-124f0f15d8ef",
+        "title": "Insurance_Market_Report_2020_English.pdf"
+      },
+      {
+        "id": "326f6380-9469-4fc9-9cef-4d09eed5a9f0",
+        "title": "Insurance_Market_Report_2021_English.pdf"
+      },
+      {
+        "id": "a1839eba-c0d0-4419-ab5c-7617a6e57860",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2020.pdf"
+      },
+      {
+        "id": "fedcdced-9ef6-4505-aa3e-964a0de8cd36",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2021.pdf"
+      },
+      {
+        "id": "3e253d50-b001-4cfd-b9f5-6c9456dc912f",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2022.pdf"
+      },
+      {
+        "id": "110b7e98-d13e-4788-b617-7457652ace28",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2023.pdf"
+      },
+      {
+        "id": "b561d96f-ccc1-4e4b-ba41-dff05d49f939",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2024.pdf"
+      },
+      {
+        "id": "5a55d956-9c4f-4bd2-a661-6119bb6c40d2",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2020_EN.pdf"
+      },
+      {
+        "id": "3bef2678-69a9-4a1f-93ad-09f485ec7f6d",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2021.pdf"
+      },
+      {
+        "id": "4147aa62-cb80-43a8-bfb9-b858016f97fe",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2022 (1).pdf"
+      },
+      {
+        "id": "41a75ee5-f3b2-4bce-afab-cdd919e25f01",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2022.pdf"
+      },
+      {
+        "id": "2dd98d05-9cc3-41fb-8f88-18f1368a99c0",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2023.pdf"
+      },
+      {
+        "id": "964438fa-67e1-4bdb-97ef-f238a1438f9b",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2024.pdf"
+      },
+      {
+        "id": "ef7875e8-2384-461a-acfc-3c645fc2296a",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2020.pdf"
+      },
+      {
+        "id": "091f23ad-1b6b-4dea-8c80-fbad427b549d",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2021.pdf"
+      },
+      {
+        "id": "c1fc24fb-21f9-4f1a-ae5b-f0d8cca21c30",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2022.pdf"
+      },
+      {
+        "id": "f987f592-c12d-4263-8200-2989720adcd3",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2023.pdf"
+      },
+      {
+        "id": "11930e7b-5295-47e3-b6a6-080f3c405a99",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2024.pdf"
+      },
+      {
+        "id": "908cee3e-025f-4d0e-9e74-4d11be3e35e1",
+        "title": "The Saudi Insurance Market Report 2022.pdf"
+      },
+      {
+        "id": "957a962e-e8e7-46d3-a2c2-464fd7d14316",
+        "title": "The Saudi Insurance Market Report 2023.pdf"
+      },
+      {
+        "id": "9cd4f2c3-e5cf-4452-9698-a7e7a95a16f4",
+        "title": "The Saudi Insurance Market Report 2024.pdf"
+      },
+      {
+        "id": "815543d4-3270-41d6-acde-6c22e6ff37ef",
+        "title": "The Saudi Insurance Market Survey Report 2008.pdf"
+      },
+      {
+        "id": "69d59979-46be-49bc-b5cd-8aefa2b61290",
+        "title": "تقرير الربع الأول لقطاع التأمين لعام 2025 Insurance Sector 2025 Q1.pdf"
+      }
+    ],
+    "source_count": 35
+  },
+  {
+    "title": "IA - Standards, Policies, Coverages & Renewals",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "a5ea5823-a2a5-4693-9703-1647ede28b48",
+        "title": "1Surplus Distribution Policy.pdf"
+      },
+      {
+        "id": "61fd192c-dfd9-42b2-ab48-f2a371382590",
+        "title": "Approval of Companies Article of Incorporation and its Amendments in the Insurance sector.pdf"
+      },
+      {
+        "id": "5e40f9cb-c256-4480-9f9e-3ab2de32f7e8",
+        "title": "Automatic exchange of financial account information (CRS).pdf"
+      },
+      {
+        "id": "43097ee4-6a88-44e3-be95-1be95eef8076",
+        "title": "Circular (232) - The Communications and Information Technology Commission's campaign on phishing.pdf"
+      },
+      {
+        "id": "51303a0c-a270-4f33-8e54-df1a4a5d93f5",
+        "title": "Follow-up circular - Regarding Uploading Motor Insurance Policies to the Najm Net system.pdf"
+      },
+      {
+        "id": "b89bd4c8-5a7c-409d-9a08-c8c93a8be7f0",
+        "title": "IFRS 17 - SAMA Instructions for Phase 3 Implementation Plan.pdf"
+      },
+      {
+        "id": "dc08266f-18d3-4d40-aaf1-28e3fd5f8a66",
+        "title": "Insurance Market Code of conduct.pdf"
+      },
+      {
+        "id": "bfada722-f04b-47ee-a7e2-ebc474bbc932",
+        "title": "Issuance of the standard  insurance policy.pdf"
+      },
+      {
+        "id": "c905db94-19af-4e59-81c7-615c7cc1d3f1",
+        "title": "KAFD IAia_slider_en_638.jpg"
+      },
+      {
+        "id": "ab63452e-061f-4c4b-aee9-53488a02295c",
+        "title": "Licensing Guidelines and Minimum Criteria.docx"
+      },
+      {
+        "id": "e4e12e91-04f3-46e0-8141-0689d0d42033",
+        "title": "Licensing Requirements (2).docx"
+      },
+      {
+        "id": "1b84a2ed-124d-4568-977c-7908b4e7105d",
+        "title": "Linking and dealing with electronic platforms.pdf"
+      },
+      {
+        "id": "a460d724-a519-4956-bec5-6562c14ea749",
+        "title": "Marine Insurance Coverage Instructions (1).pdf"
+      },
+      {
+        "id": "0e5e83f0-8fb9-466b-973a-3f23283ea522",
+        "title": "Marine Insurance Coverage Instructions.pdf"
+      },
+      {
+        "id": "9dfdc765-1892-4858-9310-b55928e2aec8",
+        "title": "Minimum Verification Controls of Fintech Companies.pdf"
+      },
+      {
+        "id": "3b63a0a2-8fbb-4389-8cdf-10ea324a5895",
+        "title": "Policy_Basic Health Insurance Policy.pdf"
+      },
+      {
+        "id": "96a32575-f15d-4a3f-ba24-c326eb93c6c3",
+        "title": "Policy_Cooperative Health Insurance Policy.pdf"
+      },
+      {
+        "id": "932a3b43-d77c-41bb-a28e-9d590154bb4d",
+        "title": "Policy_Tiers Benefit Package for Private Health Insurance Beneficiaries.pdf"
+      },
+      {
+        "id": "03e125b2-3b12-4ce1-b843-fecb14e9a381",
+        "title": "Policy_Tourist Health Insurance-Visiors.pdf"
+      },
+      {
+        "id": "56ef337c-5250-4e18-82af-660c2fc24366",
+        "title": "Policy_Umrah Pilgrims’ Health Insurance.pdf"
+      },
+      {
+        "id": "004d95de-4c42-4831-b77f-0567f57a9fa0",
+        "title": "Pricing Adequacy Report Instructions.pdf"
+      },
+      {
+        "id": "d3e06e8e-974b-4994-9115-5e2d3a2ca885",
+        "title": "Principles of Conduct and Work Ethics in Financial Institutions.pdf"
+      },
+      {
+        "id": "035e9880-1270-4417-ba53-c5ca0715859d",
+        "title": "Reinsurance Cession to the Local Reinsurance Market.pdf"
+      },
+      {
+        "id": "a96e4850-88b9-4965-bedc-2584b897f3d6",
+        "title": "Remote Work Initiative.pdf"
+      },
+      {
+        "id": "e0ca4ae0-b2fc-4ae7-856d-0bc4c32b8cd0",
+        "title": "Requirements for appointment to leadership positions in financial institutions subject to the supervision of the Saudi Arabian Monetary Agency (1).pdf"
+      },
+      {
+        "id": "020a86ae-527c-4b88-87f0-b18dc312a8d0",
+        "title": "Some Instructions on Insurance renewal messages.pdf"
+      },
+      {
+        "id": "15c3787c-98ea-4904-83ec-afa3113c0810",
+        "title": "Standard_Enduring Treatment Costs Approval Application Standards (Done).pdf"
+      },
+      {
+        "id": "f480afaa-4d55-459f-ae79-756a972e91c0",
+        "title": "Telehealth policies and procedures.pdf"
+      },
+      {
+        "id": "7c2aa51e-2a67-4041-976b-2437247dc2e5",
+        "title": "The Adoption of the International Financial Reporting Standard No. (9) Financial Instruments.pdf"
+      },
+      {
+        "id": "f23d5fa2-0e13-41c7-8d71-b4dac873aadf",
+        "title": "The Benefits of Unified Policy for Council of Cooperative Health Insurance.pdf"
+      },
+      {
+        "id": "770a967d-7a59-440d-b010-74e3bc6376a7",
+        "title": "The Standard Contract between Insurance Companies and Insurance Agencies Companies.pdf"
+      },
+      {
+        "id": "b3c41524-5ad5-46c8-a15b-5ed403158dbb",
+        "title": "The Standard Insurance Policy of the compulsory health insurance for domestic workers and their equivalent who are more than (4).pdf"
+      },
+      {
+        "id": "40f2e391-25c5-4dca-91ed-5bda5376c8a5",
+        "title": "The Standard insurance policy of civil labiality for populated Area and high-risk Activities (1).pdf"
+      },
+      {
+        "id": "3cb958aa-4e87-4e14-96b5-cb174bd8e4ba",
+        "title": "The Standard insurance policy of civil labiality for populated Area and high-risk Activities.pdf"
+      },
+      {
+        "id": "93136c87-af13-4e17-b5e4-c63bb9bda842",
+        "title": "The_Standard_Insurance_Policy_of_Medical_Malpractice-AR.pdf"
+      },
+      {
+        "id": "9cbe947b-80e8-4165-9b1c-d718da0149b3",
+        "title": "The_Standard_Insurance_Policy_of_Professional_Indemnity_for_Auditors_of_the_Entities_Supervised_by_the_CMA.pdf"
+      },
+      {
+        "id": "3fa3a9c6-2e66-4c0e-a1ed-3c4bffa50afe",
+        "title": "The_Standard_Insurance_Policy_on_Domestic_Workers_Contract.pdf"
+      },
+      {
+        "id": "c1fe14b7-278d-4e30-91b1-a71e29a54431",
+        "title": "The_Standard_Policy_of_Inherent_Defects_Insurance.pdf"
+      },
+      {
+        "id": "93256858-d8dc-4743-ade1-c6791e051df9",
+        "title": "The_Unified_Compulsory_Government_Motor_Insurance_Policy-AR.pdf"
+      },
+      {
+        "id": "27ff179a-e539-4f27-82d6-712e7b5142d6",
+        "title": "The_Unified_Compulsory_Motor_Insurance_Policy-EN.pdf"
+      },
+      {
+        "id": "42b1dafa-deb1-4beb-b36e-252573626c4f",
+        "title": "Unified Professional Labiality Insurance Policy for Inspection Bodies of the Saudi Building Code.pdf"
+      },
+      {
+        "id": "21068672-6a73-4002-8d15-ef2f22ec8075",
+        "title": "Updated electronic format for reporting on the provisions of the Common Standard Annex (CRS).pdf"
+      },
+      {
+        "id": "b12d67d9-b53c-41b5-b5fa-2b6a81118ee7",
+        "title": "Updating the Insurance Claim Form for Compulsory Motor (Third Party) Insurance for Individual and Corporates.pdf"
+      }
+    ],
+    "source_count": 43
+  },
+  {
+    "title": "IA - Rules & Regulations",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "d04a122a-7b99-4aaf-b0a3-b058eb166526",
+        "title": "1Anti Fraud Regulation for the insurance companies.pdf"
+      },
+      {
+        "id": "7cb34dd5-9307-418f-8898-32844801a7af",
+        "title": "1INSURANCE CORPORATE GOVERNANCE REGULATION.pdf"
+      },
+      {
+        "id": "10d3afdd-6a81-4382-87ec-63b343050748",
+        "title": "1Implementing Regulations of The Cooperative Insurance Companies Control Law.pdf"
+      },
+      {
+        "id": "f49ad3ba-27d7-4adb-a2bb-b2742e3c953a",
+        "title": "1Investment Regulations.pdf"
+      },
+      {
+        "id": "7dfeeb8a-0f62-4b28-ab9d-eebf82f228a4",
+        "title": "1Regulation of Reinsurance Activities.pdf"
+      },
+      {
+        "id": "14c33156-2fa6-431a-8c56-96afe6683036",
+        "title": "1Risk Management Regulation.pdf"
+      },
+      {
+        "id": "776229fa-a42c-4c6e-ba4a-b9516d5dc24a",
+        "title": "1Rules for Comprehensive Insurance of Motor Vehicles Financially Leased to Individuals.pdf"
+      },
+      {
+        "id": "8841b18d-141c-4713-b92a-087945018f1b",
+        "title": "AUDIT COMMITTEE REGULATION IN INSURANCE ANDOR REINSURANCE COMPANIES.pdf"
+      },
+      {
+        "id": "69cc8f27-6103-413b-a684-0a6ad4f3501e",
+        "title": "Actuarial_Work_Rules_for_Insurance.pdf"
+      },
+      {
+        "id": "84a26491-4d88-4bf2-9fd0-3041aac836f1",
+        "title": "Anti Fraud Regulation for the insurance companies.pdf"
+      },
+      {
+        "id": "960ac018-974e-4c2e-b085-18ddd31dba94",
+        "title": "Comprehensive Motor Insurance Rules.pdf"
+      },
+      {
+        "id": "6cd1072b-6bad-4268-998d-5a20121b113a",
+        "title": "Cooperative Health Insurance Law Provisions Violations Consideration Committee’s Regulation.pdf"
+      },
+      {
+        "id": "26a2342e-8827-4a70-90db-1cb498b59b36",
+        "title": "Cooperative Insurance Companies Control Law.pdf"
+      },
+      {
+        "id": "43975a41-ebae-434e-a0d8-a46ef89b3c3c",
+        "title": "Corporate Governance Regulation.pdf"
+      },
+      {
+        "id": "2353c862-c85d-4b04-ae8e-e8f169f3d685",
+        "title": "Implementing Regulation to the AML Law.pdf"
+      },
+      {
+        "id": "2398a96c-3c16-4629-8b6a-dd41ceec7196",
+        "title": "Implementing Regulations of The Cooperative Insurance Companies Control La.pdf"
+      },
+      {
+        "id": "19c34fc0-ba43-4d78-adc3-4637495729cb",
+        "title": "Implementing Regulations of the Cooperative Health Insurance Law.pdf"
+      },
+      {
+        "id": "4416b6e3-b3ff-47d8-9b9a-86b10f72437c",
+        "title": "Insurance Intermediaries Regulation.pdf"
+      },
+      {
+        "id": "2ead11b7-117d-4820-b8b5-62ad2d207a5d",
+        "title": "Insurance Intermediaries Regulation1.pdf"
+      },
+      {
+        "id": "5fea2961-e026-4b3f-997f-b6b7240f85a5",
+        "title": "Insurance Market Code of conduct Regulations.pdf"
+      },
+      {
+        "id": "a86c19ad-2d3c-48c8-b035-a3ebfe28484a",
+        "title": "Insurtech_Rules.pdf"
+      },
+      {
+        "id": "cbe1db81-5235-4f32-9d1e-26038167daa9",
+        "title": "Investment_Regulations.pdf"
+      },
+      {
+        "id": "e61f02d2-0e0f-4fcd-a516-1b2284c5a475",
+        "title": "Online Insurance Activities Regulation.pdf"
+      },
+      {
+        "id": "ea5cafa7-c2c1-4e7a-a803-fa79e716b4ec",
+        "title": "Online Insurance Activities Regulation1.pdf"
+      },
+      {
+        "id": "b953dbbc-aa0f-49a9-afbd-a4ef21da14ed",
+        "title": "Outsourcing Regulation for Insurance and Reinsurance Companies and Insurance Service Providers.pdf"
+      },
+      {
+        "id": "c3eae1eb-3ee2-46c1-8c45-91e89587009d",
+        "title": "Outsourcing Regulation for Insurance and Reinsurance Companies.pdf"
+      },
+      {
+        "id": "a9b7899c-0374-48e5-b955-ca1be2cda25e",
+        "title": "Principles to be applied to the regulation of branches of foreign insurance companies established in Saudi Arabia.pdf"
+      },
+      {
+        "id": "453ffe05-6b6a-4611-8f51-3aa0502804c5",
+        "title": "Regulations for Branches and Points of Sale Annual Expansion for Insurance andor Reinsurance, Brokerage and Agency Companie.pdf"
+      },
+      {
+        "id": "b9c60568-de95-40f8-9e1b-816f83288f34",
+        "title": "Regulations for Supervision and Inspection Costs 4.pdf"
+      },
+      {
+        "id": "43c23a08-5da0-4ce3-bb0a-d2323747cd89",
+        "title": "Regulations for Supervision and Inspection Costs1.pdf"
+      },
+      {
+        "id": "f67d007d-aabe-4743-a64f-baa82efbd324",
+        "title": "Risk Management Regulation.pdf"
+      },
+      {
+        "id": "d10afbb1-df35-4aff-93ac-f772ad9cac42",
+        "title": "Rules for Licensing and Supervision of Branches of Forgien Insurance and-or Reinsurance Companies in Saudi Arabia.pdf"
+      },
+      {
+        "id": "e4daf3a5-9230-43f1-9700-3e105d74c7be",
+        "title": "Rules on the Collection and Exchange of Motor Insurance Information.pdf"
+      },
+      {
+        "id": "dc7e1492-e2a6-438e-9cd0-fe1e8d8c5b06",
+        "title": "Rules_Governing_Bancassurance_Activities.pdf"
+      },
+      {
+        "id": "93d4b0e9-5b89-4c99-9cfa-5636aefb4770",
+        "title": "Rules_Governing_Insurance_Aggregation_Activities.pdf"
+      },
+      {
+        "id": "3a46a34a-8229-4f0f-a6a4-8cdbe9b1ee0c",
+        "title": "Rules_of_Forming_and_Managing_Health_Insurance_Risk_Pools_through_Brokers.pdf"
+      },
+      {
+        "id": "099619e5-a882-429a-9229-4d9e3867fde7",
+        "title": "Rules_of_Insurance_Products_Approval-AR (1).pdf"
+      },
+      {
+        "id": "ec8a6eea-bdee-47d5-a56f-2f13d3b5aaa5",
+        "title": "The Regulation of Reinsurance Activities.pdf"
+      }
+    ],
+    "source_count": 38
+  }
+]

@@ -5,7 +5,7 @@ import { useRole } from "@/context/role-context";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MOCK_CLAIMS, Claim } from "@/lib/mock-data";
-import { CheckCircle, ImageIcon, Search, BrainCircuit, User, Share2, PlayCircle, Edit2, Save, X } from "lucide-react";
+import { CheckCircle, ImageIcon, Search, BrainCircuit, User, Share2, PlayCircle, Edit2, Save, X, ShieldAlert } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { AdminHeader } from "@/components/admin-header";
@@ -22,6 +22,7 @@ export default function B2BDashboard() {
     const [analysisImagePath, setAnalysisImagePath] = useState("");
     const [isPlayingVideo, setIsPlayingVideo] = useState(false);
     const [activeMainImage, setActiveMainImage] = useState<string | null>(null);
+    const [isOffline, setIsOffline] = useState(false);
 
     // Edit Mode State
     const [isEditing, setIsEditing] = useState(false);
@@ -39,8 +40,9 @@ export default function B2BDashboard() {
 
     useEffect(() => {
         const loadClaims = async () => {
-            const data = await ClaimService.getClaims();
+            const { claims: data, isFallback } = await ClaimService.getClaims();
             setClaims(data);
+            setIsOffline(isFallback);
         };
 
         loadClaims();
@@ -109,11 +111,26 @@ export default function B2BDashboard() {
                         <h1 className="text-3xl font-bold text-slate-900 tracking-tight">{t("common.claims_workbench")}</h1>
                         <p className="text-slate-500 font-medium">B2B Core: AI-Assisted Claims Adjustment</p>
                     </div>
-                    <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100">
-                        <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
-                            <BrainCircuit className="w-4 h-4 text-emerald-600" />
+                    <div className={cn(
+                        "flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-sm border",
+                        isOffline ? "border-amber-200 bg-amber-50" : "border-slate-100"
+                    )}>
+                        <div className={cn(
+                            "w-8 h-8 rounded-full flex items-center justify-center",
+                            isOffline ? "bg-amber-100" : "bg-emerald-100"
+                        )}>
+                            {isOffline ? (
+                                <ShieldAlert className="w-4 h-4 text-amber-600" />
+                            ) : (
+                                <BrainCircuit className="w-4 h-4 text-emerald-600" />
+                            )}
                         </div>
-                        <span className="text-sm font-bold text-slate-700">{t("common.system_online")}</span>
+                        <span className={cn(
+                            "text-sm font-bold",
+                            isOffline ? "text-amber-700" : "text-slate-700"
+                        )}>
+                            {isOffline ? "DATABASE OFFLINE (Mock Mode)" : t("common.system_online")}
+                        </span>
                     </div>
                 </div>
 
@@ -416,12 +433,35 @@ export default function B2BDashboard() {
                                 </div>
                             </CardContent>
                         ) : (
-                            <div className="h-full flex items-center justify-center text-slate-400 flex-col bg-slate-50/50">
-                                <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-6">
-                                    <BrainCircuit className="w-10 h-10 text-slate-200" />
+                            <div className="h-full flex flex-col items-center justify-center p-12 bg-slate-50/50 text-center overflow-y-auto w-full">
+                                <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-8 flex-shrink-0 animate-pulse">
+                                    <BrainCircuit className="w-10 h-10 text-[#be123c]" />
                                 </div>
-                                <h3 className="font-bold text-slate-600 mb-1">{t("dashboard.select_claim")}</h3>
-                                <p className="text-xs text-slate-400 font-medium">{t("dashboard.inspection_prompt")}</p>
+
+                                <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("dashboard.intro_title")}</h2>
+                                <p className="text-slate-500 max-w-xl mb-12 text-lg leading-relaxed">
+                                    {t("dashboard.intro_description")}
+                                </p>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                                    <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-start transition-all hover:shadow-md">
+                                        <h4 className="font-bold text-slate-400 mb-4 uppercase tracking-wider text-xs">{t("dashboard.traditional_title")}</h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                                            {t("dashboard.traditional_desc")}
+                                        </p>
+                                    </div>
+                                    <div className="bg-white p-8 rounded-2xl border-l-4 border-l-[#be123c] shadow-sm text-start transition-all hover:shadow-md">
+                                        <h4 className="font-bold text-[#be123c] mb-4 uppercase tracking-wider text-xs">{t("dashboard.ai_advantage_title")}</h4>
+                                        <p className="text-slate-800 text-sm leading-relaxed font-bold">
+                                            {t("dashboard.ai_advantage_desc")}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="mt-12 flex items-center gap-2 text-slate-400 font-medium animate-pulse">
+                                    <Search className="w-4 h-4" />
+                                    <span className="text-sm">{t("dashboard.inspection_prompt")}</span>
+                                </div>
                             </div>
                         )}
                     </Card>

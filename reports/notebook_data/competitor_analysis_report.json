@@ -1,0 +1,116 @@
+{
+  "analysis_date": "2026-02-10T00:07:28.638613",
+  "total_competitor_notebooks": 6,
+  "insights": {
+    "ai_technologies_count": 4,
+    "competitors_identified": 5,
+    "best_practices_count": 2
+  },
+  "detailed_insights": {
+    "ai_technologies": [
+      {
+        "notebook": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+        "source_count": 10,
+        "technology_hints": [
+          "AI Agents for Insurance ebook.pdf",
+          "Best AI Call Software Solutions | Voice AI by Verloop.io",
+          "Generative & conversational AI powered customer service agents for your business",
+          "Rommaana AI.txt",
+          "Screenshot 2026-01-17 035857.png"
+        ],
+        "category": "General AI"
+      },
+      {
+        "notebook": "Generative AI in the Insurance Customer Journey",
+        "source_count": 50,
+        "technology_hints": [
+          "10 areas to watch for AI innovation in Life and Health Underwriting ...",
+          "5 benefits of an automated underwriting system for life insurers - Munich Re",
+          "AI Agent Assist | Insurance Broker Case Study | Floatbot",
+          "Accelerated Underwriting in Focus | Swiss Re",
+          "Analysis of Floatbot.AI’s Insurance Conversational AI Platform and InsurTech Market Strategy"
+        ],
+        "category": "General AI"
+      },
+      {
+        "notebook": "FurtherAI",
+        "source_count": 1,
+        "technology_hints": [
+          "Product"
+        ],
+        "category": "General AI"
+      },
+      {
+        "notebook": "Domain Service Architecture and Insurance API Specification",
+        "source_count": 12,
+        "technology_hints": [
+          "About FastAPI versions",
+          "Domain Service Architecture and Insurance API Specification",
+          "Guide to Attribute Based Access Control (ABAC) Definition and Considerations - NIST Technical Series Publications",
+          "How to maintain global pool of db connection and use it in each and every request? #9097",
+          "JWT Security Best Practices: Complete Guide - RandomKeygen"
+        ],
+        "category": "General AI"
+      }
+    ],
+    "product_features": [],
+    "market_strategies": [],
+    "best_practices": [
+      {
+        "notebook": "Saudi B2B InsurTech Roadmap: 2024-2026 Strategy",
+        "source_count": 1,
+        "type": "Strategic Roadmap"
+      },
+      {
+        "notebook": "Sales, Technology, and Product Roadmap",
+        "source_count": 1,
+        "type": "Strategic Roadmap"
+      }
+    ],
+    "technology_stack": [],
+    "competitors": {
+      "Floatbot": [
+        {
+          "notebook": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+          "source": "screencapture-floatbot-ai-insurance-bot-2026-01-18-05_25_33.pdf"
+        },
+        {
+          "notebook": "Generative AI in the Insurance Customer Journey",
+          "source": "AI Agent Assist | Insurance Broker Case Study | Floatbot"
+        }
+      ],
+      "Swiss Re": [
+        {
+          "notebook": "Generative AI in the Insurance Customer Journey",
+          "source": "Accelerated Underwriting in Focus | Swiss Re"
+        }
+      ],
+      "Cognigy": [
+        {
+          "notebook": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+          "source": "screencapture-cognigy-solutions-insurance-2026-01-18-05_23_01.pdf"
+        }
+      ],
+      "Kore.AI": [
+        {
+          "notebook": "Generative AI in the Insurance Customer Journey",
+          "source": "Compare Floatbot vs. Kore.AI - G2"
+        }
+      ],
+      "Verloop": [
+        {
+          "notebook": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+          "source": "Best AI Call Software Solutions | Voice AI by Verloop.io"
+        }
+      ]
+    }
+  },
+  "competitor_notebooks": [
+    "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+    "Generative AI in the Insurance Customer Journey",
+    "Saudi B2B InsurTech Roadmap: 2024-2026 Strategy",
+    "Sales, Technology, and Product Roadmap",
+    "FurtherAI",
+    "Domain Service Architecture and Insurance API Specification"
+  ]
+}

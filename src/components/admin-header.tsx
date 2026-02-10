@@ -31,6 +31,14 @@ export function AdminHeader() {
         { name: t("common.user_management"), href: "/admin/users", roles: ["Admin"] },
     ].filter(item => item.roles.includes(role));
 
+    // New array for AI Assistants
+    const aiAssistants = [
+        { name: language === 'ar' ? 'مساعد مطالبات رومانا' : 'Rommaana Claims Assistant', href: "/admin/ai-assistants?agent=claims", roles: ["Admin", "Insurer", "B2B_Partner"] },
+        { name: language === 'ar' ? 'مساعد بوليصة التأمين' : 'Rommaana Policy Assistant', href: "/admin/ai-assistants?agent=policy", roles: ["Admin", "Insurer", "B2B_Partner"] },
+        { name: language === 'ar' ? 'مساعد الدعم الفني' : 'Rommaana Support Assistant', href: "/admin/ai-assistants?agent=support", roles: ["Admin", "Insurer", "B2B_Partner"] },
+        { name: language === 'ar' ? 'مساعد الالتزام الرقابي' : 'Rommaana Compliance Assistant', href: "/admin/ai-assistants?agent=compliance", roles: ["Admin", "Insurer", "B2B_Partner"] },
+    ].filter(item => item.roles.includes(role));
+
     const handleLogout = () => {
         // Mock logout
         router.push("/");
@@ -138,6 +146,7 @@ export function AdminHeader() {
                 {/* Navigation */}
                 <nav className="hidden lg:flex items-center gap-2">
                     <NavDropdown title={t("common.ai_modules")} items={aiModules} />
+                    <NavDropdown title={language === 'ar' ? 'مساعدي الذكاء الاصطناعي' : 'AI Assistants'} items={aiAssistants} />
                     <NavDropdown title={t("common.configuration")} items={configuration} />
 
                     <Link href="/admin/how-it-works">

@@ -45,7 +45,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
 
     const demoCredentials = {
-        admin: { user: "admin@rommaana.ai", pass: "admin123" },
+        admin: { user: "david.groeve@rommaana.com", pass: "Password01!" },
         insurer: { user: "underwriter@rommaana.ai", pass: "risk123" },
         partner: { user: "partner@brokerage.com", pass: "partner123" },
         customer: { user: "1002938475", pass: "user123" }

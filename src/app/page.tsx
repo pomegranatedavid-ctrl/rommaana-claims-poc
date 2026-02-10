@@ -23,6 +23,8 @@ import { useTranslation } from "@/context/language-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/footer";
+import { AIAgentsPanel } from "@/components/ai/ai-agents-panel";
+
 
 export default function Home() {
   const { t, language, setLanguage } = useTranslation();
@@ -62,7 +64,7 @@ export default function Home() {
         <div className={cn(
           "container mx-auto px-6 h-16 flex items-center justify-between transition-all duration-500 rounded-[2rem] border",
           scrolled
-            ? "bg-white/80 backdrop-blur-2xl border-slate-200/50 shadow-premium"
+            ? "glass-morphism shadow-premium"
             : "bg-transparent border-transparent"
         )}>
           <div className="flex items-center gap-12">
@@ -123,7 +125,7 @@ export default function Home() {
 
               <h1 className="text-5xl lg:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[1] lg:leading-[0.9]">
                 {t("hero.title_part1")} <br className="hidden lg:block" />
-                <span className="bg-gradient-to-r from-[#be123c] to-indigo-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#be123c] via-rose-500 to-indigo-600 bg-clip-text text-transparent">
                   {t("hero.title_part2")}
                 </span>
               </h1>
@@ -134,12 +136,12 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/login">
-                  <Button size="lg" className="h-16 rounded-2xl px-12 text-lg font-black bg-slate-900 hover:bg-black shadow-2xl shadow-slate-200 group transition-all">
+                  <Button size="lg" className="h-16 rounded-2xl px-12 text-lg font-black bg-slate-900 hover:bg-black shadow-2xl shadow-slate-200 hover:shadow-rose/20 group transition-all">
                     {t("hero.enter_ecosystem")}
                     <ArrowRight className={cn("w-5 h-5 group-hover:translate-x-1 transition-transform", language === 'ar' ? "mr-2 rotate-180" : "ml-2")} />
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="h-16 rounded-2xl px-12 text-lg font-bold border-slate-200 hover:bg-slate-50 text-slate-900 transition-all">
+                <Button variant="outline" size="lg" className="h-16 rounded-2xl px-12 text-lg font-bold border-slate-200 hover:bg-slate-50 text-slate-900 transition-all shadow-sm">
                   {t("hero.view_whitepaper")}
                 </Button>
               </div>
@@ -232,6 +234,28 @@ export default function Home() {
                 isRTL={language === 'ar'}
               />
             </div>
+          </div>
+        </section>
+
+        {/* AI Agents Section */}
+        <section id="ai-agents" className="py-24 relative px-6 lg:px-12 bg-gradient-to-br from-slate-50 to-blue-50 border-y border-slate-100 scroll-mt-32">
+          <div className="container mx-auto">
+            <div className="flex flex-col items-center justify-center mb-12 gap-4">
+              <p className="text-[#be123c] font-black uppercase tracking-[0.2em] text-[10px] flex items-center gap-2">
+                <BrainCircuit className="w-4 h-4" /> {language === 'ar' ? 'قوة الذكاء الاصطناعي' : 'AI-POWERED AUTOMATION'}
+              </p>
+              <h2 className="text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none text-center">
+                {language === 'ar' ? 'وكلاء الذكاء الاصطناعي' : 'Meet Your AI Assistants'}
+              </h2>
+              <p className="text-slate-500 font-medium max-w-2xl text-center">
+                {language === 'ar'
+                  ? 'أتمتة المطالبات والامتثال التنظيمي وخدمة العملاء بذكاء اصطناعي متقدم'
+                  : 'Automate claims processing, regulatory compliance, and customer service with advanced AI'
+                }
+              </p>
+            </div>
+
+            <AIAgentsPanel />
           </div>
         </section>
 

@@ -3,22 +3,68 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MOCK_LEADS, Lead } from "@/lib/mock-leads";
-import { Phone, TrendingUp, Mic, Sparkles, Search, ChevronRight, User } from "lucide-react";
+import { LeadService, Lead } from "@/lib/lead-service";
+import { Phone, TrendingUp, Mic, Sparkles, Search, ChevronRight, User, ShieldAlert, BrainCircuit } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SalesAgent } from "@/lib/agents";
 import { AdminHeader } from "@/components/admin-header";
 import { ImageAnalysisModal } from "@/components/image-analysis-modal";
+import { voiceAIService } from "@/services/voice/voice-ai-service";
+import { Volume2, VolumeX } from "lucide-react";
 
 import { useTranslation } from "@/context/language-context";
 
 export default function GrowthDashboard() {
     const { t } = useTranslation();
+    const [leads, setLeads] = useState<Lead[]>([]);
+    const [isOffline, setIsOffline] = useState(false);
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
     const [script, setScript] = useState<string>("");
     const [isGenerating, setIsGenerating] = useState(false);
     const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false);
     const [analysisImagePath, setAnalysisImagePath] = useState("");
+
+    // Call Simulation State
+    const [isCalling, setIsCalling] = useState(false);
+    const [callDuration, setCallDuration] = useState(0);
+    const [sentimentScore, setSentimentScore] = useState(92);
+    const [vocalStatus, setVocalStatus] = useState("Enthusiastic");
+    const [isMuted, setIsMuted] = useState(false);
+
+    React.useEffect(() => {
+        const loadLeads = async () => {
+            const { leads: data, isFallback } = await LeadService.getLeads();
+            setLeads(data);
+            setIsOffline(isFallback);
+        };
+        loadLeads();
+    }, []);
+
+    // Call Ticker Effect
+    React.useEffect(() => {
+        let interval: NodeJS.Timeout;
+        if (isCalling) {
+            interval = setInterval(() => {
+                setCallDuration(prev => prev + 1);
+
+                // Randomly fluctuate sentiment
+                const fluctuation = Math.floor(Math.random() * 5) - 2; // -2 to +2
+                setSentimentScore(prev => {
+                    const next = prev + fluctuation;
+                    return Math.min(99, Math.max(70, next));
+                });
+
+                // Update status text based on score
+                setVocalStatus(prev => {
+                    if (sentimentScore > 90) return "Enthusiastic";
+                    if (sentimentScore > 80) return "Engaged";
+                    if (sentimentScore > 70) return "Neutral";
+                    return "Skeptical";
+                });
+            }, 1000);
+        }
+        return () => clearInterval(interval);
+    }, [isCalling, sentimentScore]);
 
     const handleImageClick = (path: string) => {
         setAnalysisImagePath(path);
@@ -41,6 +87,26 @@ export default function GrowthDashboard() {
         setIsGenerating(false);
     }
 
+    const toggleCall = () => {
+        if (!isCalling) {
+            setIsCalling(true);
+            setCallDuration(0);
+            // Start speaking the script
+            if (!isMuted && script) {
+                voiceAIService.speak(script, (t("common.language_code") as 'en' | 'ar') || (language === 'ar' ? 'ar' : 'en'));
+            }
+        } else {
+            setIsCalling(false);
+            voiceAIService.stopSpeaking();
+        }
+    }
+
+    const formatDuration = (seconds: number) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
     return (
         <div className="min-h-screen bg-[#f8fafc] flex flex-col">
             <AdminHeader />
@@ -57,13 +123,24 @@ export default function GrowthDashboard() {
 
                 {/* Left Panel: Leads List */}
                 <Card className="col-span-4 flex flex-col shadow-md border-slate-200 overflow-hidden">
-                    <CardHeader className="border-b bg-white">
+                    <CardHeader className="border-b bg-white flex flex-row items-center justify-between">
                         <CardTitle className="text-lg flex items-center gap-2">
                             <TrendingUp className="text-[#be123c] w-5 h-5" /> {t("growth.leads_title") || "High Propensity Leads"}
                         </CardTitle>
+                        <div className={cn(
+                            "flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold border",
+                            isOffline ? "border-amber-200 bg-amber-50 text-amber-700" : "border-emerald-100 bg-emerald-50 text-emerald-700"
+                        )}>
+                            {isOffline ? (
+                                <ShieldAlert className="w-3 h-3" />
+                            ) : (
+                                <BrainCircuit className="w-3 h-3" />
+                            )}
+                            {isOffline ? "OFFLINE (Mock)" : "ONLINE"}
+                        </div>
                     </CardHeader>
                     <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 pt-4">
-                        {MOCK_LEADS.map((lead) => (
+                        {leads.map((lead) => (
                             <div
                                 key={lead.id}
                                 className={cn(
@@ -112,13 +189,69 @@ export default function GrowthDashboard() {
                                         </div>
                                     </div>
                                     <div>
-                                        <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{selectedLead.name}</h2>
-                                        <p className="text-slate-500 text-sm font-medium">{selectedLead.reason}</p>
+                                        <div className="flex items-center gap-2">
+                                            <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{selectedLead.name}</h2>
+                                            {isCalling && (
+                                                <div className="flex items-center gap-1.5 px-2 py-0.5 bg-rose-50 border border-rose-100 rounded-lg animate-pulse">
+                                                    <div className="w-1.5 h-1.5 bg-rose-600 rounded-full"></div>
+                                                    <span className="text-[9px] font-black text-rose-600 uppercase tracking-widest">Live {formatDuration(callDuration)}</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <p className="text-slate-500 text-sm font-medium mb-3">{selectedLead.reason}</p>
+
+                                        {/* Integrated Recording Bar */}
+                                        <div className={cn("flex items-center gap-4 text-slate-400 transition-all", isCalling ? "opacity-100" : "opacity-40 grayscale")}>
+                                            <div className="flex items-center gap-2 text-[#be123c] font-bold text-[10px] uppercase tracking-tighter shrink-0">
+                                                <Mic className={cn("w-4 h-4", isCalling && "animate-pulse")} /> {t("growth.telephony_online") || "Telephony Online"}
+                                            </div>
+                                            <div className="h-1 flex-1 bg-slate-100 rounded-full overflow-hidden min-w-[120px]">
+                                                <div
+                                                    className={cn("h-full bg-emerald-500 rounded-full transition-all duration-1000", isCalling ? "opacity-100" : "opacity-30")}
+                                                    style={{ width: `${sentimentScore}%` }}
+                                                />
+                                            </div>
+                                            <div className="flex items-center gap-2 shrink-0">
+                                                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+                                                    {t("growth.vocal_sentiment") || "Live Vocal Sentiment"}: {t(`growth.${vocalStatus.toLowerCase()}`) || vocalStatus} ({sentimentScore}%)
+                                                </span>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    className="h-8 w-8 rounded-full text-slate-400 hover:text-[#be123c] hover:bg-rose-50"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        const newMuted = !isMuted;
+                                                        setIsMuted(newMuted);
+                                                        if (newMuted) {
+                                                            voiceAIService.stopSpeaking();
+                                                        } else if (isCalling && script) {
+                                                            voiceAIService.speak(script, (t("common.language_code") as 'en' | 'ar') || (language === 'ar' ? 'ar' : 'en'));
+                                                        }
+                                                    }}
+                                                >
+                                                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                                                </Button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
-                                    <Button size="lg" className="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-lg shadow-emerald-100 transition-all hover:scale-105 active:scale-95">
-                                        <Phone className="w-4 h-4 mr-2" /> {t("growth.start_call") || "Start Call"}
+                                    <Button
+                                        size="lg"
+                                        onClick={toggleCall}
+                                        className={cn(
+                                            "rounded-xl font-bold shadow-lg transition-all hover:scale-105 active:scale-95",
+                                            isCalling
+                                                ? "bg-rose-600 hover:bg-rose-700 text-white shadow-rose-100"
+                                                : "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-100"
+                                        )}
+                                    >
+                                        {isCalling ? (
+                                            <><Phone className="w-4 h-4 mr-2 rotate-[135deg]" /> {t("growth.end_call") || "End Call"}</>
+                                        ) : (
+                                            <><Phone className="w-4 h-4 mr-2" /> {t("growth.start_call") || "Start Call"}</>
+                                        )}
                                     </Button>
                                 </div>
                             </div>
@@ -158,25 +291,38 @@ export default function GrowthDashboard() {
                                 </div>
                             </div>
 
-                            {/* Recording Bar (Visual) */}
-                            <div className="p-6 bg-slate-50/50 border-t flex items-center gap-6 text-slate-400 mt-auto">
-                                <div className="flex items-center gap-2 text-[#be123c] font-bold text-[10px] uppercase tracking-tighter">
-                                    <Mic className="w-4 h-4 animate-pulse" /> {t("growth.telephony_online") || "Telephony Online"}
-                                </div>
-                                <div className="h-1.5 flex-1 bg-slate-200 rounded-full overflow-hidden">
-                                    <div className="h-full w-2/3 bg-emerald-500 rounded-full"></div>
-                                </div>
-                                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">{t("growth.vocal_sentiment") || "Live Vocal Sentiment"}: {t("growth.enthusiastic") || "Enthusiastic"} (92%)</span>
-                            </div>
 
                         </CardContent>
                     ) : (
-                        <div className="h-full flex items-center justify-center text-slate-400 flex-col bg-slate-50/50">
-                            <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-6">
-                                <TrendingUp className="w-10 h-10 text-slate-200" />
+                        <div className="h-full flex flex-col items-center justify-center p-12 bg-slate-50/50 text-center overflow-y-auto w-full">
+                            <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-8 flex-shrink-0 animate-pulse">
+                                <TrendingUp className="w-10 h-10 text-[#be123c]" />
                             </div>
-                            <h3 className="font-bold text-slate-600 mb-1">{t("growth.select_lead") || "Select A Lead"}</h3>
-                            <p className="text-xs text-slate-400 font-medium uppercase tracking-widest">{t("growth.mesh_standby") || "Sales Agentic Mesh standby"}</p>
+
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("dashboard.growth_intro_title")}</h2>
+                            <p className="text-slate-500 max-w-xl mb-12 text-lg leading-relaxed">
+                                {t("dashboard.growth_intro_desc")}
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                                <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-start transition-all hover:shadow-md">
+                                    <h4 className="font-bold text-slate-400 mb-4 uppercase tracking-wider text-xs">{t("dashboard.growth_traditional_title")}</h4>
+                                    <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                                        {t("dashboard.growth_traditional_desc")}
+                                    </p>
+                                </div>
+                                <div className="bg-white p-8 rounded-2xl border-l-4 border-l-[#be123c] shadow-sm text-start transition-all hover:shadow-md">
+                                    <h4 className="font-bold text-[#be123c] mb-4 uppercase tracking-wider text-xs">{t("dashboard.growth_ai_title")}</h4>
+                                    <p className="text-slate-800 text-sm leading-relaxed font-bold">
+                                        {t("dashboard.growth_ai_desc")}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="mt-12 flex items-center gap-2 text-slate-400 font-medium animate-pulse">
+                                <Search className="w-4 h-4" />
+                                <span className="text-sm">{t("growth.mesh_standby")}</span>
+                            </div>
                         </div>
                     )}
                 </Card>

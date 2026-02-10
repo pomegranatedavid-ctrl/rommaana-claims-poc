@@ -1,0 +1,1785 @@
+[
+  {
+    "title": "Company Situation",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "39d58eee-2f35-4901-8b13-c3ed77db1f49",
+        "title": "AI Strategy - Frame 1.pdf"
+      },
+      {
+        "id": "34b67b82-cf18-4810-9c1c-364319675adc",
+        "title": "Agile Product Roadmap - Frame 1.pdf"
+      },
+      {
+        "id": "87c542fe-8ef6-410e-9aab-93941d94f478",
+        "title": "B2B Sales Funnnel Channel - Frame 1.pdf"
+      },
+      {
+        "id": "7cb4654e-1697-4ada-b492-0344f1a48690",
+        "title": "Brainstorming - Frame 1.pdf"
+      },
+      {
+        "id": "4c554f00-4222-47d3-aa63-f78f75cd6637",
+        "title": "Business Model & Financials - Frame 1.pdf"
+      },
+      {
+        "id": "f0c1b922-0605-4bfd-ab1c-8b5c908c6ba0",
+        "title": "Company Examples Roadmaps - Frame 1.pdf"
+      },
+      {
+        "id": "2d716a30-5fd9-4158-ada1-68ae3d943429",
+        "title": "Company Scrum Retrospective Game - Frame 1.pdf"
+      },
+      {
+        "id": "7c2c0074-645d-4591-b1df-5735733b6697",
+        "title": "Deck extra slides - Frame 1.pdf"
+      },
+      {
+        "id": "9dd03be5-aa22-4648-aeb2-246dcea6abae",
+        "title": "DevOps Roadmap - Frame 1.pdf"
+      },
+      {
+        "id": "3c85f78c-02cf-4e0d-b759-a62ab9582afb",
+        "title": "Enrolling CJs - Frame 1.pdf"
+      },
+      {
+        "id": "b249602a-bf30-4cd0-998c-2c8ff84b5ae2",
+        "title": "How to win a Market - Frame 1.pdf"
+      },
+      {
+        "id": "c119e1cb-8efe-4988-89d8-b6ddba071f5b",
+        "title": "IVACE Innovateich - Frame 1.pdf"
+      },
+      {
+        "id": "6a8af18f-ab35-43a1-85c1-c9b0f18106ae",
+        "title": "LEAP - Frame 1.pdf"
+      },
+      {
+        "id": "df2ffb09-4179-4c4b-af7b-11363dc75b21",
+        "title": "LEAP EVENT - Frame 1.pdf"
+      },
+      {
+        "id": "13637edd-4d74-413e-8241-e4eb5b0fe5de",
+        "title": "Leadership Board - Frame 1.pdf"
+      },
+      {
+        "id": "bad966d7-3603-47fd-a766-5e89f998b551",
+        "title": "Leadership board.pdf"
+      },
+      {
+        "id": "60c261cc-a24c-4161-8896-bf93d4024b64",
+        "title": "MVP June - Frame 1.pdf"
+      },
+      {
+        "id": "a2a344de-8494-4221-a90a-7d57dbf13451",
+        "title": "MVP June - Frame 9.pdf"
+      },
+      {
+        "id": "a70f7a72-0fe1-46d7-a463-28d0b2db9541",
+        "title": "Malaa Integration - Frame 1.pdf"
+      },
+      {
+        "id": "20634a10-4852-4527-96ef-0bc7168e0884",
+        "title": "Marketing Package - Frame 1.pdf"
+      },
+      {
+        "id": "c130e5a7-782f-480a-a43e-db2e8cf6f97b",
+        "title": "Marketing Strategy - Frame 1.pdf"
+      },
+      {
+        "id": "e46aad51-0a4c-409f-8116-b0d34786cc7a",
+        "title": "OKRs - Frame 1.pdf"
+      },
+      {
+        "id": "3edfaed3-ec81-4b6a-b990-3e395f0e0ed0",
+        "title": "PIF Forum 2024 - Frame 1.pdf"
+      },
+      {
+        "id": "5120dadf-9f03-4c95-9d73-2ffd2ee4fa8c",
+        "title": "Pomegranate Technologies: The Cost of Regulatory Negligence"
+      },
+      {
+        "id": "ef15a31e-fcf7-4388-ba00-9fef4f6470f7",
+        "title": "Product Roadmap (Basic) - Frame 1.pdf"
+      },
+      {
+        "id": "526b374c-9cfd-4ac0-a8c6-09cf26b36454",
+        "title": "Product Roadmap Brainstorming - Frame 1.pdf"
+      },
+      {
+        "id": "9d52c16e-5d63-40e6-9caf-b081f09705e6",
+        "title": "Quick Retrospective - Frame 1.pdf"
+      },
+      {
+        "id": "cfd3c781-2f8d-4a23-af6f-484660a1437f",
+        "title": "Sales & Operations Deparment - Frame 1.pdf"
+      },
+      {
+        "id": "4f6eac42-8b2b-40c9-9c29-c24d234a4429",
+        "title": "Sales & Operations Fundraising support - Frame 1.pdf"
+      },
+      {
+        "id": "af3d73e1-2a09-43ba-ba82-3e11710037b0",
+        "title": "Saudi Public Fund - Frame 1.pdf"
+      },
+      {
+        "id": "b2c54067-5f0a-48d1-aa28-63bcc8ec4717",
+        "title": "Scrum ramp up - Frame 1.pdf"
+      },
+      {
+        "id": "7a57b6b9-431d-4da5-9b5d-f5fd253a5aca",
+        "title": "Small Market - Go to Strategy - Frame 1.pdf"
+      },
+      {
+        "id": "4a9503e6-9149-4a51-a4a3-af22fa71b3b2",
+        "title": "Strategic Technology Roadmap Worksheets by Emily Cory - Frame 1.pdf"
+      },
+      {
+        "id": "27212517-df54-4bd1-927b-28b0e836c696",
+        "title": "Strategy & Projects 24 - Frame 1.pdf"
+      },
+      {
+        "id": "cb374dfc-4381-4e47-bd47-5fc4ee4f64a2",
+        "title": "Strategy & Projects Q4 - Frame 1.pdf"
+      },
+      {
+        "id": "8145423e-a5d9-4002-98a1-23d88c830c2d",
+        "title": "Tour Operator Client - Frame 1.pdf"
+      },
+      {
+        "id": "fccf4fb9-2a31-4c00-ab11-09660d0e26e2",
+        "title": "Tour Operator Client.pdf"
+      },
+      {
+        "id": "840c775e-9e9a-4be7-a5b7-e6fc191612d9",
+        "title": "UX Design - Frame 1.pdf"
+      },
+      {
+        "id": "7eb6a28e-32b6-4067-9b5f-d4a5d0e032f7",
+        "title": "Upselling - Frame 1.pdf"
+      },
+      {
+        "id": "03cbd3d4-396a-4550-ba17-e2253f4eecc8",
+        "title": "Weekly Meeting - ARCHIVED - Frame 1.pdf"
+      },
+      {
+        "id": "2a41799b-291a-4656-b076-33edf0bbf84b",
+        "title": "Weekly Meeting - Internal - Frame 1.pdf"
+      },
+      {
+        "id": "83cda1a4-3b26-467a-99bc-df4031aace18",
+        "title": "Weekly Meeting - Internal - Titles.pdf"
+      }
+    ],
+    "source_count": 42
+  },
+  {
+    "title": "Rommaana AI: The Agentic AI Workforce for Insurance Industry",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "b5cae166-eb03-4859-9c65-02ab9ba73433",
+        "title": "AI Agents for Insurance ebook.pdf"
+      },
+      {
+        "id": "44fcbe56-9b93-4694-b06a-39eadf826796",
+        "title": "Best AI Call Software Solutions | Voice AI by Verloop.io"
+      },
+      {
+        "id": "64a32c41-fc40-4b5d-9838-2e8efb301078",
+        "title": "Generative & conversational AI powered customer service agents for your business"
+      },
+      {
+        "id": "24f3020b-8bec-454e-9d39-c9c2b49ac5c0",
+        "title": "Rommaana AI.txt"
+      },
+      {
+        "id": "22193308-eac5-4387-bf86-a72e50ea2750",
+        "title": "Screenshot 2026-01-17 035857.png"
+      },
+      {
+        "id": "01f51127-3aa0-42d4-8d55-bdffc1d8d284",
+        "title": "Streamlining Insurance Support with Conversational AI Solutions"
+      },
+      {
+        "id": "7565164d-4c44-45ce-83cd-00207628e79f",
+        "title": "screencapture-cognigy-solutions-insurance-2026-01-18-05_23_01.pdf"
+      },
+      {
+        "id": "3a2367ee-f864-4ad8-b456-4ec91775450f",
+        "title": "screencapture-floatbot-ai-insurance-bot-2026-01-18-05_25_33.pdf"
+      },
+      {
+        "id": "6693e6b8-983a-45e0-8ba8-5584c19d646d",
+        "title": "screencapture-floatbot-ai-insurance-bot-2026-01-18-05_25_33_2.pdf"
+      },
+      {
+        "id": "1d3a279e-37af-46ed-b712-3a3bb4e8cf21",
+        "title": "the-future-of-ai-in-the-insurance-industry.pdf"
+      }
+    ],
+    "source_count": 10
+  },
+  {
+    "title": "Generative AI in the Insurance Customer Journey",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "ac676639-7e17-479d-a1ab-50f2c5fa8a48",
+        "title": "10 areas to watch for AI innovation in Life and Health Underwriting ..."
+      },
+      {
+        "id": "b82e94b3-1839-48c0-9102-db3a90c522b8",
+        "title": "5 benefits of an automated underwriting system for life insurers - Munich Re"
+      },
+      {
+        "id": "0474b12d-f951-401c-a524-f9abc9256b54",
+        "title": "AI Agent Assist | Insurance Broker Case Study | Floatbot"
+      },
+      {
+        "id": "f4b6d031-b14d-4dc7-b9a1-35257f3b638e",
+        "title": "Accelerated Underwriting in Focus | Swiss Re"
+      },
+      {
+        "id": "bc08d357-a176-4c9c-bdd8-12c5552447e8",
+        "title": "Analysis of Floatbot.AI’s Insurance Conversational AI Platform and InsurTech Market Strategy"
+      },
+      {
+        "id": "e9fbec92-c299-45d5-a249-9979c354d6cb",
+        "title": "Automated Underwriting: Improving Process & Customer Experience - Appian"
+      },
+      {
+        "id": "34d6960a-0465-4ada-a3af-ada727105bd4",
+        "title": "Beast Games lawsuit - Wikipedia"
+      },
+      {
+        "id": "6aa958e2-4bf8-4f6f-b13e-9ffc265a7fa5",
+        "title": "Build AI Voice Agents | Voicebot Platform - Floatbot.AI"
+      },
+      {
+        "id": "6a730cbf-0895-478a-9b74-1fbcd68b247b",
+        "title": "Compare Floatbot VS Kore AI | Techjockey.com"
+      },
+      {
+        "id": "f1630be4-1fb1-4204-8e7a-d7cc37daa45a",
+        "title": "Compare Floatbot vs. Kore.AI - G2"
+      },
+      {
+        "id": "5a320831-4fa9-4b28-9edd-96dc6bca8455",
+        "title": "Comprehensive Forensic Analysis and Strategic Governance Report on Inaccessible Digital Assets"
+      },
+      {
+        "id": "984ff573-41cf-4b7f-8992-f94c19cf8888",
+        "title": "Conversational and Generative AI for Insurance | Floatbot.AI"
+      },
+      {
+        "id": "fc9a0717-3194-4cdf-9519-6aecd1836b9e",
+        "title": "Everything About Us - Floatbot.AI"
+      },
+      {
+        "id": "000773fc-68e6-46f9-9b8c-574c9001b4b6",
+        "title": "Floatbot 2025 Company Profile: Valuation, Funding & Investors | PitchBook"
+      },
+      {
+        "id": "25734876-1a37-4eba-9eb5-ffb1b05341d4",
+        "title": "Floatbot.AI - Snapsheet"
+      },
+      {
+        "id": "97d2019b-162f-4163-afca-a645237e4170",
+        "title": "Floatbot.AI - Snapsheet - Flywheel Status"
+      },
+      {
+        "id": "ab108075-db4b-4f0e-9f8f-440cc81a62b3",
+        "title": "Floatbot.AI announces strategic partnership with Insurity to transform Insurance Operations with AI Agents"
+      },
+      {
+        "id": "27828133-122f-4d20-a777-547830c50ab9",
+        "title": "Floatbot.AI, Snapsheet Partner to Transform Claims Ops"
+      },
+      {
+        "id": "d6c0bdbd-ed76-46c3-b5a7-faf40e33fc88",
+        "title": "Floatbot.AI: Build and Deploy GenAI Chat & Voice AI Agents"
+      },
+      {
+        "id": "83b32c81-60f9-4a5b-93ee-c268c8f049da",
+        "title": "Future of Conversational AI in Insurance (2025) - Convin.ai"
+      },
+      {
+        "id": "73d4a8de-ab63-430e-8ec4-8852969ecb46",
+        "title": "Gen AI in the Insurance Customer Journey.pdf"
+      },
+      {
+        "id": "dd82d73a-b598-4cc4-bbbe-c2c76311850d",
+        "title": "GenAI-Powered Conversational AI for Contact Centers and BPO - Floatbot.AI"
+      },
+      {
+        "id": "c2db3838-56f3-4b9d-bfb7-6245d076d18a",
+        "title": "Here is the complete guide on ways to make a chatbot - 2023 - Floatbot.AI"
+      },
+      {
+        "id": "c63609f3-46f5-4b07-82e6-356e4fb39870",
+        "title": "Insurtech Company Case Study | Floatbot - Floatbot.AI"
+      },
+      {
+        "id": "6ab2a9a0-851c-4f2f-bb94-2216c0f6d81a",
+        "title": "Insurtech-Case-Study.pdf"
+      },
+      {
+        "id": "8d6b382f-45a6-4ee9-ad5b-dc2369bdb5a9",
+        "title": "Lawsuit Against MrBeast and Amazon May Derail the Highly Anticipated Beast Games"
+      },
+      {
+        "id": "ca1b3dbe-84d0-469a-8fc6-b3ea970dfc32",
+        "title": "Life Guide: moving forward in life | Swiss Re"
+      },
+      {
+        "id": "622419ff-c974-4186-8b3b-a66d033ecb35",
+        "title": "Life and Health Underwriting Solutions | Swiss Re"
+      },
+      {
+        "id": "c09f6096-5ede-427b-b42d-38c8237c2653",
+        "title": "Life insurance in the digital age: fundamental transformation ahead - Swiss Re"
+      },
+      {
+        "id": "6bf338e5-91d3-4f53-906b-9b164b665436",
+        "title": "List of lawsuits involving MrBeast - Wikipedia"
+      },
+      {
+        "id": "5c9af840-a83f-4e67-8868-1d6f730e49c0",
+        "title": "MrBeast Controversies Aren't Hurting Him - Newsweek"
+      },
+      {
+        "id": "26170f7c-d0dc-4bd5-989b-55377b53c148",
+        "title": "MrBeast Lawsuit: Five Female Contestants Sue The YouTuber’s Production Company & Amazon; Know Why!"
+      },
+      {
+        "id": "f712bd0d-74d3-411f-87e3-9d0d3bf6876e",
+        "title": "MrBeast and Amazon Accused of Sexual Harassment and Mistreatment in Lawsuit by 'Beast Games' Contestants | Law Commentary"
+      },
+      {
+        "id": "4d628524-32ea-4e30-9868-c2f705e4b69f",
+        "title": "MrBeast named in California lawsuit over reality TV show Beast Games | CBC News"
+      },
+      {
+        "id": "fa41e561-2617-4c28-9e93-c271d879902d",
+        "title": "MrBeast sued over 'unsafe' environment on upcoming Amazon reality show - The Guardian"
+      },
+      {
+        "id": "6067df72-0a6a-433f-99bd-0671f98e9e02",
+        "title": "MrBeast's 'Beast Games' renewed by Prime Video despite controversy | Mashable"
+      },
+      {
+        "id": "2f66101a-0011-4be0-bb1a-32af5f8b7e35",
+        "title": "Reimagining Life Insurance Underwriting: A Framework for AI Augmentation, Operational Efficiency, and Regulatory Governance"
+      },
+      {
+        "id": "917f9b0e-2966-4917-8e1a-9dfc460e8ddb",
+        "title": "Reimagining life insurance underwriting - Swiss Re"
+      },
+      {
+        "id": "c8b5b7cc-a740-42e3-956e-6e647614a445",
+        "title": "Swiss Re's strategy"
+      },
+      {
+        "id": "18b17649-c9cb-445f-b48e-6afe0c9fc06e",
+        "title": "The Future of Life Insurance Underwriting: A Digital Transformation Journey | Datos Insights"
+      },
+      {
+        "id": "d1d5052b-2bc6-43e1-ae06-af9412571358",
+        "title": "The Industrialization of Influence: Analysis of the *Beast Games* Class Action Lawsuit and Its Regulatory Implications for the Creator Economy"
+      },
+      {
+        "id": "feb47d94-c4a2-44c4-83e1-ff69066e3ee6",
+        "title": "Top 10 Floatbot Alternatives & Competitors in 2025 - G2"
+      },
+      {
+        "id": "414f1af6-0d33-48b1-a9b9-24780e2fb6a8",
+        "title": "Top Influencer Controversies in 2024"
+      },
+      {
+        "id": "d756e0b4-42c7-4d8f-9afa-00c69e76a0c0",
+        "title": "Understanding the Advantages of Accelerated Underwriting in Life Insurance"
+      },
+      {
+        "id": "a878897c-f1ed-4855-854e-ccecfa1ed6c7",
+        "title": "Underwriting Ease | Swiss Re"
+      },
+      {
+        "id": "394e4df5-7eb4-4928-86da-457f763688df",
+        "title": "Underwriting with alternative data: Getting practical with wearables ..."
+      },
+      {
+        "id": "3f30d3ba-9499-4f13-aedf-77ae1999870a",
+        "title": "Unpacking Employment Classifications: Insights for Esports Players from the Beast Games Lawsuit | Sports Litigation Alert"
+      },
+      {
+        "id": "0c014721-d857-4556-8e56-9e1094c8cc49",
+        "title": "Voice Biometric Solutions | Floatbot ARMOR"
+      },
+      {
+        "id": "0d08a3fd-8a4e-47a7-bf80-fc4a512e670a",
+        "title": "YouTube star MrBeast sued by contestants, claiming \"toxic and hostile\" environment and unfair wages - CBS News"
+      },
+      {
+        "id": "0f682726-9459-4a2f-ae5f-1049ed33197d",
+        "title": "YouTuber MrBeast acknowledges past 'inappropriate language' over allegations of racist comments | The Independent"
+      }
+    ],
+    "source_count": 50
+  },
+  {
+    "title": "Saudi B2B InsurTech Roadmap: 2024-2026 Strategy",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "dea34e79-f147-4de7-bce2-591a9f5d7f9a",
+        "title": "Saudi B2B InsurTech Roadmap: 2024-2026 Strategy"
+      }
+    ],
+    "source_count": 1
+  },
+  {
+    "title": "Insurance Industry - Saudi Arabia",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "146a51e2-d081-44ad-8647-ba8297003795",
+        "title": "Causes Of Financial Distress In Saudi Insurance Industry - Effat University Repository"
+      },
+      {
+        "id": "c3746a00-bb37-4c8e-8e99-2185715c4b14",
+        "title": "Daman Beneficiary and Business - Council of Health Insurance"
+      },
+      {
+        "id": "3d4d153e-8a2b-4c91-a4e5-a03a83d35132",
+        "title": "Digitalisation modernising Saudi Arabia's insurance market - Oxford Business Group"
+      },
+      {
+        "id": "67fa9c1a-536b-4fa3-bd65-0856e1d8f136",
+        "title": "Financial Sector Development Program"
+      },
+      {
+        "id": "612351d3-e389-4e6b-a98c-6a280f0dd6bc",
+        "title": "First Car insurance platform in KSA - تأميني"
+      },
+      {
+        "id": "302f0ac3-6a45-4dad-b52b-2f73b4c20574",
+        "title": "IA Compliance Requirements"
+      },
+      {
+        "id": "944abd9c-83db-4ac3-b3a8-11439ce9ff1f",
+        "title": "INSURANCE DEVELOPMENTS IN THE KINGDOM OF SAUDI ARABIA - A NEW INSURANCE AUTHORITY AND CIVIL TRANSACTIONS LAW. - HFW"
+      },
+      {
+        "id": "dc767244-9fe9-4389-a429-d8ddc15d7c6d",
+        "title": "Implementing Regulations for Cooperative Insurance Law"
+      },
+      {
+        "id": "ceda939d-9fd4-4475-8c14-331ee7443f1d",
+        "title": "Insurance - Saudi Arabian Law Overview - Derayah LLPC"
+      },
+      {
+        "id": "78b5e04d-073a-4119-ba2e-35ceb438075b",
+        "title": "Insurance Authority (IA): Unifying regulatory power for Saudi Arabia's insurance sector"
+      },
+      {
+        "id": "e03cac61-6a8f-4428-90da-b61f4556f6c3",
+        "title": "Insurance Intermediaries Regulation1.pdf"
+      },
+      {
+        "id": "3c7b13a0-f169-4553-8287-c13c619ca598",
+        "title": "Insurance overview 2025 - KPMG Saudi Arabia"
+      },
+      {
+        "id": "38a955f7-9681-4b02-a343-27fe7a3c01ad",
+        "title": "Issues in Regulation and Supervision of Takaful (Islamic Insurance)"
+      },
+      {
+        "id": "68e384cb-d104-4674-b5ab-1651ccff0265",
+        "title": "KSA Insurance Regulatory 2023 Round-up - Al Tamimi & Company"
+      },
+      {
+        "id": "95abbdd2-e539-4cbf-8d01-4021886ccc39",
+        "title": "Laws and Regulations - Council of Health Insurance"
+      },
+      {
+        "id": "5e7cf6a3-3f81-4a0d-b34f-ad09495a5a36",
+        "title": "NCA National Cybersecurity Authority - The Saudi Cybersecurity Workforce Framework.pdf"
+      },
+      {
+        "id": "c4b7b334-977e-462c-8d22-55cce2e2138b",
+        "title": "Online Insurance Activities Regulation.pdf"
+      },
+      {
+        "id": "9e515c5d-66be-4fb1-9c0b-df82603eef27",
+        "title": "Outsourcing Regulation for Insurance and Reinsurance Companies and Insurance Service Providers.pdf"
+      },
+      {
+        "id": "679b19e9-550f-4470-baa6-86e8d5be7ef2",
+        "title": "Regulation of Qualification of Health Insurance Claims Management Companies"
+      },
+      {
+        "id": "aef66570-2edc-492d-8d29-3b74a1c109a4",
+        "title": "Rommaana - 2025 Company Profile & Competitors - Tracxn"
+      },
+      {
+        "id": "18fdd423-146b-4f02-b055-5de79fc2cae0",
+        "title": "Rommaana Technologies - Business Plan v1_3.pdf"
+      },
+      {
+        "id": "66f35647-b6dc-4e6c-92bb-e15b1fa54de1",
+        "title": "Rommaana | Insurance as a Service Platform"
+      },
+      {
+        "id": "5c8e400a-cb91-4b7e-a343-9e8645a5b2d7",
+        "title": "S&P expects Saudi insurance sector revenues to grow 10-15% in 2025"
+      },
+      {
+        "id": "088a18c0-7ce8-456b-b276-e9310f9ff28f",
+        "title": "SAMA Cyber Security Framework.pdf"
+      },
+      {
+        "id": "0e55a70f-8909-40e9-84c9-c11d523f2c87",
+        "title": "Shaping transformation and diversification - KPMG LLP"
+      },
+      {
+        "id": "fdcb0c5d-543e-40a8-8291-802c6a92eb5e",
+        "title": "Transforming Saudi Arabia's Insurance Landscape: The Role and Impact of the New Saudi Insurance Authority - Norton Rose Fulbright"
+      },
+      {
+        "id": "c15a4d74-0043-4ba6-a7ee-9cdac5140073",
+        "title": "الوثيقة املوحدة للتأمين اإللزامي على املركبات - The Unified Compulsory Motor Insurance Policy"
+      }
+    ],
+    "source_count": 27
+  },
+  {
+    "title": "IA - Claims, Security & Compliance",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "1a55f5d9-ff72-426f-bf8d-aadeb72a4379",
+        "title": "Anti-Money Laundering Law.pdf"
+      },
+      {
+        "id": "554fb418-6f62-4cad-ab68-3917d544b71c",
+        "title": "COMPLIANCE WITH CRS REPORT REQUIREMNTS.pdf"
+      },
+      {
+        "id": "31622307-e593-4fa6-8142-150d74828c3c",
+        "title": "Claims Settlement Companies’ Services.pdf"
+      },
+      {
+        "id": "4366137f-30ab-4d3d-afe4-4a7c827c354d",
+        "title": "Collection of financial compensation for services, works and fines related to the insurance sector.pdf"
+      },
+      {
+        "id": "0b794546-fb2a-4255-bcac-c37c01451218",
+        "title": "Cyber Security Framework.pdf"
+      },
+      {
+        "id": "e1b0cdbd-11cd-4954-9d7a-1aba96a7b589",
+        "title": "Electronic addresses for supervision and control of cyber risks.pdf"
+      },
+      {
+        "id": "bb6fb390-64d6-49c0-9071-97f28aae012e",
+        "title": "Financial Sector’s Cyber Threat Intelligence Principles.pdf"
+      },
+      {
+        "id": "a1b83ee9-7433-4cc3-9488-21f6866d5608",
+        "title": "Issuance of Instructions for Motor Insurance Claims’ Settlement.pdf"
+      },
+      {
+        "id": "21d4aad1-ae93-458f-a24d-03cb6b5c404f",
+        "title": "Urging Adherence to the Preventive and Precautionary Measures.pdf"
+      }
+    ],
+    "source_count": 9
+  },
+  {
+    "title": "IA - Reports",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "379ac228-3282-43af-9526-34714398fb31",
+        "title": "Annual Experience Studies Report Instructions.pdf"
+      },
+      {
+        "id": "190a2e63-80ec-44ee-bd36-75e1cc32a976",
+        "title": "Insurance_Market_Report_2009_English.pdf"
+      },
+      {
+        "id": "981fc813-6138-4f3b-ba9e-c81c4dfd49f4",
+        "title": "Insurance_Market_Report_2010_English.pdf"
+      },
+      {
+        "id": "67678bb1-11c3-448b-8f5a-96b3744368b7",
+        "title": "Insurance_Market_Report_2011_English.pdf"
+      },
+      {
+        "id": "9c9c7595-92f9-4dcc-9daa-a7322c5a866d",
+        "title": "Insurance_Market_Report_2012_English.pdf"
+      },
+      {
+        "id": "72e9235b-6da3-4160-a6a3-a21e089a3ae7",
+        "title": "Insurance_Market_Report_2013_English.pdf"
+      },
+      {
+        "id": "399bd5bf-1817-4e99-8348-fb74a948d923",
+        "title": "Insurance_Market_Report_2014_English.pdf"
+      },
+      {
+        "id": "6dce6c7c-daa1-44d3-bca7-7b2518349aea",
+        "title": "Insurance_Market_Report_2015_English.pdf"
+      },
+      {
+        "id": "7d6ea788-958c-47be-8108-ac3ef1f81c30",
+        "title": "Insurance_Market_Report_2016_English.pdf"
+      },
+      {
+        "id": "834ec243-177e-4d0f-89b2-809bd73c4df2",
+        "title": "Insurance_Market_Report_2017_English.pdf"
+      },
+      {
+        "id": "bb87d9e5-9586-42c9-a649-c30d9bcab3a4",
+        "title": "Insurance_Market_Report_2018_English.pdf"
+      },
+      {
+        "id": "99329a94-dc50-4c82-9556-76f3d977b9bc",
+        "title": "Insurance_Market_Report_2019_English.pdf"
+      },
+      {
+        "id": "fd6deac4-247a-41e6-8ccf-124f0f15d8ef",
+        "title": "Insurance_Market_Report_2020_English.pdf"
+      },
+      {
+        "id": "326f6380-9469-4fc9-9cef-4d09eed5a9f0",
+        "title": "Insurance_Market_Report_2021_English.pdf"
+      },
+      {
+        "id": "a1839eba-c0d0-4419-ab5c-7617a6e57860",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2020.pdf"
+      },
+      {
+        "id": "fedcdced-9ef6-4505-aa3e-964a0de8cd36",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2021.pdf"
+      },
+      {
+        "id": "3e253d50-b001-4cfd-b9f5-6c9456dc912f",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2022.pdf"
+      },
+      {
+        "id": "110b7e98-d13e-4788-b617-7457652ace28",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2023.pdf"
+      },
+      {
+        "id": "b561d96f-ccc1-4e4b-ba41-dff05d49f939",
+        "title": "Quarterly Insurance Sector Report for 1st Quarter, 2024.pdf"
+      },
+      {
+        "id": "5a55d956-9c4f-4bd2-a661-6119bb6c40d2",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2020_EN.pdf"
+      },
+      {
+        "id": "3bef2678-69a9-4a1f-93ad-09f485ec7f6d",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2021.pdf"
+      },
+      {
+        "id": "4147aa62-cb80-43a8-bfb9-b858016f97fe",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2022 (1).pdf"
+      },
+      {
+        "id": "41a75ee5-f3b2-4bce-afab-cdd919e25f01",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2022.pdf"
+      },
+      {
+        "id": "2dd98d05-9cc3-41fb-8f88-18f1368a99c0",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2023.pdf"
+      },
+      {
+        "id": "964438fa-67e1-4bdb-97ef-f238a1438f9b",
+        "title": "Quarterly Insurance Sector Report for 2nd Quarter, 2024.pdf"
+      },
+      {
+        "id": "ef7875e8-2384-461a-acfc-3c645fc2296a",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2020.pdf"
+      },
+      {
+        "id": "091f23ad-1b6b-4dea-8c80-fbad427b549d",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2021.pdf"
+      },
+      {
+        "id": "c1fc24fb-21f9-4f1a-ae5b-f0d8cca21c30",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2022.pdf"
+      },
+      {
+        "id": "f987f592-c12d-4263-8200-2989720adcd3",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2023.pdf"
+      },
+      {
+        "id": "11930e7b-5295-47e3-b6a6-080f3c405a99",
+        "title": "Quarterly Insurance Sector Report for 3rd Quarter, 2024.pdf"
+      },
+      {
+        "id": "908cee3e-025f-4d0e-9e74-4d11be3e35e1",
+        "title": "The Saudi Insurance Market Report 2022.pdf"
+      },
+      {
+        "id": "957a962e-e8e7-46d3-a2c2-464fd7d14316",
+        "title": "The Saudi Insurance Market Report 2023.pdf"
+      },
+      {
+        "id": "9cd4f2c3-e5cf-4452-9698-a7e7a95a16f4",
+        "title": "The Saudi Insurance Market Report 2024.pdf"
+      },
+      {
+        "id": "815543d4-3270-41d6-acde-6c22e6ff37ef",
+        "title": "The Saudi Insurance Market Survey Report 2008.pdf"
+      },
+      {
+        "id": "69d59979-46be-49bc-b5cd-8aefa2b61290",
+        "title": "تقرير الربع الأول لقطاع التأمين لعام 2025 Insurance Sector 2025 Q1.pdf"
+      }
+    ],
+    "source_count": 35
+  },
+  {
+    "title": "IA - Standards, Policies, Coverages & Renewals",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "a5ea5823-a2a5-4693-9703-1647ede28b48",
+        "title": "1Surplus Distribution Policy.pdf"
+      },
+      {
+        "id": "61fd192c-dfd9-42b2-ab48-f2a371382590",
+        "title": "Approval of Companies Article of Incorporation and its Amendments in the Insurance sector.pdf"
+      },
+      {
+        "id": "5e40f9cb-c256-4480-9f9e-3ab2de32f7e8",
+        "title": "Automatic exchange of financial account information (CRS).pdf"
+      },
+      {
+        "id": "43097ee4-6a88-44e3-be95-1be95eef8076",
+        "title": "Circular (232) - The Communications and Information Technology Commission's campaign on phishing.pdf"
+      },
+      {
+        "id": "51303a0c-a270-4f33-8e54-df1a4a5d93f5",
+        "title": "Follow-up circular - Regarding Uploading Motor Insurance Policies to the Najm Net system.pdf"
+      },
+      {
+        "id": "b89bd4c8-5a7c-409d-9a08-c8c93a8be7f0",
+        "title": "IFRS 17 - SAMA Instructions for Phase 3 Implementation Plan.pdf"
+      },
+      {
+        "id": "dc08266f-18d3-4d40-aaf1-28e3fd5f8a66",
+        "title": "Insurance Market Code of conduct.pdf"
+      },
+      {
+        "id": "bfada722-f04b-47ee-a7e2-ebc474bbc932",
+        "title": "Issuance of the standard  insurance policy.pdf"
+      },
+      {
+        "id": "c905db94-19af-4e59-81c7-615c7cc1d3f1",
+        "title": "KAFD IAia_slider_en_638.jpg"
+      },
+      {
+        "id": "ab63452e-061f-4c4b-aee9-53488a02295c",
+        "title": "Licensing Guidelines and Minimum Criteria.docx"
+      },
+      {
+        "id": "e4e12e91-04f3-46e0-8141-0689d0d42033",
+        "title": "Licensing Requirements (2).docx"
+      },
+      {
+        "id": "1b84a2ed-124d-4568-977c-7908b4e7105d",
+        "title": "Linking and dealing with electronic platforms.pdf"
+      },
+      {
+        "id": "a460d724-a519-4956-bec5-6562c14ea749",
+        "title": "Marine Insurance Coverage Instructions (1).pdf"
+      },
+      {
+        "id": "0e5e83f0-8fb9-466b-973a-3f23283ea522",
+        "title": "Marine Insurance Coverage Instructions.pdf"
+      },
+      {
+        "id": "9dfdc765-1892-4858-9310-b55928e2aec8",
+        "title": "Minimum Verification Controls of Fintech Companies.pdf"
+      },
+      {
+        "id": "3b63a0a2-8fbb-4389-8cdf-10ea324a5895",
+        "title": "Policy_Basic Health Insurance Policy.pdf"
+      },
+      {
+        "id": "96a32575-f15d-4a3f-ba24-c326eb93c6c3",
+        "title": "Policy_Cooperative Health Insurance Policy.pdf"
+      },
+      {
+        "id": "932a3b43-d77c-41bb-a28e-9d590154bb4d",
+        "title": "Policy_Tiers Benefit Package for Private Health Insurance Beneficiaries.pdf"
+      },
+      {
+        "id": "03e125b2-3b12-4ce1-b843-fecb14e9a381",
+        "title": "Policy_Tourist Health Insurance-Visiors.pdf"
+      },
+      {
+        "id": "56ef337c-5250-4e18-82af-660c2fc24366",
+        "title": "Policy_Umrah Pilgrims’ Health Insurance.pdf"
+      },
+      {
+        "id": "004d95de-4c42-4831-b77f-0567f57a9fa0",
+        "title": "Pricing Adequacy Report Instructions.pdf"
+      },
+      {
+        "id": "d3e06e8e-974b-4994-9115-5e2d3a2ca885",
+        "title": "Principles of Conduct and Work Ethics in Financial Institutions.pdf"
+      },
+      {
+        "id": "035e9880-1270-4417-ba53-c5ca0715859d",
+        "title": "Reinsurance Cession to the Local Reinsurance Market.pdf"
+      },
+      {
+        "id": "a96e4850-88b9-4965-bedc-2584b897f3d6",
+        "title": "Remote Work Initiative.pdf"
+      },
+      {
+        "id": "e0ca4ae0-b2fc-4ae7-856d-0bc4c32b8cd0",
+        "title": "Requirements for appointment to leadership positions in financial institutions subject to the supervision of the Saudi Arabian Monetary Agency (1).pdf"
+      },
+      {
+        "id": "020a86ae-527c-4b88-87f0-b18dc312a8d0",
+        "title": "Some Instructions on Insurance renewal messages.pdf"
+      },
+      {
+        "id": "15c3787c-98ea-4904-83ec-afa3113c0810",
+        "title": "Standard_Enduring Treatment Costs Approval Application Standards (Done).pdf"
+      },
+      {
+        "id": "f480afaa-4d55-459f-ae79-756a972e91c0",
+        "title": "Telehealth policies and procedures.pdf"
+      },
+      {
+        "id": "7c2aa51e-2a67-4041-976b-2437247dc2e5",
+        "title": "The Adoption of the International Financial Reporting Standard No. (9) Financial Instruments.pdf"
+      },
+      {
+        "id": "f23d5fa2-0e13-41c7-8d71-b4dac873aadf",
+        "title": "The Benefits of Unified Policy for Council of Cooperative Health Insurance.pdf"
+      },
+      {
+        "id": "770a967d-7a59-440d-b010-74e3bc6376a7",
+        "title": "The Standard Contract between Insurance Companies and Insurance Agencies Companies.pdf"
+      },
+      {
+        "id": "b3c41524-5ad5-46c8-a15b-5ed403158dbb",
+        "title": "The Standard Insurance Policy of the compulsory health insurance for domestic workers and their equivalent who are more than (4).pdf"
+      },
+      {
+        "id": "40f2e391-25c5-4dca-91ed-5bda5376c8a5",
+        "title": "The Standard insurance policy of civil labiality for populated Area and high-risk Activities (1).pdf"
+      },
+      {
+        "id": "3cb958aa-4e87-4e14-96b5-cb174bd8e4ba",
+        "title": "The Standard insurance policy of civil labiality for populated Area and high-risk Activities.pdf"
+      },
+      {
+        "id": "93136c87-af13-4e17-b5e4-c63bb9bda842",
+        "title": "The_Standard_Insurance_Policy_of_Medical_Malpractice-AR.pdf"
+      },
+      {
+        "id": "9cbe947b-80e8-4165-9b1c-d718da0149b3",
+        "title": "The_Standard_Insurance_Policy_of_Professional_Indemnity_for_Auditors_of_the_Entities_Supervised_by_the_CMA.pdf"
+      },
+      {
+        "id": "3fa3a9c6-2e66-4c0e-a1ed-3c4bffa50afe",
+        "title": "The_Standard_Insurance_Policy_on_Domestic_Workers_Contract.pdf"
+      },
+      {
+        "id": "c1fe14b7-278d-4e30-91b1-a71e29a54431",
+        "title": "The_Standard_Policy_of_Inherent_Defects_Insurance.pdf"
+      },
+      {
+        "id": "93256858-d8dc-4743-ade1-c6791e051df9",
+        "title": "The_Unified_Compulsory_Government_Motor_Insurance_Policy-AR.pdf"
+      },
+      {
+        "id": "27ff179a-e539-4f27-82d6-712e7b5142d6",
+        "title": "The_Unified_Compulsory_Motor_Insurance_Policy-EN.pdf"
+      },
+      {
+        "id": "42b1dafa-deb1-4beb-b36e-252573626c4f",
+        "title": "Unified Professional Labiality Insurance Policy for Inspection Bodies of the Saudi Building Code.pdf"
+      },
+      {
+        "id": "21068672-6a73-4002-8d15-ef2f22ec8075",
+        "title": "Updated electronic format for reporting on the provisions of the Common Standard Annex (CRS).pdf"
+      },
+      {
+        "id": "b12d67d9-b53c-41b5-b5fa-2b6a81118ee7",
+        "title": "Updating the Insurance Claim Form for Compulsory Motor (Third Party) Insurance for Individual and Corporates.pdf"
+      }
+    ],
+    "source_count": 43
+  },
+  {
+    "title": "IA - Rules & Regulations",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "d04a122a-7b99-4aaf-b0a3-b058eb166526",
+        "title": "1Anti Fraud Regulation for the insurance companies.pdf"
+      },
+      {
+        "id": "7cb34dd5-9307-418f-8898-32844801a7af",
+        "title": "1INSURANCE CORPORATE GOVERNANCE REGULATION.pdf"
+      },
+      {
+        "id": "10d3afdd-6a81-4382-87ec-63b343050748",
+        "title": "1Implementing Regulations of The Cooperative Insurance Companies Control Law.pdf"
+      },
+      {
+        "id": "f49ad3ba-27d7-4adb-a2bb-b2742e3c953a",
+        "title": "1Investment Regulations.pdf"
+      },
+      {
+        "id": "7dfeeb8a-0f62-4b28-ab9d-eebf82f228a4",
+        "title": "1Regulation of Reinsurance Activities.pdf"
+      },
+      {
+        "id": "14c33156-2fa6-431a-8c56-96afe6683036",
+        "title": "1Risk Management Regulation.pdf"
+      },
+      {
+        "id": "776229fa-a42c-4c6e-ba4a-b9516d5dc24a",
+        "title": "1Rules for Comprehensive Insurance of Motor Vehicles Financially Leased to Individuals.pdf"
+      },
+      {
+        "id": "8841b18d-141c-4713-b92a-087945018f1b",
+        "title": "AUDIT COMMITTEE REGULATION IN INSURANCE ANDOR REINSURANCE COMPANIES.pdf"
+      },
+      {
+        "id": "69cc8f27-6103-413b-a684-0a6ad4f3501e",
+        "title": "Actuarial_Work_Rules_for_Insurance.pdf"
+      },
+      {
+        "id": "84a26491-4d88-4bf2-9fd0-3041aac836f1",
+        "title": "Anti Fraud Regulation for the insurance companies.pdf"
+      },
+      {
+        "id": "960ac018-974e-4c2e-b085-18ddd31dba94",
+        "title": "Comprehensive Motor Insurance Rules.pdf"
+      },
+      {
+        "id": "6cd1072b-6bad-4268-998d-5a20121b113a",
+        "title": "Cooperative Health Insurance Law Provisions Violations Consideration Committee’s Regulation.pdf"
+      },
+      {
+        "id": "26a2342e-8827-4a70-90db-1cb498b59b36",
+        "title": "Cooperative Insurance Companies Control Law.pdf"
+      },
+      {
+        "id": "43975a41-ebae-434e-a0d8-a46ef89b3c3c",
+        "title": "Corporate Governance Regulation.pdf"
+      },
+      {
+        "id": "2353c862-c85d-4b04-ae8e-e8f169f3d685",
+        "title": "Implementing Regulation to the AML Law.pdf"
+      },
+      {
+        "id": "2398a96c-3c16-4629-8b6a-dd41ceec7196",
+        "title": "Implementing Regulations of The Cooperative Insurance Companies Control La.pdf"
+      },
+      {
+        "id": "19c34fc0-ba43-4d78-adc3-4637495729cb",
+        "title": "Implementing Regulations of the Cooperative Health Insurance Law.pdf"
+      },
+      {
+        "id": "4416b6e3-b3ff-47d8-9b9a-86b10f72437c",
+        "title": "Insurance Intermediaries Regulation.pdf"
+      },
+      {
+        "id": "2ead11b7-117d-4820-b8b5-62ad2d207a5d",
+        "title": "Insurance Intermediaries Regulation1.pdf"
+      },
+      {
+        "id": "5fea2961-e026-4b3f-997f-b6b7240f85a5",
+        "title": "Insurance Market Code of conduct Regulations.pdf"
+      },
+      {
+        "id": "a86c19ad-2d3c-48c8-b035-a3ebfe28484a",
+        "title": "Insurtech_Rules.pdf"
+      },
+      {
+        "id": "cbe1db81-5235-4f32-9d1e-26038167daa9",
+        "title": "Investment_Regulations.pdf"
+      },
+      {
+        "id": "e61f02d2-0e0f-4fcd-a516-1b2284c5a475",
+        "title": "Online Insurance Activities Regulation.pdf"
+      },
+      {
+        "id": "ea5cafa7-c2c1-4e7a-a803-fa79e716b4ec",
+        "title": "Online Insurance Activities Regulation1.pdf"
+      },
+      {
+        "id": "b953dbbc-aa0f-49a9-afbd-a4ef21da14ed",
+        "title": "Outsourcing Regulation for Insurance and Reinsurance Companies and Insurance Service Providers.pdf"
+      },
+      {
+        "id": "c3eae1eb-3ee2-46c1-8c45-91e89587009d",
+        "title": "Outsourcing Regulation for Insurance and Reinsurance Companies.pdf"
+      },
+      {
+        "id": "a9b7899c-0374-48e5-b955-ca1be2cda25e",
+        "title": "Principles to be applied to the regulation of branches of foreign insurance companies established in Saudi Arabia.pdf"
+      },
+      {
+        "id": "453ffe05-6b6a-4611-8f51-3aa0502804c5",
+        "title": "Regulations for Branches and Points of Sale Annual Expansion for Insurance andor Reinsurance, Brokerage and Agency Companie.pdf"
+      },
+      {
+        "id": "b9c60568-de95-40f8-9e1b-816f83288f34",
+        "title": "Regulations for Supervision and Inspection Costs 4.pdf"
+      },
+      {
+        "id": "43c23a08-5da0-4ce3-bb0a-d2323747cd89",
+        "title": "Regulations for Supervision and Inspection Costs1.pdf"
+      },
+      {
+        "id": "f67d007d-aabe-4743-a64f-baa82efbd324",
+        "title": "Risk Management Regulation.pdf"
+      },
+      {
+        "id": "d10afbb1-df35-4aff-93ac-f772ad9cac42",
+        "title": "Rules for Licensing and Supervision of Branches of Forgien Insurance and-or Reinsurance Companies in Saudi Arabia.pdf"
+      },
+      {
+        "id": "e4daf3a5-9230-43f1-9700-3e105d74c7be",
+        "title": "Rules on the Collection and Exchange of Motor Insurance Information.pdf"
+      },
+      {
+        "id": "dc7e1492-e2a6-438e-9cd0-fe1e8d8c5b06",
+        "title": "Rules_Governing_Bancassurance_Activities.pdf"
+      },
+      {
+        "id": "93d4b0e9-5b89-4c99-9cfa-5636aefb4770",
+        "title": "Rules_Governing_Insurance_Aggregation_Activities.pdf"
+      },
+      {
+        "id": "3a46a34a-8229-4f0f-a6a4-8cdbe9b1ee0c",
+        "title": "Rules_of_Forming_and_Managing_Health_Insurance_Risk_Pools_through_Brokers.pdf"
+      },
+      {
+        "id": "099619e5-a882-429a-9229-4d9e3867fde7",
+        "title": "Rules_of_Insurance_Products_Approval-AR (1).pdf"
+      },
+      {
+        "id": "ec8a6eea-bdee-47d5-a56f-2f13d3b5aaa5",
+        "title": "The Regulation of Reinsurance Activities.pdf"
+      }
+    ],
+    "source_count": 38
+  },
+  {
+    "title": "Sales, Technology, and Product Roadmap",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "1934639f-a47f-4e20-8b81-f860cc1e1337",
+        "title": "Sales, Technology, and Product Roadmap"
+      }
+    ],
+    "source_count": 1
+  },
+  {
+    "title": "Saudi Medical Malpractice Law and Insurance Foundations",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "04e78740-2f81-4083-8100-b72eb73e177d",
+        "title": "Comprehensive Analysis of Saudi Medical Malpractice Insurance: Regulatory Frameworks, Product Architectures, and Technical Underwriting Data Mandates"
+      },
+      {
+        "id": "c1b34694-2456-4ac9-974d-88c1e3965381",
+        "title": "Insurance law and regulation in Saudi Arabia|CMS Expert Guides"
+      },
+      {
+        "id": "8cede256-e224-44a7-b4ce-7afa2a7a8a44",
+        "title": "Kingdom of Saudi Arabia Saudi Commission for Health Specialties ..."
+      },
+      {
+        "id": "148fd4c7-c9fb-48c0-8fe0-87c12bdb5f23",
+        "title": "Law of Practicing Healthcare Professions"
+      },
+      {
+        "id": "44fb5768-67b8-44f9-952f-be417ca178fa",
+        "title": "Law of Practicing Healthcare Professions"
+      },
+      {
+        "id": "8de33753-4dcb-45c6-801b-30539cd1cc49",
+        "title": "MEDICAL MALPRACTICE INSURANCE"
+      },
+      {
+        "id": "32813dbb-97fc-4b7e-a8c0-4338837eb15f",
+        "title": "MEDICAL MALPRACTICE INSURANCE FORM - applus.com.sa"
+      },
+      {
+        "id": "fe0410ce-5839-4c14-8a23-445082d4d1f8",
+        "title": "Medical Malpractice Form | AL Rajhi Takaful Saudi Arabia"
+      },
+      {
+        "id": "e9def158-577c-47f2-bf02-21f2adb26d30",
+        "title": "Medical Malpractice Insurance - Aljazira Takaful"
+      },
+      {
+        "id": "caa90ce1-19d4-49b3-bf1c-99e9d0d4ae33",
+        "title": "Medical Malpractice Insurance Standards in Saudi Arabia"
+      },
+      {
+        "id": "a1082947-d500-47b2-a184-7224c834c5ee",
+        "title": "Medical Malpractice Insurance in Saudi Arabia | Tree Insurance"
+      },
+      {
+        "id": "2905d256-96d5-4598-99f6-a27a8279c001",
+        "title": "Medical Malpractice Insurance: SCFHS Coverage and Compliance Guide"
+      },
+      {
+        "id": "e96d3e83-9874-424b-94bc-ffc80cded069",
+        "title": "Medical Malpractice insurance | Alrajhi Bank"
+      },
+      {
+        "id": "d2691a94-c163-4f91-9218-4ed3d854fdfa",
+        "title": "Medical Malpractice | Why Claims Are Rising - KSA Insurance"
+      },
+      {
+        "id": "2faa8708-f3dd-4a4b-84c9-fb1866ac0114",
+        "title": "Medical malpractice - CFC Underwriting"
+      },
+      {
+        "id": "685740da-5022-4092-b6d4-6288132febdc",
+        "title": "Miscellaneous Medical Professional Liability Application (Claims Made Form)"
+      },
+      {
+        "id": "2135b3eb-fb87-4eaf-aeeb-a78e77f99ecf",
+        "title": "SAMA Issues Standard Insurance Policy of Medical Malpractice"
+      },
+      {
+        "id": "d1db1a46-70ff-4cef-8b5b-8765bbcd43df",
+        "title": "SAMA Issues Standard Insurance Policy of Medical Malpractice"
+      },
+      {
+        "id": "2f26663c-c6db-489b-88ba-35b9fc7b0a65",
+        "title": "SAUDI ARABIA'S STANDARD INSURANCE POLICY FOR ... - HFW"
+      },
+      {
+        "id": "4ee27913-8ca4-408f-b758-7818b693be86",
+        "title": "SAUDI ARABIA'S STANDARD INSURANCE POLICY FOR MEDICAL MALPRACTICE - HFW"
+      },
+      {
+        "id": "5b0d030a-01a9-469b-ae2f-fd756bfbbfeb",
+        "title": "Saudi Arabia's Standard Insurance Policy for Medical Malpractice - HFW"
+      },
+      {
+        "id": "d215025b-5d1b-4ca4-88a6-921997f5dc20",
+        "title": "Saudi Arabia's Standard Insurance Policy for Medical Malpractice - HFW"
+      },
+      {
+        "id": "5c954493-534e-46a6-9789-d40c658d0678",
+        "title": "Saudi Medical Malpractice Insurance Guide and Pricing Models"
+      },
+      {
+        "id": "343bf110-431d-4bf2-824a-83cd7641e577",
+        "title": "Saudi Medical Malpractice Insurance: Digital Quoting and Issuance Guide"
+      },
+      {
+        "id": "0092c501-e67e-4dd5-83c3-9b09dd4f06e0",
+        "title": "Saudi: Mandatory insurance against medical errors for health practitioners comes into force"
+      },
+      {
+        "id": "e9f388a1-965b-4bf9-b4d5-20b6b886e992",
+        "title": "Status of medical liability claims in Saudi Arabia - PMC - NIH"
+      },
+      {
+        "id": "abdb9d76-566d-412d-8703-666f1194326d",
+        "title": "Tameeni - Best Medical Malpractice Insurance Aggregator in KSA"
+      },
+      {
+        "id": "d44945e6-dba2-4ca9-afe9-c407cf01879b",
+        "title": "The Unified Contract between Insurance Company and Health Service Provider in private sector اﻟﻌﻘد اﻟﻣوﺣد ﺑﯾن ﺷرﮐﺔ اﻟﺗﺄﻣﯾن وﻣﻘدم اﻟﺧدﻣﺔ اﻟﺻﺣﯾﺔ ﻓﻲ اﻟﻘطﺎع اﻟﺧﺎص - مجلس الضمان الصحي"
+      },
+      {
+        "id": "b96aad33-8a1f-49f8-8733-12107466bcbe",
+        "title": "The process of litigation for medical errors in Saudi Arabia and the United Kingdom - PMC"
+      },
+      {
+        "id": "c836157f-3117-46f6-9194-d4952dabf145",
+        "title": "Top Saudi Arabia Health And Medical Insurance Companies - Key Players & More"
+      },
+      {
+        "id": "a2c06d12-9f35-4637-9cb1-1104edceb94d",
+        "title": "“INSURANCE FOUNDATIONS” CERTIFICATE"
+      }
+    ],
+    "source_count": 31
+  },
+  {
+    "title": "FurtherAI",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "8a0a6e6e-0347-4532-b93d-1f3dfaeaeb05",
+        "title": "Product"
+      }
+    ],
+    "source_count": 1
+  },
+  {
+    "title": "Domain Service Architecture and Insurance API Specification",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "159f9f92-72de-4715-b043-72191f312e97",
+        "title": "About FastAPI versions"
+      },
+      {
+        "id": "b28cf598-141c-4066-b14b-e516eaf88474",
+        "title": "Domain Service Architecture and Insurance API Specification"
+      },
+      {
+        "id": "52d0fa32-dce9-4491-b54e-21e9685f236c",
+        "title": "Guide to Attribute Based Access Control (ABAC) Definition and Considerations - NIST Technical Series Publications"
+      },
+      {
+        "id": "43d0dd3a-7e97-4db4-a7d0-0fe2ee493404",
+        "title": "How to maintain global pool of db connection and use it in each and every request? #9097"
+      },
+      {
+        "id": "96459ba5-98e6-4523-a5c3-b33104a4bc21",
+        "title": "JWT Security Best Practices: Complete Guide - RandomKeygen"
+      },
+      {
+        "id": "7c40d1a3-9be1-44ae-9db4-83c79c9b2e64",
+        "title": "RFC 9449: OAuth 2.0 Demonstrating Proof of Possession (DPoP)"
+      },
+      {
+        "id": "1c4e659a-58dd-43ac-aa57-ad08d5690aec",
+        "title": "Rommaana API | Developer Reference"
+      },
+      {
+        "id": "83da3fe9-edbc-455f-a9a1-1a723312af48",
+        "title": "Rommaana Infrastructure: Terraform and Google Cloud Deployment Guide"
+      },
+      {
+        "id": "1d3d1a80-4862-4d2f-a75c-47ae9631c188",
+        "title": "Secure FastAPI Environment Variables on Cloud Run with Secret Manager - David Muraya"
+      },
+      {
+        "id": "a588ab2e-f349-489b-965d-e3401af7042e",
+        "title": "Securing routes with Firebase Auth access token #6366 - GitHub"
+      },
+      {
+        "id": "b67e4386-040b-45ce-b9cf-a0e506ef4076",
+        "title": "Zero Trust Policy Engine: An In-Depth Analysis | NextLabs"
+      },
+      {
+        "id": "2aeeb531-635a-456e-a048-b203ed2ba3dc",
+        "title": "bakdata/fastapi-jwks: Validate JWTs via JWKS - GitHub"
+      }
+    ],
+    "source_count": 12
+  },
+  {
+    "title": "New Business Lines Presentation",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "90923473-b729-4956-8065-23f45c720bdd",
+        "title": "Cross-Products Comparison Matrix.png"
+      },
+      {
+        "id": "f4c4d041-24a9-44b9-b263-5ffbfb189195",
+        "title": "DataSet.png"
+      },
+      {
+        "id": "432ae839-570c-4e13-bc1f-487994f48be7",
+        "title": "Device Protection.png"
+      },
+      {
+        "id": "444a325d-8549-4024-9ccf-063832a108d7",
+        "title": "Home Insurance.png"
+      },
+      {
+        "id": "ff38dae8-90c9-447d-ad73-f01b7b10e109",
+        "title": "Life Insurance.png"
+      },
+      {
+        "id": "64fcaf07-9598-4e07-9555-ef89818c3156",
+        "title": "Medical Malpractice.png"
+      },
+      {
+        "id": "34e357a2-8f45-4332-8bca-dd33eb74ce4f",
+        "title": "Motor Insurance.png"
+      },
+      {
+        "id": "83599602-bca1-4de4-9a49-ec96b16b4fb5",
+        "title": "Rommaana_life_Flow.png"
+      },
+      {
+        "id": "41d7ee54-fac2-4562-8e9d-6e59995e0432",
+        "title": "Rommaana_medical_malpractice_Flow.png"
+      },
+      {
+        "id": "c98515b5-afd8-4749-b0ba-fb35eb9764b9",
+        "title": "Rommaana_standard_Flow.png"
+      },
+      {
+        "id": "6d0126ea-7683-4b4c-9099-8ccfafb5ebfd",
+        "title": "Travel Insurance.png"
+      }
+    ],
+    "source_count": 11
+  },
+  {
+    "title": "Life Insurance Protection",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "42ff78a5-186f-4eef-90b8-ce16a6a75810",
+        "title": "(PDF) Minimum Data Set (MDS) in Saudi Arabia's Medical Claims ..."
+      },
+      {
+        "id": "dae925ef-f131-4bba-9f5b-09af0c668a97",
+        "title": "Automation in Banking Compliance: 2025 Regulatory Strategies - Macro Global"
+      },
+      {
+        "id": "98bef8ee-b75a-4a77-ac04-c960730787f0",
+        "title": "BCBS 239 Guide 2025: Key Goals, Compliance Best Practices, & Solutions | Alation"
+      },
+      {
+        "id": "cc5ace50-2a30-429d-9b14-cc8475e5be20",
+        "title": "Balancing Privacy and Risk: A Critical Analysis of Personal Data Use as Governed by Saudi Insurance Law - MDPI"
+      },
+      {
+        "id": "5b651e36-82d5-4193-93e6-c7f48d5e1ad3",
+        "title": "Basel Risk Data Aggregation and Reporting Requirements | Deloitte US"
+      },
+      {
+        "id": "701642b2-f645-46a8-a864-5e39b7d8426a",
+        "title": "CCHI Announces the Effectiveness of the New Unified Policy Early"
+      },
+      {
+        "id": "2e98c5e3-f3d7-4567-bbd0-49e6a0a78f61",
+        "title": "Data Regulations in Saudi Arabia's Financial Sector - Securiti"
+      },
+      {
+        "id": "b19f4120-a33f-45c0-82dd-38c81770ae62",
+        "title": "Data Transformation Testing: Validating Business Rules in ETL Pipelines - Testriq"
+      },
+      {
+        "id": "93a3aa27-a5a1-474d-b4d6-953830659292",
+        "title": "Defining business transformation rules in a standardised format – a practical case - Bank for International Settlements"
+      },
+      {
+        "id": "376e2401-5c41-4ce8-8a34-659461e02c0f",
+        "title": "FR Y-9C Consolidated Financial Statements for Holding Companies - Federal Reserve Board - Reporting Forms"
+      },
+      {
+        "id": "2fe2199b-bdf2-472a-a775-8011a49eeaaa",
+        "title": "Financial Statements for Bank Holding Companies - Reginfo.gov"
+      },
+      {
+        "id": "fa11931f-0517-4730-8f34-8ac1cf4b02fd",
+        "title": "Guidelines for Resolving Edits - FDIC"
+      },
+      {
+        "id": "a5ec7f3a-2c1a-4dff-9356-f112f75b45b4",
+        "title": "Guidelines on resubmission of historical data under the EBA reporting framework - European Banking Authority"
+      },
+      {
+        "id": "0212aa13-ec5d-4aae-8c49-cfd276495cfd",
+        "title": "Handling Sensitive Data with SAMA Insurance Regulations for UAE Insurance"
+      },
+      {
+        "id": "2abda992-773f-49fd-8579-aea0311f5a53",
+        "title": "Help - Financial Reports - FFIEC"
+      },
+      {
+        "id": "c9366e3b-c0d6-4979-9890-d4a4f3be3982",
+        "title": "INTERNAL FR/OFFICIAL USE // EXTERNAL April 4, 2025 To: The Individuals Responsible for Preparing the Consolidated Financial Sta - Federal Reserve Bank of New York"
+      },
+      {
+        "id": "e2ee79e3-963a-49f8-80a2-52679b853995",
+        "title": "Implementing Business Rules Engines in Data Transformation Logic - Dev3lop"
+      },
+      {
+        "id": "de64836e-e04e-47ab-ba5c-75b5f28315d3",
+        "title": "Integrated Regulatory Reporting Frameworks: A Comprehensive Analysis of Data Requirements, Governance Standards, and Technical Architecture in Global Finance"
+      },
+      {
+        "id": "dd373ca5-5cbd-4b74-b562-b270a4e15d45",
+        "title": "KYC Requirements in Saudi Arabia: A Comprehensive Guide for Financial Institutions"
+      },
+      {
+        "id": "4c4d89c2-7c09-452e-a777-c84f90230f0a",
+        "title": "KYC in Saudi Arabia: Regulations, Compliance & Penalties - FOCAL"
+      },
+      {
+        "id": "c7db91a3-fcbe-4092-89f5-3ea1670bba5d",
+        "title": "Know Your Customer (KYC) Policies - Ministry of Industry and"
+      },
+      {
+        "id": "aa603212-4c46-4a06-810b-a2c37bffd297",
+        "title": "Mastering Regulatory Reporting - 7 Best Practices for Precision and Compliance - Nasdaq"
+      },
+      {
+        "id": "73650ce2-c387-4d20-8dae-278c33fa0522",
+        "title": "New EBA guidelines on resubmission of historical data will require an increased effort from institutions | PwC"
+      },
+      {
+        "id": "1e6bb248-862e-4882-9817-8fbe6f549219",
+        "title": "PS3/24 – Review of Solvency II: Reporting and disclosure phase 2 near-final"
+      },
+      {
+        "id": "8ff4c8d2-2658-4b6c-b745-353a394dad1c",
+        "title": "Regulatory Architecture and Data Technical Specifications for the Saudi Arabian Insurance Sector: A Comprehensive Framework for Quote-to-Policy Lifecycle Management"
+      },
+      {
+        "id": "8a8c8124-6124-4bc8-8788-972b1e70ff0d",
+        "title": "SAMA Compliance for Insurance Companies-A Complete Guide - ITButler"
+      },
+      {
+        "id": "e386503d-1fe2-407c-b293-c2225048e922",
+        "title": "SAMA Data Protection - Compliance Guide for Businesses - ITButler"
+      },
+      {
+        "id": "8f3a80c2-9cec-4313-90e0-9df106cf7e07",
+        "title": "Saudi Billing System V3.0_Coding Standards.pdf"
+      },
+      {
+        "id": "0416695d-9fd9-4702-8325-f0c38a8bceeb",
+        "title": "September 2023 FR Y-9C Supplemental Instructions - Federal Reserve Bank of St. Louis"
+      },
+      {
+        "id": "ff3786ce-3604-4977-836f-ff9e8b01eac1",
+        "title": "Spotlight on the regulatory reporting data dictionary | EY"
+      },
+      {
+        "id": "6c53817e-4b71-465a-801e-8ac038607ed3",
+        "title": "The Standard Formula: A Guide to Solvency II – Chapter 13: Supervision | Insights"
+      },
+      {
+        "id": "26ed3043-34f3-49c9-a73e-0e620989f83f",
+        "title": "Unified Insurance Policy (Updated) Essential Benefits and Drug formulary"
+      },
+      {
+        "id": "eeae85db-152e-4596-b562-9000785c1e4c",
+        "title": "Unified Policy"
+      },
+      {
+        "id": "d6cc22b2-4562-4a07-93ec-6d241149dea8",
+        "title": "Update your car insurance details (When & How) - wakeel"
+      },
+      {
+        "id": "8b8afece-479c-4ef2-9109-17c41f4e598d",
+        "title": "What is BCBS 239? A Summary of Key Principles & Compliance - Solidatus"
+      },
+      {
+        "id": "4630c02a-4bbf-4a64-b251-3fbaf70c9e09",
+        "title": "What is know your customer Saudi Arabia? - IDWise®"
+      },
+      {
+        "id": "e218011e-afd5-4e63-bbed-01e71a110400",
+        "title": "Yakeen GetCitizenAddressInfo Integration Document V1.0 | PDF | Soap | Json - Scribd"
+      },
+      {
+        "id": "93555028-1808-4940-a4f6-e954ce3d260b",
+        "title": "life_sources.txt"
+      },
+      {
+        "id": "7232cc3f-e648-44ca-9d84-15499085c1c5",
+        "title": "غير موجود | مصرف الراجحي"
+      }
+    ],
+    "source_count": 39
+  },
+  {
+    "title": "Device Insurance Protection",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "5c41734b-6bd7-4d08-9f38-94e69b60d36f",
+        "title": "7 Essential Data Quality Best Practices for 2025 | ElyxAI"
+      },
+      {
+        "id": "8dc7288f-912f-4b72-a264-849397f5e1e2",
+        "title": "A Complete Guide To Line Item Accounting: Definition, Benefits and Examples | Indeed.com"
+      },
+      {
+        "id": "e61e9603-6b40-43d6-91fb-521794bf81bc",
+        "title": "A Template of User Requirements Document with Sample Contents - Digital Policy Office"
+      },
+      {
+        "id": "5b6570a2-7fa5-4ae1-b00d-6d85978402eb",
+        "title": "A.4.a – Data Dictionary Standards and Guidelines"
+      },
+      {
+        "id": "6555ce74-9660-49d8-a5f0-1f4a4b7c52fa",
+        "title": "B2B Sector Consultancy: A Complete Guide"
+      },
+      {
+        "id": "6f6cdc0a-56eb-4c9b-ae37-31edde58ef24",
+        "title": "Basic Health Insurance Policy"
+      },
+      {
+        "id": "dc0717f3-0adc-45f0-8f52-48aa98ca74c0",
+        "title": "Business Requirements Specification - California ISO"
+      },
+      {
+        "id": "3cd1f9c7-7c8f-4bab-96a3-eb9d700701c5",
+        "title": "CLINICAL SOCIAL FRANCHISING CASE STUDY SERIES - Sun Quality Health | Population Services International/Myanmar"
+      },
+      {
+        "id": "55c7ee13-2ecd-4e76-aef0-9ae55506e5f6",
+        "title": "Category:Business models - Wikipedia"
+      },
+      {
+        "id": "71ce4fe9-6410-492c-901d-959f7ceb2bb6",
+        "title": "ERP Data Migration Checklist: Avoid Common Mistakes - Tally Solutions"
+      },
+      {
+        "id": "4e4e6c34-5be0-4871-8201-afb4de524dc8",
+        "title": "Enabling Provisions Notice Pursuant to the Implementation of the National Platform for Health Information Exchange Services (nph"
+      },
+      {
+        "id": "3545cb6a-51e6-4b6f-9fa9-7b69f82f83f3",
+        "title": "Enterprise Vertical SaaS Case Studies | Harlem Capital"
+      },
+      {
+        "id": "5d5a31c8-4893-4a8b-bd1c-6bde22e72834",
+        "title": "FAQs - Aljazira Takaful"
+      },
+      {
+        "id": "7e45c1d5-6390-43bd-975b-b9ade015e013",
+        "title": "Financial Reporting Forms - Guidelines"
+      },
+      {
+        "id": "fcad0ab3-7b79-44d4-ad43-b95277ac0dba",
+        "title": "Fintech Seminar – Final Assignment BUSINESS PLAN MEMORANDUM - IPX"
+      },
+      {
+        "id": "8fab71df-bc96-4c95-bf5d-2afbd41dddda",
+        "title": "GUIDELINES FOR MAPPING PROVIDER SERVICE LISTS TO STANDARD CODE SETS"
+      },
+      {
+        "id": "c642d578-c94b-41bf-9fd1-46d39aa79bea",
+        "title": "General Circular Number 5 of 2021(GC 05-2021)"
+      },
+      {
+        "id": "5290111e-40cf-4526-832b-5e5ee492142c",
+        "title": "How to Insure Your Motor Online | BCare Insurance Brokerage - مدونة بي كير"
+      },
+      {
+        "id": "dffe2b43-d4a6-4735-935b-5ec4d6b5e3e9",
+        "title": "INSURANCE DEVELOPMENTS IN THE KINGDOM OF SAUDI ARABIA - A NEW INSURANCE AUTHORITY AND CIVIL TRANSACTIONS LAW. - HFW"
+      },
+      {
+        "id": "9fe4fbcd-b2b0-4483-868f-8d4c18338250",
+        "title": "Insurance API Integration Guide | PDF | Json | World Wide Web - Scribd"
+      },
+      {
+        "id": "cac89f7a-1561-4ad3-ae42-1647fd47b2ce",
+        "title": "Insurance Authority (IA) Risk Based Supervision Risk Indicators Form Insurance and/or Reinsurance."
+      },
+      {
+        "id": "ba85191f-ba75-4dee-9cb1-4045f13e790d",
+        "title": "Introduction - Healthcare Financial Services IG Edition 1 v1.0.0 - nphies Portal"
+      },
+      {
+        "id": "273a3740-b715-41db-a403-f2e1264b3b86",
+        "title": "Know your customer questionnaire"
+      },
+      {
+        "id": "fda1aa13-ad27-403c-8208-d63de9904022",
+        "title": "Line of Business - Meaning with Examples"
+      },
+      {
+        "id": "c09923b2-a2bc-466b-b0b1-275f82de07aa",
+        "title": "Private Vehicle Third Party Only Insurance Policy - Aljazira Takaful"
+      },
+      {
+        "id": "e788e264-a835-4652-8ff5-166095fec20a",
+        "title": "PropTech Market Size, Share, Trends & Industry Growth Report, 2031 - Mordor Intelligence"
+      },
+      {
+        "id": "377f9788-35f1-4028-bebc-7d4dd17b2610",
+        "title": "Requirements for Submission of a Data Model or Data Dictionary - Delaware Department of Technology and Information"
+      },
+      {
+        "id": "2aa50b1d-7721-4427-ab0f-7e4ef2c0470a",
+        "title": "Saudi Arabia – aggregator rules - update - HFW"
+      },
+      {
+        "id": "54c48388-3835-4185-b528-5c823d43ac61",
+        "title": "Saudi Billing System V3.0_Coding Standards.pdf"
+      },
+      {
+        "id": "ada61d4f-a5c6-4ca8-b63e-60416b95fcd8",
+        "title": "The Implementing Regulation of the Personal Data Protection Law"
+      },
+      {
+        "id": "fe7f1139-9d7c-4350-b8b4-dd127b118064",
+        "title": "The Supply Chain Visibility Roadmap - IBM"
+      },
+      {
+        "id": "299e2f08-c210-4545-9704-c5d3ec6883bd",
+        "title": "The development of the Saudi Billing System supporting national health transformation: methods and justification - PubMed Central"
+      },
+      {
+        "id": "eb2efcb8-1233-46b7-9683-2cd2cc7cddd7",
+        "title": "Types Of ECommerce Business Models With Examples (2025) - SellersCommerce"
+      },
+      {
+        "id": "929fb351-649d-4b23-9fd4-4c7aa9942c82",
+        "title": "Unified Health File"
+      },
+      {
+        "id": "d6e82089-0d9d-4458-ade5-e05b6c48004c",
+        "title": "WIC Universal MIS-EBT Interface (WUMEI), 2022 Version, Functional Requirements Specification - USDA Food and Nutrition Service"
+      },
+      {
+        "id": "10520bf3-53b8-4695-9b75-a49b8be6454c",
+        "title": "White label saas examples: Explained with Real-World Use Cases in 2025 - Callin.io"
+      },
+      {
+        "id": "d4836232-3c98-4e3a-97ef-0b663264968f",
+        "title": "Writing Good Requirements: Essential Techniques for Clear and Effective Documentation"
+      },
+      {
+        "id": "9c50d393-cd79-44aa-901e-3bbbab2e35cf",
+        "title": "device_sources.txt"
+      },
+      {
+        "id": "dcc36f91-c550-4b36-9810-e1814f321a98",
+        "title": "stc KSA | Page Not Found"
+      },
+      {
+        "id": "9e718e4b-ef2a-4bfc-8b1a-860499255241",
+        "title": "الوثيقة املوحدة للتأمين اإللزامي على املركبات - The Unified Compulsory Motor Insurance Policy"
+      }
+    ],
+    "source_count": 40
+  },
+  {
+    "title": "Altkom Insurance Suite: Modular Platform for Carriers",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "878d45ba-32b6-43a7-b632-6dc392ac4a80",
+        "title": "Insurance Platform - Altkom Insurance Suite"
+      }
+    ],
+    "source_count": 1
+  },
+  {
+    "title": "Weekly Strategic Roadmap and Team Performance Targets",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "ac5f1739-1f5b-420d-8d57-c4005d4b597a",
+        "title": "New Daily - Weekly Meeting (1).pdf"
+      },
+      {
+        "id": "cafd7ab1-adb6-4be9-afd0-7e02f12fe38c",
+        "title": "New Daily - Weekly Meeting (2).pdf"
+      },
+      {
+        "id": "6eb5d3c0-527a-4208-af65-226493a7af1e",
+        "title": "New Daily - Weekly Meeting (3)_compressed (1).pdf"
+      },
+      {
+        "id": "3c8a4f13-86fd-4803-b434-5cc267425519",
+        "title": "New Daily - Weekly Meeting.pdf"
+      }
+    ],
+    "source_count": 4
+  },
+  {
+    "title": "Digital Smart Insurance Platform Workflow",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "ebdd288c-2b28-474f-a122-d51a03856453",
+        "title": "screencapture-abdulatifjameel-rommaana-index-html-2025-10-21-10_45_07.pdf"
+      }
+    ],
+    "source_count": 1
+  },
+  {
+    "title": "CNTXT Regulation Documents",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "f6fd443f-5955-43fe-b7f0-7879c0f8dd7c",
+        "title": "Business Continuity and Disaster Recovery Plan.pdf"
+      },
+      {
+        "id": "9e8d7631-6998-4842-affa-c17267c859d7",
+        "title": "Copy of Google Cloud Class C Certificate.pdf"
+      },
+      {
+        "id": "4bb1deac-c256-4008-9393-d407d918ef8a",
+        "title": "Cybersecurity Incident Notification and Reporting - Google Cloud.docx.pdf"
+      },
+      {
+        "id": "e0b0c678-c253-4454-85df-f9adcdba6c13",
+        "title": "Data Processing Agreement.docx.pdf"
+      },
+      {
+        "id": "a123842e-e519-42f4-84a0-fa9abe9ddf53",
+        "title": "GCP ISO 27001.pdf"
+      },
+      {
+        "id": "f3eb7dd3-4002-48d1-a876-16c289fc1d7b",
+        "title": "GCP ISO 27001.pdf"
+      },
+      {
+        "id": "44421283-e2c1-46a7-beb4-60a43efabdc1",
+        "title": "GCP-[WINTER-2025] GCP SOC 2 Report. (1).pdf"
+      },
+      {
+        "id": "ae2f006e-84e5-4fed-a37e-85be1e0deb62",
+        "title": "Product Specific Terms Agreement.docx.pdf"
+      },
+      {
+        "id": "7d239d06-6815-4ab9-ac08-695f98f01c7b",
+        "title": "Professional Services Terms Agreement.docx.pdf"
+      },
+      {
+        "id": "1e05093a-00fe-49a7-8066-2772cdc8687b",
+        "title": "Standard - Master Subscription and Services Agreement.docx.pdf"
+      },
+      {
+        "id": "f3fafe1b-80de-45ae-bc73-0a2a8ce4a800",
+        "title": "sama_rules_outsourcing_gcp_mapping.pdf"
+      }
+    ],
+    "source_count": 11
+  },
+  {
+    "title": "Saudi Insurance Company Logos Compendium",
+    "notebook_id": null,
+    "sources": [
+      {
+        "id": "e0ace00e-05cb-4f62-b8be-2c9c7dd89d1f",
+        "title": "Rommaana-Original.pdf"
+      },
+      {
+        "id": "8e7783d6-0f33-4b93-91f6-37abd47e299a",
+        "title": "acig.pdf"
+      }
+    ],
+    "source_count": 2
+  }
+]

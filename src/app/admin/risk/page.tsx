@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MOCK_APPLICATIONS, Application } from "@/lib/mock-applications";
-import { ShieldAlert, FileCheck, MapPin, Search, CheckCircle, AlertTriangle, Building2, Gavel, ChevronRight, Loader2 } from "lucide-react";
+import { ApplicationService, Application } from "@/lib/application-service";
+import { ShieldAlert, FileCheck, MapPin, Search, CheckCircle, AlertTriangle, Building2, Gavel, ChevronRight, Loader2, BrainCircuit } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { RiskAgent, ComplianceAgent } from "@/lib/agents";
 import { AdminHeader } from "@/components/admin-header";
@@ -14,12 +14,23 @@ import { useTranslation } from "@/context/language-context";
 
 export default function RiskDashboard() {
     const { t } = useTranslation();
+    const [applications, setApplications] = useState<Application[]>([]);
+    const [isOffline, setIsOffline] = useState(false);
     const [selectedApp, setSelectedApp] = useState<Application | null>(null);
     const [riskAssessment, setRiskAssessment] = useState<{ message: string, score: number } | null>(null);
     const [complianceCheck, setComplianceCheck] = useState<string | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [isAnalysisModalOpen, setIsAnalysisModalOpen] = useState(false);
     const [analysisImagePath, setAnalysisImagePath] = useState("");
+
+    React.useEffect(() => {
+        const loadApps = async () => {
+            const { applications: data, isFallback } = await ApplicationService.getApplications();
+            setApplications(data);
+            setIsOffline(isFallback);
+        };
+        loadApps();
+    }, []);
 
     const handleImageClick = (path: string) => {
         setAnalysisImagePath(path);
@@ -61,13 +72,24 @@ export default function RiskDashboard() {
 
                 {/* Left Panel: Applications Queue */}
                 <Card className="col-span-4 flex flex-col shadow-md border-slate-200 overflow-hidden">
-                    <CardHeader className="border-b bg-white">
+                    <CardHeader className="border-b bg-white flex flex-row items-center justify-between">
                         <CardTitle className="text-lg flex items-center gap-2">
                             <FileCheck className="text-[#be123c] w-5 h-5" /> {t("risk.underwriting_queue") || "Underwriting Queue"}
                         </CardTitle>
+                        <div className={cn(
+                            "flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold border",
+                            isOffline ? "border-amber-200 bg-amber-50 text-amber-700" : "border-emerald-100 bg-emerald-50 text-emerald-700"
+                        )}>
+                            {isOffline ? (
+                                <ShieldAlert className="w-3 h-3" />
+                            ) : (
+                                <BrainCircuit className="w-3 h-3" />
+                            )}
+                            {isOffline ? "OFFLINE (Mock)" : "ONLINE"}
+                        </div>
                     </CardHeader>
                     <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 pt-4">
-                        {MOCK_APPLICATIONS.map((app) => (
+                        {applications.map((app) => (
                             <div
                                 key={app.id}
                                 className={cn(
@@ -222,12 +244,35 @@ export default function RiskDashboard() {
                             </div>
                         </CardContent>
                     ) : (
-                        <div className="h-full flex items-center justify-center text-slate-400 flex-col bg-slate-50/50">
-                            <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-6">
-                                <MapPin className="w-10 h-10 text-slate-200" />
+                        <div className="h-full flex flex-col items-center justify-center p-12 bg-slate-50/50 text-center overflow-y-auto w-full">
+                            <div className="w-20 h-20 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center mb-8 flex-shrink-0 animate-pulse">
+                                <MapPin className="w-10 h-10 text-[#be123c]" />
                             </div>
-                            <h3 className="font-bold text-slate-600 mb-1">{t("risk.select_application") || "Select An Application"}</h3>
-                            <p className="text-xs text-slate-400 font-medium">{t("risk.awaiting_trigger") || "Awaiting manual underwriting review trigger"}</p>
+
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("dashboard.risk_intro_title")}</h2>
+                            <p className="text-slate-500 max-w-xl mb-12 text-lg leading-relaxed">
+                                {t("dashboard.risk_intro_desc")}
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+                                <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-start transition-all hover:shadow-md">
+                                    <h4 className="font-bold text-slate-400 mb-4 uppercase tracking-wider text-xs">{t("dashboard.risk_traditional_title")}</h4>
+                                    <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                                        {t("dashboard.risk_traditional_desc")}
+                                    </p>
+                                </div>
+                                <div className="bg-white p-8 rounded-2xl border-l-4 border-l-[#be123c] shadow-sm text-start transition-all hover:shadow-md">
+                                    <h4 className="font-bold text-[#be123c] mb-4 uppercase tracking-wider text-xs">{t("dashboard.risk_ai_title")}</h4>
+                                    <p className="text-slate-800 text-sm leading-relaxed font-bold">
+                                        {t("dashboard.risk_ai_desc")}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="mt-12 flex items-center gap-2 text-slate-400 font-medium animate-pulse">
+                                <Search className="w-4 h-4" />
+                                <span className="text-sm">{t("risk.awaiting_trigger")}</span>
+                            </div>
                         </div>
                     )}
                 </Card>
